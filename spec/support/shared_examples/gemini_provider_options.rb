@@ -6,9 +6,9 @@ RSpec.shared_examples "gemini provider options handling" do
 
   describe "option handling" do
     let(:provider) { described_class.new(base_config) }
+    let(:body) { JSON.parse('{"candidates": [{"content": {"parts": [{"text": "[\"response\"]"}]}}]}') }
     let(:fake_response) {
-      instance_double(Faraday::Response, status: 200,
-                                         body: JSON.parse('{"candidates": [{"content": {"parts": [{"text": "[\"response\"]"}]}}]}'))
+      instance_double(Faraday::Response, status: 200, body: body)
     }
 
     context "with model option" do

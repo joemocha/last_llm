@@ -184,3 +184,11 @@ class OpenAI < LastLLM::Provider
     tool.call(arguments)
   end
 end
+
+# Also define it in the LastLLM::Providers namespace for consistency
+module LastLLM
+  module Providers
+    # Reference to the OpenAI class defined above
+    OpenAI = ::OpenAI
+  end
+end

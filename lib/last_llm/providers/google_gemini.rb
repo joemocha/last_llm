@@ -152,7 +152,8 @@ class GoogleGemini < LastLLM::Provider
             if error_code == 401 && error_status == "UNAUTHENTICATED"
               message = "Authentication failed: Invalid API key or credentials. Please check your Google API key."
             elsif error_code == 400 && error_message.include?("API key not valid")
-              message = "Authentication failed: Invalid API key format or credentials. Please check your Google API key."
+              message = "Authentication failed: Invalid API key format or credentials. \
+              Please check your Google API key."
             end
           end
         rescue JSON::ParserError

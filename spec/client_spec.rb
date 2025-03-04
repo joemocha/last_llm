@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 require 'last_llm/providers/test_provider'
 
@@ -30,9 +32,9 @@ RSpec.describe LastLLM::Client do
 
     it 'raises an error when no API key is provided in non-test mode' do
       empty_config = LastLLM::Configuration.new(test_mode: false)
-      expect {
+      expect do
         LastLLM::Client.new(empty_config)
-      }.to raise_error(LastLLM::ConfigurationError, /api key is required/)
+      end.to raise_error(LastLLM::ConfigurationError, /api key is required/)
     end
   end
 
@@ -49,18 +51,18 @@ RSpec.describe LastLLM::Client do
     end
 
     it 'raises an error for unconfigured providers' do
-      expect {
+      expect do
         LastLLM::Client.new(config, provider: :unconfigured)
-      }.to raise_error(LastLLM::ConfigurationError)
+      end.to raise_error(LastLLM::ConfigurationError)
     end
 
     it 'raises an error when provider has no API key in non-test mode' do
       config = LastLLM::Configuration.new(test_mode: false)
       config.configure_provider(:openai, {}) # Empty config with no API key
 
-      expect {
+      expect do
         LastLLM::Client.new(config)
-      }.to raise_error(LastLLM::ConfigurationError, /api key is required/)
+      end.to raise_error(LastLLM::ConfigurationError, /api key is required/)
     end
   end
 
@@ -77,9 +79,9 @@ RSpec.describe LastLLM::Client do
       client = setup_client_with_test_provider
       options = { model: 'gpt-4', temperature: 0.7 }
 
-      expect {
+      expect do
         client.generate_text('Test prompt', options)
-      }.not_to raise_error
+      end.not_to raise_error
     end
   end
 
@@ -105,9 +107,9 @@ RSpec.describe LastLLM::Client do
       test_provider.object_response = { name: 'John', age: 30 }
       options = { model: 'gpt-4', temperature: 0.7 }
 
-      expect {
+      expect do
         client.generate_object('Generate a person', schema, options)
-      }.not_to raise_error
+      end.not_to raise_error
     end
 
     it 'raises an error when validation fails' do
@@ -115,9 +117,9 @@ RSpec.describe LastLLM::Client do
       invalid_data = { name: 'John', age: 'thirty' }
       test_provider.object_response = invalid_data
 
-      expect {
+      expect do
         client.generate_object('Generate a person', schema)
-      }.to raise_error(LastLLM::ValidationError)
+      end.to raise_error(LastLLM::ValidationError)
     end
   end
 
@@ -127,16 +129,16 @@ RSpec.describe LastLLM::Client do
     end
 
     it 'allows initialization without API keys' do
-      expect {
+      expect do
         LastLLM::Client.new(test_config)
-      }.not_to raise_error
+      end.not_to raise_error
     end
 
     it 'allows changing providers without API keys' do
       client = LastLLM::Client.new(test_config)
-      expect {
+      expect do
         client.instance_variable_set(:@provider, client.send(:create_provider, :anthropic))
-      }.not_to raise_error
+      end.not_to raise_error
     end
   end
 end

@@ -14,9 +14,9 @@ module LastLLM
       Providers::Constants::DEEPSEEK => { required: [:api_key] },
       Providers::Constants::OLLAMA => {
         required: [],
-        custom: ->(config) {
+        custom: lambda { |config|
           return if config[:api_key]
-          raise ConfigurationError, "Ollama host is required when no API key is provided" unless config[:host]
+          raise ConfigurationError, 'Ollama host is required when no API key is provided' unless config[:host]
         }
       }
     }.freeze
@@ -88,17 +88,13 @@ module LastLLM
 
       config = provider_config(provider)
 
-      if validation[:required]
-        validation[:required].each do |key|
-          unless config[key]
-            raise ConfigurationError, "#{key.to_s.gsub('_', ' ')} is required for #{provider} provider"
-          end
-        end
+      validation[:required]&.each do |key|
+        raise ConfigurationError, "#{key.to_s.gsub('_', ' ')} is required for #{provider} provider" unless config[key]
       end
 
-      if validation[:custom]
-        validation[:custom].call(config)
-      end
+      return unless validation[:custom]
+
+      validation[:custom].call(config)
     end
 
     # Set a global configuration value

@@ -22,7 +22,7 @@ class OpenAI < LastLLM::Provider
         messages: messages,
         temperature: options[:temperature] || 0.7,
         top_p: options[:top_p] || 0.7,
-        max_tokens: options[:max_tokens] || 24576,
+        max_tokens: options[:max_tokens] || 24_576,
         stream: false
       }.compact
     end
@@ -38,7 +38,7 @@ class OpenAI < LastLLM::Provider
 
   def generate_object(prompt, schema, options = {})
     # Create a system message that instructs the model to return JSON
-    system_prompt = "You are a helpful assistant that responds with valid JSON."
+    system_prompt = 'You are a helpful assistant that responds with valid JSON.'
 
     # Format the prompt with schema information using the Schema class
     formatted_prompt = LastLLM::StructuredOutput.format_prompt(prompt, schema)
@@ -53,7 +53,7 @@ class OpenAI < LastLLM::Provider
         model: options[:model] || 'gpt-4o-mini',
         messages: messages,
         temperature: options[:temperature] || 0.2,
-        response_format: { type: "json_object" },
+        response_format: { type: 'json_object' },
         stream: false
       }.compact
     end
@@ -97,9 +97,7 @@ class OpenAI < LastLLM::Provider
     # Extract embeddings from response
     embeddings = result.dig(:data, 0, :embedding)
 
-    unless embeddings.is_a?(Array)
-      raise LastLLM::ApiError.new("Invalid embeddings response format", nil)
-    end
+    raise LastLLM::ApiError.new('Invalid embeddings response format', nil) unless embeddings.is_a?(Array)
 
     embeddings
   rescue Faraday::Error => e
@@ -132,15 +130,13 @@ class OpenAI < LastLLM::Provider
              end
 
     if parsed.nil? || (!parsed.is_a?(Hash) && !parsed.respond_to?(:to_h))
-      raise LastLLM::ApiError.new("Invalid response format from OpenAI", nil)
+      raise LastLLM::ApiError.new('Invalid response format from OpenAI', nil)
     end
 
     # Use the new method
     parsed = deep_symbolize_keys(parsed) if parsed.is_a?(Hash)
 
-    if parsed[:error]
-      raise LastLLM::ApiError.new(parsed[:error][:message], parsed[:error][:code])
-    end
+    raise LastLLM::ApiError.new(parsed[:error][:message], parsed[:error][:code]) if parsed[:error]
 
     parsed
   rescue JSON::ParserError => e
@@ -151,9 +147,7 @@ class OpenAI < LastLLM::Provider
     message = "OpenAI API request failed: #{error.message}"
     status = nil
 
-    if error.respond_to?(:response) && error.response
-      status = error.response.status if error.response.respond_to?(:status)
-    end
+    status = error.response.status if error.respond_to?(:response) && error.response.respond_to?(:status)
 
     raise LastLLM::ApiError.new(message, status)
   end
@@ -163,7 +157,7 @@ class OpenAI < LastLLM::Provider
   # @return [Hash] The tool in OpenAI format
   def self.format_tool(tool)
     {
-      type: "function",
+      type: 'function',
       function: {
         name: tool.name,
         description: tool.description,

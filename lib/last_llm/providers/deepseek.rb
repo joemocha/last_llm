@@ -34,7 +34,7 @@ class Deepseek < LastLLM::Provider
   end
 
   def generate_object(prompt, schema, options = {})
-    system_prompt = "You are a helpful assistant that responds with valid JSON."
+    system_prompt = 'You are a helpful assistant that responds with valid JSON.'
     formatted_prompt = LastLLM::StructuredOutput.format_prompt(prompt, schema)
 
     messages = [
@@ -90,7 +90,7 @@ class Deepseek < LastLLM::Provider
   # @return [Hash] The tool in Deepseek format
   def self.format_tool(tool)
     {
-      type: "function",
+      type: 'function',
       function: {
         name: tool.name,
         description: tool.description,

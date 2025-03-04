@@ -9,7 +9,7 @@ class Railtie < Rails::Railtie
     require 'generators/last_llm/install/install_generator'
   end
 
-  initializer "last_llm.configure_rails_initialization" do
+  initializer 'last_llm.configure_rails_initialization' do
     # Load configuration from config/last_llm.yml if it exists
     config_file = Rails.root.join('config', 'last_llm.yml')
     if File.exist?(config_file)
@@ -18,19 +18,13 @@ class Railtie < Rails::Railtie
       # Configure LastLLM with the loaded configuration
       LastLLM.configure do |c|
         # Set global configuration
-        if config[:default_provider]
-          c.default_provider = config[:default_provider].to_sym
-        end
+        c.default_provider = config[:default_provider].to_sym if config[:default_provider]
 
-        if config[:default_model]
-          c.default_model = config[:default_model]
-        end
+        c.default_model = config[:default_model] if config[:default_model]
 
         # Configure global settings
-        if config[:globals]
-          config[:globals].each do |key, value|
-            c.set_global(key.to_sym, value)
-          end
+        config[:globals]&.each do |key, value|
+          c.set_global(key.to_sym, value)
         end
       end
     end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 require 'vcr'
 
@@ -16,11 +18,11 @@ RSpec.describe LastLLM::Providers::Anthropic do
     end
   end
 
-  it_behaves_like "provider options handling"
+  it_behaves_like 'provider options handling'
 
   describe '#generate_text' do
     it 'returns text completion from Anthropic' do
-      VCR.use_cassette('anthropic/generate_text', match_requests_on: [:method, :uri]) do
+      VCR.use_cassette('anthropic/generate_text', match_requests_on: %i[method uri]) do
         result = provider.generate_text(prompt, options)
         expect(result).to be_a(String)
         expect(result.length).to be > 0
@@ -34,16 +36,16 @@ RSpec.describe LastLLM::Providers::Anthropic do
       it 'handles system prompts correctly' do
         options_with_system = options.merge(system_prompt: 'You are a helpful assistant, in french')
         result = nil
-        VCR.use_cassette('anthropic/generate_text_with_system', match_requests_on: [:method, :uri]) do
+        VCR.use_cassette('anthropic/generate_text_with_system', match_requests_on: %i[method uri]) do
           result = provider.generate_text(prompt, options_with_system)
           expect(result).to be_a(String)
           expect(result.length).to be > 0
-          expect(result).to satisfy { |text| text.include?('Bonjour') || text.include?('Salut') }
+          expect(result).to(satisfy { |text| text.include?('Bonjour') || text.include?('Salut') })
         end
 
         # Compare with response without system prompt
         standard_result = nil
-        VCR.use_cassette('anthropic/generate_text_comparison', match_requests_on: [:method, :uri]) do
+        VCR.use_cassette('anthropic/generate_text_comparison', match_requests_on: %i[method uri]) do
           standard_result = provider.generate_text(prompt, options)
         end
 
@@ -54,14 +56,12 @@ RSpec.describe LastLLM::Providers::Anthropic do
     it 'raises an error on API failure' do
       invalid_provider = described_class.new({ api_key: 'invalid-key' })
       VCR.use_cassette('anthropic/api_error') do
-        begin
-          invalid_provider.generate_text(prompt, options)
-          fail "Expected an error to be raised"
-        rescue LastLLM::ApiError => e
-          expect(e).to be_a(LastLLM::ApiError)
-          expect(e.message).to include('API') || include('key') || include('auth')
-          expect(e.status_code).to be_a(Integer) if e.respond_to?(:status_code)
-        end
+        invalid_provider.generate_text(prompt, options)
+        raise 'Expected an error to be raised'
+      rescue LastLLM::ApiError => e
+        expect(e).to be_a(LastLLM::ApiError)
+        expect(e.message).to include('API') || include('key') || include('auth')
+        expect(e.status_code).to be_a(Integer) if e.respond_to?(:status_code)
       end
     end
   end
@@ -75,13 +75,13 @@ RSpec.describe LastLLM::Providers::Anthropic do
             name: { type: 'string' },
             age: { type: 'integer' }
           },
-          required: ['name', 'age']
+          required: %w[name age]
         }
       end
 
       it 'returns structured data from Anthropic' do
         VCR.use_cassette('anthropic/generate_object', record: :new_episodes) do
-          result = provider.generate_object("Create a profile for John Doe, age 30", schema_def)
+          result = provider.generate_object('Create a profile for John Doe, age 30', schema_def)
           expect(result).to be_a(Hash)
           expect(result[:name]).to be_a(String)
           expect(result[:age]).to be_a(Integer)
@@ -105,23 +105,21 @@ RSpec.describe LastLLM::Providers::Anthropic do
               'items' => { 'type' => 'string' }
             }
           },
-          required: ['title', 'authors', 'abstract', 'keywords']
+          required: %w[title authors abstract keywords]
         }
       end
 
       it 'returns properly structured complex data' do
         VCR.use_cassette('anthropic/generate_complex_object', record: :new_episodes) do
-          begin
-            result = provider.generate_object("Create a research paper about quantum algorithms", schema_def, options)
-            expect(result).to be_a(Hash)
-            expect(result[:title]).to be_a(String)
-            expect(result[:authors]).to be_an(Array)
-            expect(result[:abstract]).to be_a(String)
-            expect(result[:keywords]).to be_an(Array)
-          rescue LastLLM::ApiError => e
-            puts "API error: #{e.message}" if ENV['DEBUG']
-            expect(e).to be_a(LastLLM::ApiError)
-          end
+          result = provider.generate_object('Create a research paper about quantum algorithms', schema_def, options)
+          expect(result).to be_a(Hash)
+          expect(result[:title]).to be_a(String)
+          expect(result[:authors]).to be_an(Array)
+          expect(result[:abstract]).to be_a(String)
+          expect(result[:keywords]).to be_an(Array)
+        rescue LastLLM::ApiError => e
+          puts "API error: #{e.message}" if ENV['DEBUG']
+          expect(e).to be_a(LastLLM::ApiError)
         end
       end
     end

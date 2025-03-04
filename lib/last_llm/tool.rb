@@ -43,14 +43,14 @@ module LastLLM
 
     def validate_initialization_params(name, description, parameters, function)
       missing_params = []
-      missing_params << "name" unless name.is_a?(String) && !name.empty?
-      missing_params << "description" unless description.is_a?(String) && !description.empty?
-      missing_params << "parameters" unless parameters.is_a?(Hash) && !parameters.empty?
-      missing_params << "function" unless function.respond_to?(:call)
+      missing_params << 'name' unless name.is_a?(String) && !name.empty?
+      missing_params << 'description' unless description.is_a?(String) && !description.empty?
+      missing_params << 'parameters' unless parameters.is_a?(Hash) && !parameters.empty?
+      missing_params << 'function' unless function.respond_to?(:call)
 
-      unless missing_params.empty?
-        raise ArgumentError, "Missing or invalid required attributes: #{missing_params.join(', ')}"
-      end
+      return if missing_params.empty?
+
+      raise ArgumentError, "Missing or invalid required attributes: #{missing_params.join(', ')}"
     end
 
     def validate_parameters(params)
@@ -64,15 +64,15 @@ module LastLLM
       end
 
       # Validate enum values if present
-      if parameters[:properties].is_a?(Hash)
-        parameters[:properties].each do |prop_name, prop_schema|
-          next unless params.key?(prop_name.to_sym) && prop_schema[:enum].is_a?(Array)
+      return unless parameters[:properties].is_a?(Hash)
 
-          param_value = params[prop_name.to_sym]
-          unless prop_schema[:enum].include?(param_value)
-            raise ToolValidationError, "Invalid value for #{prop_name}: #{param_value}. " \
-                                      "Allowed values: #{prop_schema[:enum].join(', ')}"
-          end
+      parameters[:properties].each do |prop_name, prop_schema|
+        next unless params.key?(prop_name.to_sym) && prop_schema[:enum].is_a?(Array)
+
+        param_value = params[prop_name.to_sym]
+        unless prop_schema[:enum].include?(param_value)
+          raise ToolValidationError, "Invalid value for #{prop_name}: #{param_value}. " \
+                                    "Allowed values: #{prop_schema[:enum].join(', ')}"
         end
       end
     end
@@ -87,14 +87,14 @@ module LastLLM
         prop_name_sym = prop_name.to_sym
 
         case prop_schema[:type]
-        when "number", "integer"
+        when 'number', 'integer'
           converted_params[prop_name_sym] = param_value.to_f if param_value.is_a?(String)
-          converted_params[prop_name_sym] =
-            param_value.to_i if prop_schema[:type] == "integer" && param_value.is_a?(Float)
-        when "boolean"
-          if param_value.is_a?(String)
-            converted_params[prop_name_sym] = (param_value.downcase == "true")
+          if prop_schema[:type] == 'integer' && param_value.is_a?(Float)
+            converted_params[prop_name_sym] =
+              param_value.to_i
           end
+        when 'boolean'
+          converted_params[prop_name_sym] = (param_value.downcase == 'true') if param_value.is_a?(String)
         end
       end
 
@@ -104,9 +104,7 @@ module LastLLM
     def symbolize_keys(hash)
       return hash unless hash.is_a?(Hash)
 
-      hash.each_with_object({}) do |(key, value), result|
-        result[key.to_sym] = value
-      end
+      hash.transform_keys(&:to_sym)
     end
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe LastLLM::Configuration do
@@ -42,9 +44,9 @@ RSpec.describe LastLLM::Configuration do
     it 'validates required configuration for a provider' do
       config = LastLLM::Configuration.new
 
-      expect {
+      expect do
         config.validate_provider_config!(:openai)
-      }.to raise_error(LastLLM::ConfigurationError, /api key is required/)
+      end.to raise_error(LastLLM::ConfigurationError, /api key is required/)
 
       config.configure_provider(:openai, api_key: 'test-key')
       expect { config.validate_provider_config!(:openai) }.not_to raise_error

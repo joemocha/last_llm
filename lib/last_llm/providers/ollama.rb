@@ -4,7 +4,7 @@ require 'last_llm/providers/constants'
 
 # Ollama provider implementation
 class Ollama < LastLLM::Provider
-  BASE_ENDPOINT = "http://172.17.0.1:11434"
+  BASE_ENDPOINT = 'http://172.17.0.1:11434'
 
   def initialize(config)
     super(Constants::OLLAMA, config)
@@ -20,7 +20,7 @@ class Ollama < LastLLM::Provider
         messages: messages,
         temperature: options[:temperature] || 0.7,
         top_p: options[:top_p] || 0.7,
-        max_tokens: options[:max_tokens] || 24576,
+        max_tokens: options[:max_tokens] || 24_576,
         stream: false
       }.compact
     end
@@ -34,7 +34,7 @@ class Ollama < LastLLM::Provider
   end
 
   def generate_object(prompt, schema, options = {})
-    system_prompt = "You are a helpful assistant that responds with valid JSON."
+    system_prompt = 'You are a helpful assistant that responds with valid JSON.'
     formatted_prompt = LastLLM::StructuredOutput.format_prompt(prompt, schema)
 
     messages = [
@@ -97,12 +97,12 @@ class Ollama < LastLLM::Provider
     # Ollama doesn't have native function calling, so we need to parse from the content
     # This is a simplified implementation that would need to be enhanced for production
     content = response.dig(:message, :content)
-    return nil unless content && content.include?(tool.name)
+    return nil unless content&.include?(tool.name)
 
     # Simple regex to extract JSON from the content
     # This is a basic implementation and might need enhancement
     if content =~ /#{tool.name}\s*\(([^)]+)\)/i
-      args_str = $1
+      args_str = ::Regexp.last_match(1)
       begin
         args = JSON.parse("{#{args_str}}", symbolize_names: true)
         return tool.call(args)

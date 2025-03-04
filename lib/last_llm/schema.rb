@@ -11,7 +11,7 @@ module LastLLM
     # @return [Dry::Schema::JSON] The created schema
     def self.create(schema_def)
       # Convert JSON Schema to dry-schema
-      schema = Dry::Schema.JSON do
+      Dry::Schema.JSON do
         # Process properties
         if schema_def[:properties] || schema_def['properties']
           properties = schema_def[:properties] || schema_def['properties']
@@ -152,8 +152,6 @@ module LastLLM
           end
         end
       end
-
-      schema
     end
 
     # Convert a JSON schema string to a dry-schema
@@ -169,14 +167,10 @@ module LastLLM
     # @return [String] The JSON schema as a string
     def self.to_json_schema(schema)
       # If schema is already a Hash, assume it's a JSON schema
-      if schema.is_a?(Hash)
-        return JSON.pretty_generate(schema)
-      end
+      return JSON.pretty_generate(schema) if schema.is_a?(Hash)
 
       # If schema has a json_schema method, use it
-      if schema.respond_to?(:json_schema)
-        return JSON.pretty_generate(schema.json_schema)
-      end
+      return JSON.pretty_generate(schema.json_schema) if schema.respond_to?(:json_schema)
 
       # Otherwise, extract schema information from dry-schema
       json_schema = {
@@ -195,9 +189,7 @@ module LastLLM
           property_def = {}
 
           # Determine if the property is required
-          if rule.is_a?(Dry::Schema::Rule::Required)
-            json_schema[:required] << property_name
-          end
+          json_schema[:required] << property_name if rule.is_a?(Dry::Schema::Rule::Required)
 
           # Determine the property type
           if rule.respond_to?(:type) && rule.type.is_a?(Dry::Types::Nominal)
@@ -213,24 +205,24 @@ module LastLLM
             when Array
               property_def['type'] = 'array'
               # Try to determine the item type
-              if rule.type.respond_to?(:member) && rule.type.member.respond_to?(:primitive)
-                case rule.type.member.primitive
-                when String
-                  property_def['items'] = { 'type' => 'string' }
-                when Integer
-                  property_def['items'] = { 'type' => 'integer' }
-                when Float
-                  property_def['items'] = { 'type' => 'number' }
-                when TrueClass, FalseClass
-                  property_def['items'] = { 'type' => 'boolean' }
-                when Hash
-                  property_def['items'] = { 'type' => 'object' }
-                else
-                  property_def['items'] = {}
-                end
-              else
-                property_def['items'] = {}
-              end
+              property_def['items'] = if rule.type.respond_to?(:member) && rule.type.member.respond_to?(:primitive)
+                                        case rule.type.member.primitive
+                                        when String
+                                          { 'type' => 'string' }
+                                        when Integer
+                                          { 'type' => 'integer' }
+                                        when Float
+                                          { 'type' => 'number' }
+                                        when TrueClass, FalseClass
+                                          { 'type' => 'boolean' }
+                                        when Hash
+                                          { 'type' => 'object' }
+                                        else
+                                          {}
+                                        end
+                                      else
+                                        {}
+                                      end
             when Hash
               property_def['type'] = 'object'
               # For nested objects, we'd need a more sophisticated approach

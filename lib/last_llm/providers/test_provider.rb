@@ -11,7 +11,7 @@ class TestProvider < LastLLM::Provider
     # Instead implement our own initialization
     @config = config.is_a?(Hash) ? config : {}
     @name = Constants::TEST
-    @text_response = "Test response"
+    @text_response = 'Test response'
     @object_response = {}
   end
 
@@ -20,11 +20,11 @@ class TestProvider < LastLLM::Provider
     # No validation needed for test provider
   end
 
-  def generate_text(prompt, options = {})
+  def generate_text(_prompt, _options = {})
     @text_response
   end
 
-  def generate_object(prompt, schema, options = {})
+  def generate_object(_prompt, _schema, _options = {})
     @object_response
   end
 end

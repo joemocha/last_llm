@@ -55,7 +55,7 @@ class GoogleGemini < LastLLM::Provider
           maxOutputTokens: options[:max_tokens],
           topP: options[:top_p] || 0.95,
           topK: options[:top_k] || 40,
-          responseMimeType: "application/json",
+          responseMimeType: 'application/json',
           responseSchema: schema
         }.compact
       }.compact
@@ -139,19 +139,19 @@ class GoogleGemini < LastLLM::Provider
         begin
           parsed_body = JSON.parse(body)
           # Handle array response format
-          if parsed_body.is_a?(Array) && parsed_body[0] && parsed_body[0]["error"]
-            error_obj = parsed_body[0]["error"]
-            message = "API error: #{error_obj["message"] || error_obj}"
+          if parsed_body.is_a?(Array) && parsed_body[0] && parsed_body[0]['error']
+            error_obj = parsed_body[0]['error']
+            message = "API error: #{error_obj['message'] || error_obj}"
           # Handle object response format
-          elsif parsed_body["error"]
-            error_message = parsed_body["error"]["message"] || parsed_body["error"]
-            error_code = parsed_body["error"]["code"]
-            error_status = parsed_body["error"]["status"]
+          elsif parsed_body['error']
+            error_message = parsed_body['error']['message'] || parsed_body['error']
+            error_code = parsed_body['error']['code']
+            error_status = parsed_body['error']['status']
             message = "API error (#{error_code}): #{error_message}"
             # Handle authentication errors
-            if error_code == 401 && error_status == "UNAUTHENTICATED"
-              message = "Authentication failed: Invalid API key or credentials. Please check your Google API key."
-            elsif error_code == 400 && error_message.include?("API key not valid")
+            if error_code == 401 && error_status == 'UNAUTHENTICATED'
+              message = 'Authentication failed: Invalid API key or credentials. Please check your Google API key.'
+            elsif error_code == 400 && error_message.include?('API key not valid')
               message = "Authentication failed: Invalid API key format or credentials. \
               Please check your Google API key."
             end

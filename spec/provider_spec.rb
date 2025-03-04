@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe LastLLM::Provider do
@@ -7,12 +9,12 @@ RSpec.describe LastLLM::Provider do
       super(:test, config)
     end
 
-    def generate_text(prompt, options = {})
+    def generate_text(prompt, _options = {})
       "Test response for: #{prompt}"
     end
 
-    def generate_object(prompt, schema, options = {})
-      { name: "Test", age: 42 }
+    def generate_object(_prompt, _schema, _options = {})
+      { name: 'Test', age: 42 }
     end
   end
 
@@ -32,9 +34,9 @@ RSpec.describe LastLLM::Provider do
     end
 
     it 'raises an error when instantiating the abstract class directly' do
-      expect {
+      expect do
         LastLLM::Provider.new(:abstract, {})
-      }.to raise_error(NotImplementedError)
+      end.to raise_error(NotImplementedError)
     end
   end
 
@@ -42,7 +44,7 @@ RSpec.describe LastLLM::Provider do
     context 'in abstract class' do
       let(:abstract_provider) do
         Class.new(LastLLM::Provider) do
-          def initialize(config = {})
+          def initialize(_config = {})
             super(:incomplete, { skip_validation: true })
           end
         end
@@ -58,17 +60,17 @@ RSpec.describe LastLLM::Provider do
 
       it 'requires #generate_text to be implemented' do
         provider = abstract_provider.new
-        expect {
+        expect do
           provider.generate_text('Test')
-        }.to raise_error(NotImplementedError)
+        end.to raise_error(NotImplementedError)
       end
 
       it 'requires #generate_object to be implemented' do
         provider = abstract_provider.new
         schema = double('schema')
-        expect {
+        expect do
           provider.generate_object('Test', schema)
-        }.to raise_error(NotImplementedError)
+        end.to raise_error(NotImplementedError)
       end
     end
 
@@ -79,22 +81,22 @@ RSpec.describe LastLLM::Provider do
 
       it 'implements #generate_object' do
         schema = double('schema')
-        expect(provider.generate_object('Hello', schema)).to eq({ name: "Test", age: 42 })
+        expect(provider.generate_object('Hello', schema)).to eq({ name: 'Test', age: 42 })
       end
     end
   end
 
   describe 'authentication' do
     it 'validates required authentication configuration' do
-      expect {
+      expect do
         ConcreteProviderForTest.new({})
-      }.to raise_error(LastLLM::ConfigurationError, /API key is required/)
+      end.to raise_error(LastLLM::ConfigurationError, /API key is required/)
     end
 
     it 'accepts valid authentication configuration' do
-      expect {
+      expect do
         ConcreteProviderForTest.new({ api_key: 'test-key' })
-      }.not_to raise_error
+      end.not_to raise_error
     end
   end
 

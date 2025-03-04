@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 require 'dry-schema'
 
@@ -10,7 +12,7 @@ RSpec.describe LastLLM::Schema do
           name: { type: 'string' },
           age: { type: 'integer' }
         },
-        required: ['name', 'age']
+        required: %w[name age]
       }
 
       schema = LastLLM::Schema.create(schema_def)
@@ -40,10 +42,10 @@ RSpec.describe LastLLM::Schema do
                   street: { type: 'string' },
                   city: { type: 'string' }
                 },
-                required: ['street', 'city']
+                required: %w[street city]
               }
             },
-            required: ['name', 'address']
+            required: %w[name address]
           }
         },
         required: ['person']
@@ -96,7 +98,7 @@ RSpec.describe LastLLM::Schema do
       schema = LastLLM::Schema.create(schema_def)
 
       # Test with valid data
-      result = schema.call(tags: ['ruby', 'rails', 'api'])
+      result = schema.call(tags: %w[ruby rails api])
       expect(result).to be_success
 
       # Test with invalid data
@@ -143,7 +145,7 @@ RSpec.describe LastLLM::Schema do
             'name' => { 'type' => 'string' },
             'age' => { 'type' => 'integer' }
           },
-          required: ['name', 'age']
+          required: %w[name age]
         }
       end
 

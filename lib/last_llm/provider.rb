@@ -66,9 +66,7 @@ module LastLLM
           if body.is_a?(String) && !body.empty?
             begin
               parsed_body = JSON.parse(body)
-              if parsed_body["error"]
-                message = "API error: #{parsed_body["error"]["message"] || parsed_body["error"]}"
-              end
+              message = "API error: #{parsed_body['error']['message'] || parsed_body['error']}" if parsed_body['error']
             rescue JSON::ParserError
               # Use default message if we can't parse the body
             end
@@ -98,7 +96,7 @@ module LastLLM
     # Validate provider configuration
     # @raise [LastLLM::ConfigurationError] If the configuration is invalid
     def validate_config!
-      raise LastLLM::ConfigurationError, "API key is required" unless @config[:api_key]
+      raise LastLLM::ConfigurationError, 'API key is required' unless @config[:api_key]
     end
 
     def parse_error_body(body)
@@ -106,7 +104,7 @@ module LastLLM
 
       JSON.parse(body)
     rescue JSON::ParserError
-      { "error" => body }
+      { 'error' => body }
     end
 
     def deep_symbolize_keys(hash)
@@ -130,7 +128,11 @@ module LastLLM
         f.response :raise_error
 
         # Try to use Typhoeus if available, otherwise fall back to default adapter
-        adapter = Faraday::Adapter::Typhoeus rescue Faraday.default_adapter
+        adapter = begin
+          Faraday::Adapter::Typhoeus
+        rescue StandardError
+          Faraday.default_adapter
+        end
         f.adapter adapter
 
         f.options.timeout = @config[:request_timeout] || 30

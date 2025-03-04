@@ -32,11 +32,9 @@ module LastLLM
       # Validate the result against the schema
       validation = schema.call(result)
 
-      if validation.success?
-        result
-      else
-        raise ValidationError, "Generated object failed validation: #{validation.errors.to_h}"
-      end
+      raise ValidationError, "Generated object failed validation: #{validation.errors.to_h}" unless validation.success?
+
+      result
     end
 
     # Format a prompt with schema information

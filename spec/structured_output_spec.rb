@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 require 'dry-schema'
 
@@ -21,7 +23,7 @@ RSpec.describe LastLLM::StructuredOutput do
 
   describe '.format_prompt' do
     it 'formats a prompt with schema information' do
-      prompt = "Generate information about a person"
+      prompt = 'Generate information about a person'
 
       # Add a json_schema method to the schema for testing
       def schema.json_schema
@@ -31,7 +33,7 @@ RSpec.describe LastLLM::StructuredOutput do
             'name' => { 'type' => 'string' },
             'age' => { 'type' => 'integer' }
           },
-          required: ['name', 'age']
+          required: %w[name age]
         }
       end
 
@@ -65,9 +67,9 @@ RSpec.describe LastLLM::StructuredOutput do
       # Set up the test provider to return an invalid response
       test_provider.object_response = { name: 'John Doe', age: 'thirty' }
 
-      expect {
+      expect do
         structured_output.generate('Generate a person', schema)
-      }.to raise_error(LastLLM::ValidationError)
+      end.to raise_error(LastLLM::ValidationError)
     end
 
     it 'passes options to the provider' do

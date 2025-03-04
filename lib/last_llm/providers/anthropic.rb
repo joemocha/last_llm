@@ -43,7 +43,7 @@ module LastLLM
 
       def generate_object(prompt, schema, options = {})
         options = options.dup
-        system_prompt = "You are a helpful assistant that responds with valid JSON."
+        system_prompt = 'You are a helpful assistant that responds with valid JSON.'
         formatted_prompt = LastLLM::StructuredOutput.format_prompt(prompt, schema)
 
         options[:system_prompt] = system_prompt

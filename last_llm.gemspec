@@ -9,6 +9,7 @@ Gem::Specification.new do |spec|
   spec.description = "A unified client for interacting with various LLM providers"
   spec.homepage    = "https://github.com/joemocha/last_llm"
   spec.license     = "MIT"
+  spec.required_ruby_version = ">= 3.0"
 
   spec.files         = Dir['lib/**/*', 'README.md']
   spec.require_paths = ["lib"]

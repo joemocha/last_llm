@@ -20,7 +20,7 @@ RSpec.describe LastLLM::Providers::GoogleGemini do
     end
   end
 
-  it_behaves_like "provider options handling"
+  it_behaves_like "gemini provider options handling"
 
   describe '#generate_text' do
     it 'returns text completion from Google Gemini' do

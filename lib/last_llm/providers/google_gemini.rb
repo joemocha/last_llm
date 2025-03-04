@@ -73,7 +73,7 @@ class GoogleGemini < LastLLM::Provider
         begin
           JSON.parse(content, symbolize_names: true)
         rescue JSON::ParserError => e
-          raise ApiError, "Invalid JSON response: #{e.message}"
+          raise LastLLM::ApiError, "Invalid JSON response: #{e.message}"
         end
       rescue Faraday::Error => e
         handle_gemini_error(e)

@@ -6,7 +6,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"model":"claude-3-5-haiku-latest","messages":[{"role":"user","content":"Say
-        \"hello\" using the fewest words possible"}],"temperature":0.5,"max_tokens":1000,"stream":false}'
+        \"hello\" using the fewest words possible"}],"temperature":0.5,"max_tokens":8192,"stream":false}'
     headers:
       User-Agent:
       - Faraday v2.12.2
@@ -24,7 +24,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Tue, 04 Mar 2025 06:44:22 GMT
+      - Tue, 04 Mar 2025 07:03:41 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -32,7 +32,7 @@ http_interactions:
       X-Should-Retry:
       - 'false'
       Request-Id:
-      - req_01YGaHiVV7a1sXYdABt3XRrc
+      - req_01UN4QfjUZxmckLqAq13Ncxq
       Via:
       - 1.1 google
       Cf-Cache-Status:
@@ -42,10 +42,10 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 91af67953d284545-ATL
+      - 91af83e2dde3b016-ATL
     body:
       encoding: ASCII-8BIT
       string: '{"type":"error","error":{"type":"authentication_error","message":"invalid
         x-api-key"}}'
-  recorded_at: Tue, 04 Mar 2025 06:44:22 GMT
+  recorded_at: Tue, 04 Mar 2025 07:03:41 GMT
 recorded_with: VCR 6.3.1

@@ -49,6 +49,7 @@ module LastLLM
         body = {
           model: options[:model] || 'claude-3-5-haiku-latest',
           messages: [{ role: 'user', content: formatted_prompt }],
+          max_tokens: options[:max_tokens] || 8192,
           system: options[:system_prompt],
           temperature: options[:temperature] || 0.2,
           stream: false

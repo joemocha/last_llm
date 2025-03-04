@@ -10,8 +10,8 @@ http_interactions:
         following schema:\n\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"name\":
         {\n      \"type\": \"string\"\n    },\n    \"age\": {\n      \"type\": \"integer\"\n    }\n  },\n  \"required\":
         [\n    \"name\",\n    \"age\"\n  ]\n}\n\nEnsure your response is a valid JSON
-        object that strictly follows this schema.\n"}],"system":"You are a helpful
-        assistant that responds with valid JSON.","temperature":0.5,"stream":false}'
+        object that strictly follows this schema.\n"}],"max_tokens":8192,"system":"You
+        are a helpful assistant that responds with valid JSON.","temperature":0.2,"stream":false}'
     headers:
       User-Agent:
       - Faraday v2.12.2
@@ -25,19 +25,39 @@ http_interactions:
       - ''
   response:
     status:
-      code: 400
+      code: 200
       message: ''
     headers:
       Date:
-      - Tue, 04 Mar 2025 06:44:23 GMT
+      - Tue, 04 Mar 2025 07:03:35 GMT
       Content-Type:
       - application/json
-      Content-Length:
-      - '96'
-      X-Should-Retry:
-      - 'false'
+      Anthropic-Ratelimit-Requests-Limit:
+      - '1000'
+      Anthropic-Ratelimit-Requests-Remaining:
+      - '999'
+      Anthropic-Ratelimit-Requests-Reset:
+      - '2025-03-04T07:03:34Z'
+      Anthropic-Ratelimit-Input-Tokens-Limit:
+      - '100000'
+      Anthropic-Ratelimit-Input-Tokens-Remaining:
+      - '100000'
+      Anthropic-Ratelimit-Input-Tokens-Reset:
+      - '2025-03-04T07:03:34Z'
+      Anthropic-Ratelimit-Output-Tokens-Limit:
+      - '20000'
+      Anthropic-Ratelimit-Output-Tokens-Remaining:
+      - '20000'
+      Anthropic-Ratelimit-Output-Tokens-Reset:
+      - '2025-03-04T07:03:35Z'
+      Anthropic-Ratelimit-Tokens-Limit:
+      - '120000'
+      Anthropic-Ratelimit-Tokens-Remaining:
+      - '120000'
+      Anthropic-Ratelimit-Tokens-Reset:
+      - '2025-03-04T07:03:34Z'
       Request-Id:
-      - req_01AqLZNmrPaksxQhMAcNTZeK
+      - req_0175ibMg61u9DFejMRGEXg3n
       Anthropic-Organization-Id:
       - d71db89e-12c3-43b2-aacd-1a48746332cd
       Via:
@@ -49,10 +69,12 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 91af679c1a704545-ATL
+      - 91af83b80c88b016-ATL
+      Content-Encoding:
+      - gzip
     body:
       encoding: ASCII-8BIT
-      string: '{"type":"error","error":{"type":"invalid_request_error","message":"max_tokens:
-        Field required"}}'
-  recorded_at: Tue, 04 Mar 2025 06:44:23 GMT
+      string: '{"id":"msg_015ohZaDc3Ay9uuyt9z6xwkQ","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"{\n  \"name\":
+        \"John Doe\",\n  \"age\": 30\n}"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":131,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":23}}'
+  recorded_at: Tue, 04 Mar 2025 07:03:35 GMT
 recorded_with: VCR 6.3.1

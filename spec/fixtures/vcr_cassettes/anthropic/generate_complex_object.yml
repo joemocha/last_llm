@@ -13,7 +13,7 @@ http_interactions:
         {\n      \"type\": \"string\"\n    },\n    \"keywords\": {\n      \"type\":
         \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    }\n  },\n  \"required\":
         [\n    \"title\",\n    \"authors\",\n    \"abstract\",\n    \"keywords\"\n  ]\n}\n\nEnsure
-        your response is a valid JSON object that strictly follows this schema.\n"}],"system":"You
+        your response is a valid JSON object that strictly follows this schema.\n"}],"max_tokens":8192,"system":"You
         are a helpful assistant that responds with valid JSON.","temperature":0.5,"stream":false}'
     headers:
       User-Agent:
@@ -28,19 +28,39 @@ http_interactions:
       - ''
   response:
     status:
-      code: 400
+      code: 200
       message: ''
     headers:
       Date:
-      - Tue, 04 Mar 2025 06:44:23 GMT
+      - Tue, 04 Mar 2025 07:03:40 GMT
       Content-Type:
       - application/json
-      Content-Length:
-      - '96'
-      X-Should-Retry:
-      - 'false'
+      Anthropic-Ratelimit-Requests-Limit:
+      - '1000'
+      Anthropic-Ratelimit-Requests-Remaining:
+      - '999'
+      Anthropic-Ratelimit-Requests-Reset:
+      - '2025-03-04T07:03:35Z'
+      Anthropic-Ratelimit-Input-Tokens-Limit:
+      - '100000'
+      Anthropic-Ratelimit-Input-Tokens-Remaining:
+      - '100000'
+      Anthropic-Ratelimit-Input-Tokens-Reset:
+      - '2025-03-04T07:03:36Z'
+      Anthropic-Ratelimit-Output-Tokens-Limit:
+      - '20000'
+      Anthropic-Ratelimit-Output-Tokens-Remaining:
+      - '20000'
+      Anthropic-Ratelimit-Output-Tokens-Reset:
+      - '2025-03-04T07:03:40Z'
+      Anthropic-Ratelimit-Tokens-Limit:
+      - '120000'
+      Anthropic-Ratelimit-Tokens-Remaining:
+      - '120000'
+      Anthropic-Ratelimit-Tokens-Reset:
+      - '2025-03-04T07:03:36Z'
       Request-Id:
-      - req_01HLSMLd8NYBY818iZFMbQ5d
+      - req_01Y8EGm1Rw6QbE9X5MTYies1
       Anthropic-Organization-Id:
       - d71db89e-12c3-43b2-aacd-1a48746332cd
       Via:
@@ -52,10 +72,25 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 91af679bba314545-ATL
+      - 91af83bc0fc9b016-ATL
+      Content-Encoding:
+      - gzip
     body:
       encoding: ASCII-8BIT
-      string: '{"type":"error","error":{"type":"invalid_request_error","message":"max_tokens:
-        Field required"}}'
-  recorded_at: Tue, 04 Mar 2025 06:44:23 GMT
+      string: '{"id":"msg_01LMzu4C3naYdzaxzamqzsJz","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"{\n    \"title\":
+        \"Quantum Algorithms: Principles, Advances, and Computational Implications\",\n    \"authors\":
+        [\n        \"Dr. Elena Rodriguez\",\n        \"Prof. Michael Chen\",\n        \"Dr.
+        Samantha Quantum\"\n    ],\n    \"abstract\": \"Quantum algorithms represent
+        a revolutionary approach to computational problem-solving, leveraging quantum
+        mechanical principles to achieve unprecedented computational efficiency. This
+        research paper explores the fundamental theoretical foundations of quantum
+        algorithms, examining key paradigms such as Shor''s algorithm for factorization,
+        Grover''s search algorithm, and quantum simulation techniques. By analyzing
+        the quantum computational model, we demonstrate how quantum algorithms can
+        potentially solve complex computational problems exponentially faster than
+        classical algorithms, with significant implications for cryptography, optimization,
+        and scientific modeling.\",\n    \"keywords\": [\n        \"quantum computing\",\n        \"quantum
+        algorithms\",\n        \"quantum complexity theory\",\n        \"computational
+        efficiency\",\n        \"quantum simulation\",\n        \"quantum supremacy\"\n    ]\n}"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":205,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":220}}'
+  recorded_at: Tue, 04 Mar 2025 07:03:40 GMT
 recorded_with: VCR 6.3.1

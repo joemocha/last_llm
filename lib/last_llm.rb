@@ -5,6 +5,7 @@ require 'faraday'
 require 'json'
 require 'last_llm/extensions/dry_schema_extensions'
 
+# Main module for LastLLM
 module LastLLM
   # Base error class for all LastLLM errors
   class Error < StandardError; end
@@ -45,8 +46,6 @@ module LastLLM
   end
 
   class << self
-    attr_accessor :configuration
-
     # Configure the LastLLM client
     # @yield [config] Configuration instance
     # @return [Configuration] The updated configuration

@@ -12,7 +12,7 @@ module LastLLM
       @name = name
       @config = config
 
-      if self.class == Provider
+      if instance_of?(Provider)
         raise NotImplementedError, "#{self.class} is an abstract class and cannot be instantiated directly"
       end
 

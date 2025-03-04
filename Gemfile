@@ -23,4 +23,5 @@ group :test do
   gem 'webmock'
   gem "simplecov", "~> 0.22.0", require: false
   gem 'dotenv', '~> 2.8'
+  gem "pry-byebug", '~> 3.10'
 end

@@ -6,7 +6,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"model":"deepseek-chat","messages":[{"role":"user","content":"Say
-        \"hello\" using the fewest words possible, no punctuation."}],"temperature":0.5,"stream":false}'
+        \"hello\" using the fewest words possible, no punctuation."}],"temperature":0.5,"top_p":0.8,"stream":false}'
     headers:
       User-Agent:
       - Faraday v2.12.2
@@ -22,14 +22,14 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Tue, 04 Mar 2025 14:58:20 GMT
+      - Tue, 04 Mar 2025 18:06:22 GMT
       Content-Type:
       - application/json
       Set-Cookie:
-      - HWWAFSESID=776aa8e5be79c91dc6; path=/
-      - HWWAFSESTIME=1741100297691; path=/
-      - __cf_bm=5oq.goj.DVk3wWiRCJoiPiSPN2_8D3mrrQRyfchs.kE-1741100300-1.0.1.1-n4hDQ_rbRx.PvVAqByl06K6ux.m3hTn8ubM5nHea6ZdB3K3XsVmSFXveX0FzWsjr6P7OOc5BwREiuTdFajgchxjZINw946wFz4MDuS9VCzk;
-        path=/; expires=Tue, 04-Mar-25 15:28:20 GMT; domain=.deepseek.com; HttpOnly;
+      - HWWAFSESID=d30bd85ee823b44d08; path=/
+      - HWWAFSESTIME=1741111580991; path=/
+      - __cf_bm=p_ZJ0wS6Zz153RpDqMKPgWQb49bS8h6B7N.hlcGngHs-1741111582-1.0.1.1-kzjdRiDWwTttwnC522Zi1mUfcz0FEl5AmpGRqFVu_sDvl9gQHxUcvzH0XYZRDxXihIBurNn.Q_EhOWj1UFoD_xGIgNtaiP.xUcTfJJQbw.c;
+        path=/; expires=Tue, 04-Mar-25 18:36:22 GMT; domain=.deepseek.com; HttpOnly;
         Secure; SameSite=None
       Vary:
       - accept-encoding
@@ -37,7 +37,7 @@ http_interactions:
       Access-Control-Allow-Credentials:
       - 'true'
       X-Ds-Trace-Id:
-      - a4261d6ebdde531f1fb430e22eab14a0
+      - 7d8b323d71098a5f7bcde4e91374219f
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       X-Content-Type-Options:
@@ -49,9 +49,9 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 91b23b29eaa0675e-ATL
+      - 91b34e9d8f1abd5e-ATL
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"db9a03a5-b903-429f-a074-2cdd48dfab54","object":"chat.completion","created":1741100300,"model":"deepseek-chat","choices":[{"index":0,"message":{"role":"assistant","content":"hello"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":17,"completion_tokens":1,"total_tokens":18,"prompt_tokens_details":{"cached_tokens":0},"prompt_cache_hit_tokens":0,"prompt_cache_miss_tokens":17},"system_fingerprint":"fp_3a5770e1b4_prod0225"}'
-  recorded_at: Tue, 04 Mar 2025 14:58:28 GMT
+      string: '{"id":"a6e6be87-3315-43e5-8adb-4e0d8577fe20","object":"chat.completion","created":1741111582,"model":"deepseek-chat","choices":[{"index":0,"message":{"role":"assistant","content":"hello"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":17,"completion_tokens":1,"total_tokens":18,"prompt_tokens_details":{"cached_tokens":0},"prompt_cache_hit_tokens":0,"prompt_cache_miss_tokens":17},"system_fingerprint":"fp_3a5770e1b4_prod0225"}'
+  recorded_at: Tue, 04 Mar 2025 18:06:35 GMT
 recorded_with: VCR 6.3.1

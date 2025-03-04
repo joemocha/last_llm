@@ -6,7 +6,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"model":"claude-3-5-haiku-latest","messages":[{"role":"user","content":"Say
-        \"hello\" using the fewest words possible"}],"temperature":0.5,"max_tokens":8192,"stream":false}'
+        \"hello\" using the fewest words possible"}],"max_tokens":8192,"temperature":0.5,"top_p":0.8,"stream":false}'
     headers:
       User-Agent:
       - Faraday v2.12.2
@@ -24,7 +24,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Tue, 04 Mar 2025 07:03:43 GMT
+      - Tue, 04 Mar 2025 18:06:38 GMT
       Content-Type:
       - application/json
       Anthropic-Ratelimit-Requests-Limit:
@@ -32,27 +32,27 @@ http_interactions:
       Anthropic-Ratelimit-Requests-Remaining:
       - '999'
       Anthropic-Ratelimit-Requests-Reset:
-      - '2025-03-04T07:03:42Z'
+      - '2025-03-04T18:06:37Z'
       Anthropic-Ratelimit-Input-Tokens-Limit:
       - '100000'
       Anthropic-Ratelimit-Input-Tokens-Remaining:
       - '100000'
       Anthropic-Ratelimit-Input-Tokens-Reset:
-      - '2025-03-04T07:03:42Z'
+      - '2025-03-04T18:06:37Z'
       Anthropic-Ratelimit-Output-Tokens-Limit:
       - '20000'
       Anthropic-Ratelimit-Output-Tokens-Remaining:
       - '20000'
       Anthropic-Ratelimit-Output-Tokens-Reset:
-      - '2025-03-04T07:03:42Z'
+      - '2025-03-04T18:06:38Z'
       Anthropic-Ratelimit-Tokens-Limit:
       - '120000'
       Anthropic-Ratelimit-Tokens-Remaining:
       - '120000'
       Anthropic-Ratelimit-Tokens-Reset:
-      - '2025-03-04T07:03:42Z'
+      - '2025-03-04T18:06:37Z'
       Request-Id:
-      - req_01TtSmqvyorLQ9HhmPNbbtJH
+      - req_013LdKZMba8ufVe8YdfHfmxt
       Anthropic-Organization-Id:
       - d71db89e-12c3-43b2-aacd-1a48746332cd
       Via:
@@ -64,11 +64,11 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 91af83e70b26b016-ATL
+      - 91b34efd3e80bad4-ATL
       Content-Encoding:
       - gzip
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"msg_01SbheUWrF8VJt2scsS5ffRP","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"Hi."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":17,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":5}}'
-  recorded_at: Tue, 04 Mar 2025 07:03:43 GMT
+      string: '{"id":"msg_01Gi8Up6DYN7Reeg8dpCpBSd","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"Hi."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":17,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":5}}'
+  recorded_at: Tue, 04 Mar 2025 18:06:38 GMT
 recorded_with: VCR 6.3.1

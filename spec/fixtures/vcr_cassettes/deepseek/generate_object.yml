@@ -11,66 +11,6 @@ http_interactions:
         following schema:\n\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"name\":
         {\n      \"type\": \"string\"\n    },\n    \"age\": {\n      \"type\": \"integer\"\n    }\n  },\n  \"required\":
         [\n    \"name\",\n    \"age\"\n  ]\n}\n\nEnsure your response is a valid JSON
-        object that strictly follows this schema.\n"}],"temperature":0.5,"stream":false}'
-    headers:
-      User-Agent:
-      - Faraday v2.12.2
-      Authorization:
-      - Bearer <DEEPSEEK_API_KEY>
-      Content-Type:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: ''
-    headers:
-      Date:
-      - Tue, 04 Mar 2025 14:57:34 GMT
-      Content-Type:
-      - application/json
-      Set-Cookie:
-      - HWWAFSESID=bedb185ef5c62d635c; path=/
-      - HWWAFSESTIME=1741100253408; path=/
-      - __cf_bm=lexN3BVGKs4cgVgOmId6BgkzuaxKklkc9sKCVO5vUr0-1741100254-1.0.1.1-6FqpLko4l3AmXgIVXupzNUHcTNi9hFiX0DFfUe0M5s9v_NG2t4y9EoQurLla_1ks35k6z_MAcSPj1P1f8_jpp8L3ea1Y3UVSblUw36n6DJg;
-        path=/; expires=Tue, 04-Mar-25 15:27:34 GMT; domain=.deepseek.com; HttpOnly;
-        Secure; SameSite=None
-      Vary:
-      - accept-encoding
-      - origin, access-control-request-method, access-control-request-headers
-      Access-Control-Allow-Credentials:
-      - 'true'
-      X-Ds-Trace-Id:
-      - c91250de1f9f69a434baddae0eb55bec
-      Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains; preload
-      X-Content-Type-Options:
-      - nosniff
-      Content-Encoding:
-      - gzip
-      Cf-Cache-Status:
-      - DYNAMIC
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 91b23a0dbac5675e-ATL
-    body:
-      encoding: ASCII-8BIT
-      string: '{"id":"8a651425-b77d-4026-98cd-118906ea64b9","object":"chat.completion","created":1741100254,"model":"deepseek-chat","choices":[{"index":0,"message":{"role":"assistant","content":"```json\n{\n  \"name\":
-        \"John Doe\",\n  \"age\": 30\n}\n```"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":108,"completion_tokens":21,"total_tokens":129,"prompt_tokens_details":{"cached_tokens":64},"prompt_cache_hit_tokens":64,"prompt_cache_miss_tokens":44},"system_fingerprint":"fp_3a5770e1b4_prod0225"}'
-  recorded_at: Tue, 04 Mar 2025 14:57:46 GMT
-- request:
-    method: post
-    uri: https://api.deepseek.com/v1/chat/completions
-    body:
-      encoding: UTF-8
-      string: '{"model":"deepseek-chat","messages":[{"role":"system","content":"You
-        are a helpful assistant that responds with valid JSON."},{"role":"user","content":"Create
-        a profile for John Doe, age 30\n\nRespond with valid JSON that matches the
-        following schema:\n\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"name\":
-        {\n      \"type\": \"string\"\n    },\n    \"age\": {\n      \"type\": \"integer\"\n    }\n  },\n  \"required\":
-        [\n    \"name\",\n    \"age\"\n  ]\n}\n\nEnsure your response is a valid JSON
         object that strictly follows this schema.\n"}],"temperature":0.5,"top_p":0.8,"stream":false}'
     headers:
       User-Agent:
@@ -87,22 +27,21 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Tue, 04 Mar 2025 16:19:24 GMT
+      - Tue, 04 Mar 2025 18:05:45 GMT
       Content-Type:
       - application/json
       Set-Cookie:
-      - HWWAFSESID=8c35bacf6d241ee6ee; path=/
-      - HWWAFSESTIME=1741105159358; path=/
-      - __cf_bm=hcfTnebJ64L8deslSbeZEqEAzGS3fybRSJIVQXsP9rw-1741105164-1.0.1.1-vMJUvsavt64BzFFUsOfud1inn2Js8V0k0V4THPs3vzpgMW4vXrSgJli0omzSk1dyx8lOZH2tvE2aBelOdrRlhLmOtOHTKV81JDhs2RIb6Ks;
-        path=/; expires=Tue, 04-Mar-25 16:49:24 GMT; domain=.deepseek.com; HttpOnly;
+      - HWWAFSESID=92962a9ee14a34dab2; path=/
+      - HWWAFSESTIME=1741111541020; path=/
+      - __cf_bm=3nHXkebSfkezuRkpupDIE7pSlQkGiiML4ZHqa6FCsow-1741111545-1.0.1.1-dQJ5vz7tUXB_tgs0V5AoA7f0XmyZBOuSDgaffNeupaaCXt1wh8AmD_2aFczlgijnmYFPxS0q_YrlS5L.0ZUIFFj_Qqq9WFBTIT65txhBXC4;
+        path=/; expires=Tue, 04-Mar-25 18:35:45 GMT; domain=.deepseek.com; HttpOnly;
         Secure; SameSite=None
       Vary:
-      - accept-encoding
       - origin, access-control-request-method, access-control-request-headers
       Access-Control-Allow-Credentials:
       - 'true'
       X-Ds-Trace-Id:
-      - 8f89e98163ee6335ac4241efefbf0725
+      - 98dcb6d49114f65284f9b2c813325ee4
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       X-Content-Type-Options:
@@ -114,10 +53,10 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 91b2b1e9ded1afa8-ATL
+      - 91b34db76cdbbd5e-ATL
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"9f529c40-a603-4f8e-a8e5-3c06da2bb7e4","object":"chat.completion","created":1741105164,"model":"deepseek-chat","choices":[{"index":0,"message":{"role":"assistant","content":"```json\n{\n  \"name\":
+      string: '{"id":"dda8c020-41cf-4d10-a3c8-1e23adb59ebd","object":"chat.completion","created":1741111545,"model":"deepseek-chat","choices":[{"index":0,"message":{"role":"assistant","content":"```json\n{\n  \"name\":
         \"John Doe\",\n  \"age\": 30\n}\n```"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":108,"completion_tokens":21,"total_tokens":129,"prompt_tokens_details":{"cached_tokens":64},"prompt_cache_hit_tokens":64,"prompt_cache_miss_tokens":44},"system_fingerprint":"fp_3a5770e1b4_prod0225"}'
-  recorded_at: Tue, 04 Mar 2025 16:19:32 GMT
+  recorded_at: Tue, 04 Mar 2025 18:05:58 GMT
 recorded_with: VCR 6.3.1

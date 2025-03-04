@@ -6,54 +6,6 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"model":"claude-3-5-haiku-latest","messages":[{"role":"user","content":"Say
-        \"hello\" using the fewest words possible"}],"temperature":0.5,"max_tokens":8192,"stream":false}'
-    headers:
-      User-Agent:
-      - Faraday v2.12.2
-      X-Api-Key:
-      - invalid-key
-      Anthropic-Version:
-      - '2023-06-01'
-      Content-Type:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 401
-      message: ''
-    headers:
-      Date:
-      - Tue, 04 Mar 2025 07:03:41 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '86'
-      X-Should-Retry:
-      - 'false'
-      Request-Id:
-      - req_01UN4QfjUZxmckLqAq13Ncxq
-      Via:
-      - 1.1 google
-      Cf-Cache-Status:
-      - DYNAMIC
-      X-Robots-Tag:
-      - none
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 91af83e2dde3b016-ATL
-    body:
-      encoding: ASCII-8BIT
-      string: '{"type":"error","error":{"type":"authentication_error","message":"invalid
-        x-api-key"}}'
-  recorded_at: Tue, 04 Mar 2025 07:03:41 GMT
-- request:
-    method: post
-    uri: https://api.anthropic.com/v1/messages
-    body:
-      encoding: UTF-8
-      string: '{"model":"claude-3-5-haiku-latest","messages":[{"role":"user","content":"Say
         \"hello\" using the fewest words possible"}],"max_tokens":8192,"temperature":0.5,"top_p":0.8,"stream":false}'
     headers:
       User-Agent:
@@ -72,7 +24,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Tue, 04 Mar 2025 16:18:17 GMT
+      - Tue, 04 Mar 2025 18:06:36 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -80,7 +32,7 @@ http_interactions:
       X-Should-Retry:
       - 'false'
       Request-Id:
-      - req_01YWyvM7JFrotUx3kuJnx4dt
+      - req_01A5BJ9UgprUvJK2VPUhaiah
       Via:
       - 1.1 google
       Cf-Cache-Status:
@@ -90,10 +42,10 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 91b2b04a8fa4b042-ATL
+      - 91b34ef69c09bad4-ATL
     body:
       encoding: ASCII-8BIT
       string: '{"type":"error","error":{"type":"authentication_error","message":"invalid
         x-api-key"}}'
-  recorded_at: Tue, 04 Mar 2025 16:18:17 GMT
+  recorded_at: Tue, 04 Mar 2025 18:06:36 GMT
 recorded_with: VCR 6.3.1

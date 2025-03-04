@@ -63,7 +63,7 @@ class OpenAI < LastLLM::Provider
       messages: format_messages(prompt, options),
       temperature: options[:temperature] || 0.7,
       top_p: options[:top_p] || 0.7,
-      max_tokens: options[:max_tokens] || 24_576,
+      max_tokens: options[:max_tokens] || 4096,
       stream: false
     }.compact
   end
@@ -73,6 +73,8 @@ class OpenAI < LastLLM::Provider
       model: options[:model] || 'gpt-4',
       messages: format_json_messages(prompt, schema),
       temperature: options[:temperature] || 0.2,
+      top_p: options[:top_p] || 0.7,
+      max_tokens: options[:max_tokens] || 8_192,
       response_format: { type: 'json_object' },
       stream: false
     }.compact

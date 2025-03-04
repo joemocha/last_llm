@@ -14,191 +14,6 @@ http_interactions:
         \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    }\n  },\n  \"required\":
         [\n    \"title\",\n    \"authors\",\n    \"abstract\",\n    \"keywords\"\n  ]\n}\n\nEnsure
         your response is a valid JSON object that strictly follows this schema.\n"}],"max_tokens":8192,"system":"You
-        are a helpful assistant that responds with valid JSON.","temperature":0.5,"stream":false}'
-    headers:
-      User-Agent:
-      - Faraday v2.12.2
-      X-Api-Key:
-      - "<ANTHROPIC_API_KEY>"
-      Anthropic-Version:
-      - '2023-06-01'
-      Content-Type:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: ''
-    headers:
-      Date:
-      - Tue, 04 Mar 2025 07:03:40 GMT
-      Content-Type:
-      - application/json
-      Anthropic-Ratelimit-Requests-Limit:
-      - '1000'
-      Anthropic-Ratelimit-Requests-Remaining:
-      - '999'
-      Anthropic-Ratelimit-Requests-Reset:
-      - '2025-03-04T07:03:35Z'
-      Anthropic-Ratelimit-Input-Tokens-Limit:
-      - '100000'
-      Anthropic-Ratelimit-Input-Tokens-Remaining:
-      - '100000'
-      Anthropic-Ratelimit-Input-Tokens-Reset:
-      - '2025-03-04T07:03:36Z'
-      Anthropic-Ratelimit-Output-Tokens-Limit:
-      - '20000'
-      Anthropic-Ratelimit-Output-Tokens-Remaining:
-      - '20000'
-      Anthropic-Ratelimit-Output-Tokens-Reset:
-      - '2025-03-04T07:03:40Z'
-      Anthropic-Ratelimit-Tokens-Limit:
-      - '120000'
-      Anthropic-Ratelimit-Tokens-Remaining:
-      - '120000'
-      Anthropic-Ratelimit-Tokens-Reset:
-      - '2025-03-04T07:03:36Z'
-      Request-Id:
-      - req_01Y8EGm1Rw6QbE9X5MTYies1
-      Anthropic-Organization-Id:
-      - d71db89e-12c3-43b2-aacd-1a48746332cd
-      Via:
-      - 1.1 google
-      Cf-Cache-Status:
-      - DYNAMIC
-      X-Robots-Tag:
-      - none
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 91af83bc0fc9b016-ATL
-      Content-Encoding:
-      - gzip
-    body:
-      encoding: ASCII-8BIT
-      string: '{"id":"msg_01LMzu4C3naYdzaxzamqzsJz","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"{\n    \"title\":
-        \"Quantum Algorithms: Principles, Advances, and Computational Implications\",\n    \"authors\":
-        [\n        \"Dr. Elena Rodriguez\",\n        \"Prof. Michael Chen\",\n        \"Dr.
-        Samantha Quantum\"\n    ],\n    \"abstract\": \"Quantum algorithms represent
-        a revolutionary approach to computational problem-solving, leveraging quantum
-        mechanical principles to achieve unprecedented computational efficiency. This
-        research paper explores the fundamental theoretical foundations of quantum
-        algorithms, examining key paradigms such as Shor''s algorithm for factorization,
-        Grover''s search algorithm, and quantum simulation techniques. By analyzing
-        the quantum computational model, we demonstrate how quantum algorithms can
-        potentially solve complex computational problems exponentially faster than
-        classical algorithms, with significant implications for cryptography, optimization,
-        and scientific modeling.\",\n    \"keywords\": [\n        \"quantum computing\",\n        \"quantum
-        algorithms\",\n        \"quantum complexity theory\",\n        \"computational
-        efficiency\",\n        \"quantum simulation\",\n        \"quantum supremacy\"\n    ]\n}"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":205,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":220}}'
-  recorded_at: Tue, 04 Mar 2025 07:03:40 GMT
-- request:
-    method: post
-    uri: https://api.anthropic.com/v1/messages
-    body:
-      encoding: UTF-8
-      string: '{"model":"claude-3-5-haiku-latest","messages":[{"role":"user","content":"Create
-        a research paper about quantum algorithms\n\nRespond with valid JSON that
-        matches the following schema:\n\n{\n  \"type\": \"object\",\n  \"properties\":
-        {\n    \"title\": {\n      \"type\": \"string\"\n    },\n    \"authors\":
-        {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    },\n    \"abstract\":
-        {\n      \"type\": \"string\"\n    },\n    \"keywords\": {\n      \"type\":
-        \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    }\n  },\n  \"required\":
-        [\n    \"title\",\n    \"authors\",\n    \"abstract\",\n    \"keywords\"\n  ]\n}\n\nEnsure
-        your response is a valid JSON object that strictly follows this schema.\n"}],"max_tokens":8192,"system":"You
-        are a helpful assistant that responds with valid JSON.","temperature":0.5,"top_p":0.2,"stream":false}'
-    headers:
-      User-Agent:
-      - Faraday v2.12.2
-      X-Api-Key:
-      - "<ANTHROPIC_API_KEY>"
-      Anthropic-Version:
-      - '2023-06-01'
-      Content-Type:
-      - application/json
-      Expect:
-      - ''
-  response:
-    status:
-      code: 200
-      message: ''
-    headers:
-      Date:
-      - Tue, 04 Mar 2025 16:06:39 GMT
-      Content-Type:
-      - application/json
-      Anthropic-Ratelimit-Requests-Limit:
-      - '1000'
-      Anthropic-Ratelimit-Requests-Remaining:
-      - '999'
-      Anthropic-Ratelimit-Requests-Reset:
-      - '2025-03-04T16:06:34Z'
-      Anthropic-Ratelimit-Input-Tokens-Limit:
-      - '100000'
-      Anthropic-Ratelimit-Input-Tokens-Remaining:
-      - '100000'
-      Anthropic-Ratelimit-Input-Tokens-Reset:
-      - '2025-03-04T16:06:34Z'
-      Anthropic-Ratelimit-Output-Tokens-Limit:
-      - '20000'
-      Anthropic-Ratelimit-Output-Tokens-Remaining:
-      - '20000'
-      Anthropic-Ratelimit-Output-Tokens-Reset:
-      - '2025-03-04T16:06:39Z'
-      Anthropic-Ratelimit-Tokens-Limit:
-      - '120000'
-      Anthropic-Ratelimit-Tokens-Remaining:
-      - '120000'
-      Anthropic-Ratelimit-Tokens-Reset:
-      - '2025-03-04T16:06:34Z'
-      Request-Id:
-      - req_015xndzb2MbqYkg97Byb5pgZ
-      Anthropic-Organization-Id:
-      - d71db89e-12c3-43b2-aacd-1a48746332cd
-      Via:
-      - 1.1 google
-      Cf-Cache-Status:
-      - DYNAMIC
-      X-Robots-Tag:
-      - none
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 91b29f200e8fbfaa-ATL
-      Content-Encoding:
-      - gzip
-    body:
-      encoding: ASCII-8BIT
-      string: '{"id":"msg_01UbdXmkh2vExspoPc7Xb6Yt","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"{\n    \"title\":
-        \"Quantum Algorithms: Exploring Computational Advantages in Quantum Computing
-        Paradigms\",\n    \"authors\": [\n        \"Dr. Elena Rodriguez\",\n        \"Prof.
-        Michael Chen\",\n        \"Dr. Samantha Quantum\"\n    ],\n    \"abstract\":
-        \"Quantum algorithms represent a transformative approach to computational
-        problem-solving, leveraging quantum mechanical principles to achieve unprecedented
-        computational efficiency. This research paper examines key quantum algorithms
-        such as Shor''s algorithm for factorization, Grover''s search algorithm, and
-        quantum simulation techniques. By analyzing quantum computational models,
-        we demonstrate significant speedup potential over classical computing methods
-        in complex computational domains like cryptography, optimization, and scientific
-        modeling.\",\n    \"keywords\": [\n        \"quantum computing\",\n        \"quantum
-        algorithms\",\n        \"computational complexity\",\n        \"quantum simulation\",\n        \"quantum
-        supremacy\",\n        \"quantum parallelism\"\n    ]\n}"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":205,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":208}}'
-  recorded_at: Tue, 04 Mar 2025 16:06:39 GMT
-- request:
-    method: post
-    uri: https://api.anthropic.com/v1/messages
-    body:
-      encoding: UTF-8
-      string: '{"model":"claude-3-5-haiku-latest","messages":[{"role":"user","content":"Create
-        a research paper about quantum algorithms\n\nRespond with valid JSON that
-        matches the following schema:\n\n{\n  \"type\": \"object\",\n  \"properties\":
-        {\n    \"title\": {\n      \"type\": \"string\"\n    },\n    \"authors\":
-        {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    },\n    \"abstract\":
-        {\n      \"type\": \"string\"\n    },\n    \"keywords\": {\n      \"type\":
-        \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    }\n  },\n  \"required\":
-        [\n    \"title\",\n    \"authors\",\n    \"abstract\",\n    \"keywords\"\n  ]\n}\n\nEnsure
-        your response is a valid JSON object that strictly follows this schema.\n"}],"max_tokens":8192,"system":"You
         are a helpful assistant that responds with valid JSON.","temperature":0.5,"top_p":0.8,"stream":false}'
     headers:
       User-Agent:
@@ -217,7 +32,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Tue, 04 Mar 2025 16:14:30 GMT
+      - Tue, 04 Mar 2025 18:06:44 GMT
       Content-Type:
       - application/json
       Anthropic-Ratelimit-Requests-Limit:
@@ -225,27 +40,27 @@ http_interactions:
       Anthropic-Ratelimit-Requests-Remaining:
       - '999'
       Anthropic-Ratelimit-Requests-Reset:
-      - '2025-03-04T16:14:26Z'
+      - '2025-03-04T18:06:39Z'
       Anthropic-Ratelimit-Input-Tokens-Limit:
       - '100000'
       Anthropic-Ratelimit-Input-Tokens-Remaining:
       - '100000'
       Anthropic-Ratelimit-Input-Tokens-Reset:
-      - '2025-03-04T16:14:26Z'
+      - '2025-03-04T18:06:40Z'
       Anthropic-Ratelimit-Output-Tokens-Limit:
       - '20000'
       Anthropic-Ratelimit-Output-Tokens-Remaining:
       - '20000'
       Anthropic-Ratelimit-Output-Tokens-Reset:
-      - '2025-03-04T16:14:30Z'
+      - '2025-03-04T18:06:44Z'
       Anthropic-Ratelimit-Tokens-Limit:
       - '120000'
       Anthropic-Ratelimit-Tokens-Remaining:
       - '120000'
       Anthropic-Ratelimit-Tokens-Reset:
-      - '2025-03-04T16:14:26Z'
+      - '2025-03-04T18:06:40Z'
       Request-Id:
-      - req_01Q7tPXkZ4fAJ8axHGfNpgf6
+      - req_01WKqpa6BptoKYmCKXWVE4FP
       Anthropic-Organization-Id:
       - d71db89e-12c3-43b2-aacd-1a48746332cd
       Via:
@@ -257,24 +72,25 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 91b2aaa5899053d2-ATL
+      - 91b34f084f2cbad4-ATL
       Content-Encoding:
       - gzip
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"msg_01PHcFQUiDxemenYWKzP5h6f","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"{\n    \"title\":
+      string: '{"id":"msg_01WjAkNurJxFSM2GLfFm7WpR","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"{\n    \"title\":
         \"Quantum Algorithms: Exploring Computational Advantages in Quantum Computing
-        Paradigms\",\n    \"authors\": [\n        \"Dr. Elena Rodriguez\",\n        \"Prof.
-        Michael Chen\",\n        \"Dr. Samantha Quantum\"\n    ],\n    \"abstract\":
+        Paradigms\",\n    \"authors\": [\n        \"Dr. Elena Rodriguez\",\n        \"Dr.
+        Michael Chen\",\n        \"Dr. Samantha Patel\"\n    ],\n    \"abstract\":
         \"Quantum algorithms represent a transformative approach to computational
-        problem-solving that leverages the unique principles of quantum mechanics.
-        This research paper examines the fundamental quantum algorithmic techniques,
+        problem-solving, leveraging quantum mechanical principles to achieve unprecedented
+        computational efficiency. This research paper examines key quantum algorithms,
         including Shor''s algorithm for factorization, Grover''s search algorithm,
-        and quantum simulation methods. We analyze the theoretical foundations, computational
-        complexity advantages, and potential real-world applications of quantum algorithms
-        across cryptography, optimization, and scientific modeling domains.\",\n    \"keywords\":
-        [\n        \"quantum computing\",\n        \"quantum algorithms\",\n        \"quantum
-        complexity theory\",\n        \"quantum simulation\",\n        \"computational
-        quantum mechanics\"\n    ]\n}"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":205,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":202}}'
-  recorded_at: Tue, 04 Mar 2025 16:14:30 GMT
+        and quantum simulation techniques. By analyzing quantum computational models,
+        we demonstrate significant speedup potential for complex computational challenges
+        that are intractable using classical computing methods. Our investigation
+        highlights the emerging potential of quantum computing in cryptography, optimization,
+        and scientific modeling.\",\n    \"keywords\": [\n        \"quantum computing\",\n        \"quantum
+        algorithms\",\n        \"computational complexity\",\n        \"quantum simulation\",\n        \"quantum
+        mechanics\",\n        \"algorithmic efficiency\"\n    ]\n}"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":205,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":222}}'
+  recorded_at: Tue, 04 Mar 2025 18:06:44 GMT
 recorded_with: VCR 6.3.1

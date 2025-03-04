@@ -7,7 +7,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"model":"deepseek-chat","messages":[{"role":"system","content":"You
         are a helpful assistant, in french"},{"role":"user","content":"Say \"hello\"
-        using the fewest words possible, no punctuation."}],"temperature":0.5,"stream":false}'
+        using the fewest words possible, no punctuation."}],"temperature":0.5,"top_p":0.8,"stream":false}'
     headers:
       User-Agent:
       - Faraday v2.12.2
@@ -23,21 +23,22 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Tue, 04 Mar 2025 14:58:11 GMT
+      - Tue, 04 Mar 2025 18:06:08 GMT
       Content-Type:
       - application/json
       Set-Cookie:
-      - HWWAFSESID=20d43ac5be5ac3a12b; path=/
-      - HWWAFSESTIME=1741100287281; path=/
-      - __cf_bm=x8T58gMrIHQX0ugWO0wL6Z2wceQzTrCB8QsDvvRx3v8-1741100291-1.0.1.1-TuqlofQO6JpbZ8i0lfjPEDizCJnZiSnSJPWODOMLNdB6HdfxutmAuJ0VsJLzPK8QGFmnF2r1qsoW13Gm8a8lRqisGvqMh3v3DNOiHtH.W5k;
-        path=/; expires=Tue, 04-Mar-25 15:28:11 GMT; domain=.deepseek.com; HttpOnly;
+      - HWWAFSESID=a9a0c8e458ce9549b7; path=/
+      - HWWAFSESTIME=1741111565202; path=/
+      - __cf_bm=H.LKZE7lCnNddwbkdCjulJoOllNXpao0PH7Y3OSsjok-1741111568-1.0.1.1-tTFRv3FEApSx8J987NU0D7Uti6ih3xLDMYV3hNOAEnv2uDqfCOPcqprJTxYqjbiDCDpfwiWJuG1KZmHmfESQhm2ipAe.GMBjuWkT277n1Kw;
+        path=/; expires=Tue, 04-Mar-25 18:36:08 GMT; domain=.deepseek.com; HttpOnly;
         Secure; SameSite=None
       Vary:
+      - accept-encoding
       - origin, access-control-request-method, access-control-request-headers
       Access-Control-Allow-Credentials:
       - 'true'
       X-Ds-Trace-Id:
-      - 7e34a0ba75b65d2501eb921418d92e23
+      - f20b649d36c574aa2496ff95d753c983
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       X-Content-Type-Options:
@@ -49,9 +50,9 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 91b23af218ee675e-ATL
+      - 91b34e429e4cbd5e-ATL
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"840ee504-8600-4070-8966-a891ffa595a9","object":"chat.completion","created":1741100291,"model":"deepseek-chat","choices":[{"index":0,"message":{"role":"assistant","content":"salut"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":25,"completion_tokens":2,"total_tokens":27,"prompt_tokens_details":{"cached_tokens":0},"prompt_cache_hit_tokens":0,"prompt_cache_miss_tokens":25},"system_fingerprint":"fp_3a5770e1b4_prod0225"}'
-  recorded_at: Tue, 04 Mar 2025 14:58:19 GMT
+      string: '{"id":"4ca48270-69c4-4f1e-a85e-8b3e45bb692e","object":"chat.completion","created":1741111567,"model":"deepseek-chat","choices":[{"index":0,"message":{"role":"assistant","content":"salut"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":25,"completion_tokens":2,"total_tokens":27,"prompt_tokens_details":{"cached_tokens":0},"prompt_cache_hit_tokens":0,"prompt_cache_miss_tokens":25},"system_fingerprint":"fp_3a5770e1b4_prod0225"}'
+  recorded_at: Tue, 04 Mar 2025 18:06:22 GMT
 recorded_with: VCR 6.3.1

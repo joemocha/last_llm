@@ -59,7 +59,7 @@ class Deepseek < LastLLM::Provider
       JSON.parse(content, symbolize_names: true)
     rescue JSON::ParserError => e
       # Try to clean markdown code blocks and parse again
-      content.gsub!(/```json\n/, '').gsub!(/\n```/, '')
+      content.gsub!("```json\n", '').gsub!("\n```", '')
       begin
         JSON.parse(content, symbolize_names: true)
       rescue JSON::ParserError

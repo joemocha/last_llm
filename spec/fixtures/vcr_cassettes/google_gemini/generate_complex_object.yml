@@ -1,0 +1,84 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=<GOOGLE_API_KEY>
+    body:
+      encoding: UTF-8
+      string: '{"contents":[{"role":"user","parts":[{"text":"Create a research paper
+        about quantum algorithms"}]}],"generationConfig":{"temperature":0.5,"topP":0.95,"topK":40,"responseMimeType":"application/json","responseSchema":{"type":"object","properties":{"title":{"type":"string"},"authors":{"type":"array","items":{"type":"string"}},"abstract":{"type":"string"},"keywords":{"type":"array","items":{"type":"string"}}},"required":["title","authors","abstract","keywords"]}}}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin
+      - Referer
+      - X-Origin
+      Date:
+      - Tue, 04 Mar 2025 07:04:28 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Server-Timing:
+      - gfet4t7; dur=1613
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "candidates": [
+            {
+              "content": {
+                "parts": [
+                  {
+                    "text": "{\"abstract\": \"This research paper explores the field of quantum algorithms, examining their potential to revolutionize computation.  We delve into the fundamental principles underlying quantum computing, including superposition, entanglement, and interference, and discuss how these principles are exploited in the design of quantum algorithms.  Specific algorithms are analyzed, including Shor's algorithm for factoring integers and Grover's algorithm for searching unsorted databases.  The paper also addresses the challenges and limitations of quantum computing, such as qubit coherence and scalability issues, and discusses potential applications in various fields, such as cryptography, materials science, and drug discovery.\", \"authors\": [\"Dr. Alice Quantum\", \"Dr. Bob Superposition\"], \"keywords\": [\"Quantum Algorithms\", \"Quantum Computing\", \"Shor's Algorithm\", \"Grover's Algorithm\", \"Quantum Supremacy\", \"Computational Complexity\"], \"title\": \"A Comprehensive Survey of Quantum Algorithms and their Applications\"}"
+                  }
+                ],
+                "role": "model"
+              },
+              "finishReason": "STOP",
+              "avgLogprobs": -0.17372976178708283
+            }
+          ],
+          "usageMetadata": {
+            "promptTokenCount": 15,
+            "candidatesTokenCount": 184,
+            "totalTokenCount": 199,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 15
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 184
+              }
+            ]
+          },
+          "modelVersion": "gemini-1.5-flash"
+        }
+  recorded_at: Tue, 04 Mar 2025 07:04:28 GMT
+recorded_with: VCR 6.3.1

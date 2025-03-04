@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'rails'
 
 # This file defines the Railtie constant directly to be compatible with Zeitwerk

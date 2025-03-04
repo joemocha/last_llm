@@ -83,8 +83,6 @@ RSpec.describe LastLLM::Client do
     end
   end
 
-
-
   describe '#generate_object' do
     let(:schema) do
       Dry::Schema.JSON do
@@ -122,8 +120,6 @@ RSpec.describe LastLLM::Client do
       }.to raise_error(LastLLM::ValidationError)
     end
   end
-
-
 
   context 'with test mode enabled' do
     let(:test_config) do

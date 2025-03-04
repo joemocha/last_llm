@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'last_llm/completion'
 require 'last_llm/structured_output'
 require 'last_llm/schema'

@@ -6,7 +6,6 @@ module LastLLM
   # Configuration class for LastLLM
   # Handles global and provider-specific settings
   class Configuration
-
     # Provider validation configuration
     PROVIDER_VALIDATIONS = {
       Providers::Constants::OPENAI => { required: [:api_key] },

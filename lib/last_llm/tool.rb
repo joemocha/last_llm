@@ -89,7 +89,8 @@ module LastLLM
         case prop_schema[:type]
         when "number", "integer"
           converted_params[prop_name_sym] = param_value.to_f if param_value.is_a?(String)
-          converted_params[prop_name_sym] = param_value.to_i if prop_schema[:type] == "integer" && param_value.is_a?(Float)
+          converted_params[prop_name_sym] =
+            param_value.to_i if prop_schema[:type] == "integer" && param_value.is_a?(Float)
         when "boolean"
           if param_value.is_a?(String)
             converted_params[prop_name_sym] = (param_value.downcase == "true")

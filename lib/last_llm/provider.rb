@@ -85,6 +85,7 @@ module LastLLM
     # @raise [ApiError] If the response is invalid
     def parse_response(response)
       return {} if response.body.nil? || response.body.empty?
+
       begin
         response.body.deep_symbolize_keys
       rescue JSON::ParserError
@@ -113,10 +114,10 @@ module LastLLM
 
       hash.each_with_object({}) do |(key, value), result|
         result[key.to_sym] = case value
-          when Hash then deep_symbolize_keys(value)
-          when Array then value.map { |item| deep_symbolize_keys(item) }
-          else value
-        end
+                             when Hash then deep_symbolize_keys(value)
+                             when Array then value.map { |item| deep_symbolize_keys(item) }
+                             else value
+                             end
       end
     end
 

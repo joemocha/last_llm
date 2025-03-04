@@ -78,6 +78,7 @@ module LastLLM
     # Add Rails integration helper
     def setup_rails!
       return unless defined?(Rails)
+
       require 'last_llm/railtie'
     end
   end

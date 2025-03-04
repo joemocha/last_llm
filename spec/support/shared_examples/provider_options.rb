@@ -6,7 +6,9 @@ RSpec.shared_examples "provider options handling" do
 
   describe "option handling" do
     let(:provider) { described_class.new(base_config) }
-    let(:fake_response) { instance_double(Faraday::Response, status: 200, body: JSON.parse('{"content": [{"text": "response"}]}')) }
+    let(:fake_response) {
+      instance_double(Faraday::Response, status: 200, body: JSON.parse('{"content": [{"text": "response"}]}'))
+    }
 
     before do
       # Stub the Faraday connection POST request to avoid actual API calls

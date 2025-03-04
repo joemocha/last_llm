@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'last_llm/providers/constants'
 
 module LastLLM

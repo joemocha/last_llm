@@ -1,6 +1,6 @@
-# LastLlm
+# LastLLM
 
-LastLlm is a unified client for interacting with various LLM (Large Language Model) providers. It provides a consistent interface for text generation, structured data generation, and tool calling across different LLM services.
+LastLLM is a unified client for interacting with various LLM (Large Language Model) providers. It provides a consistent interface for text generation, structured data generation, and tool calling across different LLM services.
 
 ## Features
 
@@ -27,10 +27,10 @@ gem 'last_llm'
 
 ## Configuration
 
-Configure LastLlm globally or per instance:
+Configure LastLLM globally or per instance:
 
 ```ruby
-LastLlm.configure do |config|
+LastLLM.configure do |config|
   config.default_provider = :openai
   config.default_model = 'gpt-3.5-turbo'
 
@@ -47,7 +47,7 @@ end
 
 ### Rails Integration
 
-LastLlm automatically integrates with Rails applications. Create a `config/last_llm.yml` file:
+LastLLM automatically integrates with Rails applications. Create a `config/last_llm.yml` file:
 
 ```yaml
 default_provider: openai
@@ -62,7 +62,7 @@ globals:
 ### Basic Text Generation
 
 ```ruby
-client = LastLlm.client
+client = LastLLM.client
 response = client.generate_text("What is the capital of France?")
 ```
 
@@ -75,14 +75,14 @@ schema = Dry::Schema.JSON do
   optional(:email).maybe(:string)
 end
 
-client = LastLlm.client
+client = LastLLM.client
 result = client.generate_object("Generate information about a person", schema)
 ```
 
 ### Tool Calling
 
 ```ruby
-calculator = LastLlm::Tool.new(
+calculator = LastLLM::Tool.new(
   name: "calculator",
   description: "Perform mathematical calculations",
   parameters: {
@@ -108,11 +108,11 @@ calculator = LastLlm::Tool.new(
 
 ## Error Handling
 
-LastLlm provides several error classes:
-- `LastLlm::Error`: Base error class
-- `LastLlm::ConfigurationError`: Configuration-related errors
-- `LastLlm::ValidationError`: Schema validation errors
-- `LastLlm::ApiError`: API request errors
+LastLLM provides several error classes:
+- `LastLLM::Error`: Base error class
+- `LastLLM::ConfigurationError`: Configuration-related errors
+- `LastLLM::ValidationError`: Schema validation errors
+- `LastLLM::ApiError`: API request errors
 
 ## Development
 
@@ -121,9 +121,9 @@ After checking out the repo, run `bundle install` to install dependencies. Then,
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub.
-# LastLlm
+# LastLLM
 
-LastLlm is a unified client for interacting with various LLM (Large Language Model) providers. It provides a consistent interface for text generation, structured data generation, and tool calling across different LLM services.
+LastLLM is a unified client for interacting with various LLM (Large Language Model) providers. It provides a consistent interface for text generation, structured data generation, and tool calling across different LLM services.
 
 ## Features
 
@@ -150,10 +150,10 @@ gem 'last_llm'
 
 ## Configuration
 
-Configure LastLlm globally or per instance:
+Configure LastLLM globally or per instance:
 
 ```ruby
-LastLlm.configure do |config|
+LastLLM.configure do |config|
   config.default_provider = :openai
   config.default_model = 'gpt-3.5-turbo'
 
@@ -170,7 +170,7 @@ end
 
 ### Rails Integration
 
-LastLlm automatically integrates with Rails applications. Create a `config/last_llm.yml` file:
+LastLLM automatically integrates with Rails applications. Create a `config/last_llm.yml` file:
 
 ```yaml
 default_provider: openai
@@ -185,7 +185,7 @@ globals:
 ### Basic Text Generation
 
 ```ruby
-client = LastLlm.client
+client = LastLLM.client
 response = client.generate_text("What is the capital of France?")
 ```
 
@@ -198,14 +198,14 @@ schema = Dry::Schema.JSON do
   optional(:email).maybe(:string)
 end
 
-client = LastLlm.client
+client = LastLLM.client
 result = client.generate_object("Generate information about a person", schema)
 ```
 
 ### Tool Calling
 
 ```ruby
-calculator = LastLlm::Tool.new(
+calculator = LastLLM::Tool.new(
   name: "calculator",
   description: "Perform mathematical calculations",
   parameters: {
@@ -231,11 +231,11 @@ calculator = LastLlm::Tool.new(
 
 ## Error Handling
 
-LastLlm provides several error classes:
-- `LastLlm::Error`: Base error class
-- `LastLlm::ConfigurationError`: Configuration-related errors
-- `LastLlm::ValidationError`: Schema validation errors
-- `LastLlm::ApiError`: API request errors
+LastLLM provides several error classes:
+- `LastLLM::Error`: Base error class
+- `LastLLM::ConfigurationError`: Configuration-related errors
+- `LastLLM::ValidationError`: Schema validation errors
+- `LastLLM::ApiError`: API request errors
 
 ## Development
 

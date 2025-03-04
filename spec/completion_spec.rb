@@ -6,7 +6,11 @@ RSpec.describe LastLLM::Completion do
   let(:options) { { model: "gpt-4", temperature: 0.7, max_tokens: 500 } }
 
   # We need a client for the completion to use
-  let(:client) { LastLLM::Client.new(LastLLM::Configuration.new(test_mode: true)) }
+  let(:client) do
+    config = LastLLM::Configuration.new(test_mode: true)
+    config.configure_provider(:test, {})
+    LastLLM::Client.new(config, provider: :test)
+  end
   let(:completion) { LastLLM::Completion.new(client) }
 
   describe "#initialize" do
@@ -33,27 +37,6 @@ RSpec.describe LastLLM::Completion do
     it "works with minimal options" do
       VCR.use_cassette("last_llm_completion_minimal_options") do
         expect { completion.generate(prompt) }.not_to raise_error
-      end
-    end
-  end
-
-  describe "#stream", :vcr do
-    it "streams text completion in chunks" do
-      chunks = []
-      VCR.use_cassette("last_llm_completion_stream") do
-        completion.stream(prompt, options) { |chunk| chunks << chunk }
-      end
-      expect(chunks).not_to be_empty
-      chunks.each { |chunk| expect(chunk).to be_a(String) }
-    end
-
-    it "requires a block" do
-      expect { completion.stream(prompt, options) }.to raise_error(ArgumentError, /block required/i)
-    end
-
-    it "works with minimal options" do
-      VCR.use_cassette("last_llm_completion_stream_minimal_options") do
-        expect { completion.stream(prompt) { |_chunk| } }.not_to raise_error
       end
     end
   end

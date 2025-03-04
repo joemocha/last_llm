@@ -5,9 +5,9 @@ http_interactions:
     uri: https://api.anthropic.com/v1/messages
     body:
       encoding: UTF-8
-      string: '{"model":"claude-3-5-haiku-latest","messages":[{"role":"system","content":"You
-        are a helpful assistant, in french"},{"role":"user","content":"Say \"hello\"
-        using the fewest words possible"}],"temperature":0.5,"max_tokens":1000,"stream":false}'
+      string: '{"model":"claude-3-5-haiku-latest","messages":[{"role":"user","content":"Say
+        \"hello\" using the fewest words possible"}],"temperature":0.5,"max_tokens":1000,"stream":false,"system":"You
+        are a helpful assistant, in french"}'
     headers:
       User-Agent:
       - Faraday v2.12.2
@@ -21,19 +21,39 @@ http_interactions:
       - ''
   response:
     status:
-      code: 400
+      code: 200
       message: ''
     headers:
       Date:
-      - Tue, 04 Mar 2025 06:21:21 GMT
+      - Tue, 04 Mar 2025 06:44:22 GMT
       Content-Type:
       - application/json
-      Content-Length:
-      - '205'
-      X-Should-Retry:
-      - 'false'
+      Anthropic-Ratelimit-Requests-Limit:
+      - '1000'
+      Anthropic-Ratelimit-Requests-Remaining:
+      - '999'
+      Anthropic-Ratelimit-Requests-Reset:
+      - '2025-03-04T06:44:22Z'
+      Anthropic-Ratelimit-Input-Tokens-Limit:
+      - '100000'
+      Anthropic-Ratelimit-Input-Tokens-Remaining:
+      - '100000'
+      Anthropic-Ratelimit-Input-Tokens-Reset:
+      - '2025-03-04T06:44:22Z'
+      Anthropic-Ratelimit-Output-Tokens-Limit:
+      - '20000'
+      Anthropic-Ratelimit-Output-Tokens-Remaining:
+      - '20000'
+      Anthropic-Ratelimit-Output-Tokens-Reset:
+      - '2025-03-04T06:44:22Z'
+      Anthropic-Ratelimit-Tokens-Limit:
+      - '120000'
+      Anthropic-Ratelimit-Tokens-Remaining:
+      - '120000'
+      Anthropic-Ratelimit-Tokens-Reset:
+      - '2025-03-04T06:44:22Z'
       Request-Id:
-      - req_01VyBK8zuf1QnaUjvvrt4wxj
+      - req_016D85YnZ7UZ75cBwVNeaPqp
       Anthropic-Organization-Id:
       - d71db89e-12c3-43b2-aacd-1a48746332cd
       Via:
@@ -45,11 +65,12 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 91af45e14f62b0ed-ATL
+      - 91af67958d7b4545-ATL
+      Content-Encoding:
+      - gzip
     body:
       encoding: ASCII-8BIT
-      string: '{"type":"error","error":{"type":"invalid_request_error","message":"messages:
-        Unexpected role \"system\". The Messages API accepts a top-level `system`
-        parameter, not \"system\" as an input message role."}}'
-  recorded_at: Tue, 04 Mar 2025 06:21:21 GMT
+      string: '{"id":"msg_01M5MJWVZ7sVwBiZrhmknnCr","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"Salut
+        !"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":25,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":7}}'
+  recorded_at: Tue, 04 Mar 2025 06:44:22 GMT
 recorded_with: VCR 6.3.1

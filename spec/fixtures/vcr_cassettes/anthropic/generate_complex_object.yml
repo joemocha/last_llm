@@ -5,8 +5,7 @@ http_interactions:
     uri: https://api.anthropic.com/v1/messages
     body:
       encoding: UTF-8
-      string: '{"model":"claude-3-5-haiku-latest","messages":[{"role":"system","content":"You
-        are a helpful assistant that responds with valid JSON."},{"role":"user","content":"Create
+      string: '{"model":"claude-3-5-haiku-latest","messages":[{"role":"user","content":"Create
         a research paper about quantum algorithms\n\nRespond with valid JSON that
         matches the following schema:\n\n{\n  \"type\": \"object\",\n  \"properties\":
         {\n    \"title\": {\n      \"type\": \"string\"\n    },\n    \"authors\":
@@ -14,7 +13,8 @@ http_interactions:
         {\n      \"type\": \"string\"\n    },\n    \"keywords\": {\n      \"type\":
         \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    }\n  },\n  \"required\":
         [\n    \"title\",\n    \"authors\",\n    \"abstract\",\n    \"keywords\"\n  ]\n}\n\nEnsure
-        your response is a valid JSON object that strictly follows this schema.\n"}],"temperature":0.5,"stream":false}'
+        your response is a valid JSON object that strictly follows this schema.\n"}],"system":"You
+        are a helpful assistant that responds with valid JSON.","temperature":0.5,"stream":false}'
     headers:
       User-Agent:
       - Faraday v2.12.2
@@ -32,15 +32,15 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Tue, 04 Mar 2025 06:21:20 GMT
+      - Tue, 04 Mar 2025 06:44:23 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '205'
+      - '96'
       X-Should-Retry:
       - 'false'
       Request-Id:
-      - req_01HHbZ875GQ6ZtMawjg9DhL2
+      - req_01HLSMLd8NYBY818iZFMbQ5d
       Anthropic-Organization-Id:
       - d71db89e-12c3-43b2-aacd-1a48746332cd
       Via:
@@ -52,11 +52,10 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 91af45d8691cb0ed-ATL
+      - 91af679bba314545-ATL
     body:
       encoding: ASCII-8BIT
-      string: '{"type":"error","error":{"type":"invalid_request_error","message":"messages:
-        Unexpected role \"system\". The Messages API accepts a top-level `system`
-        parameter, not \"system\" as an input message role."}}'
-  recorded_at: Tue, 04 Mar 2025 06:21:20 GMT
+      string: '{"type":"error","error":{"type":"invalid_request_error","message":"max_tokens:
+        Field required"}}'
+  recorded_at: Tue, 04 Mar 2025 06:44:23 GMT
 recorded_with: VCR 6.3.1

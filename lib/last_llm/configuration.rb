@@ -87,15 +87,19 @@ module LastLLM
       validation = PROVIDER_VALIDATIONS[provider]
       raise ConfigurationError, "Unknown provider: #{provider}" unless validation
 
-      config = @providers[provider] || {}
+      config = provider_config(provider)
 
-      # Check required fields
-      validation[:required]&.each do |field|
-        raise ConfigurationError, "#{field.to_s.humanize.downcase} is required" unless config[field]
+      if validation[:required]
+        validation[:required].each do |key|
+          unless config[key]
+            raise ConfigurationError, "#{key.to_s.gsub('_', ' ')} is required for #{provider} provider"
+          end
+        end
       end
 
-      # Run custom validation if present
-      validation[:custom]&.call(config)
+      if validation[:custom]
+        validation[:custom].call(config)
+      end
     end
 
     # Set a global configuration value

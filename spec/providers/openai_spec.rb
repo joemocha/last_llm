@@ -2,7 +2,13 @@ require 'spec_helper'
 require 'vcr'
 
 RSpec.describe LastLLM::Providers::OpenAI do
-  let(:config) { { api_key: ENV['OPENAI_API_KEY'] || 'test-key' } }
+  let(:config) {
+    {
+      api_key: ENV['OPENAI_API_KEY'] || 'test-key',
+      # Add organization if needed
+      organization_id: ENV['OPENAI_ORGANIZATION_ID']
+    }.compact
+  }
   let(:provider) { described_class.new(config) }
   let(:prompt) { 'Hello, world!' }
   let(:options) { { temperature: 0.5 } }
@@ -13,6 +19,10 @@ RSpec.describe LastLLM::Providers::OpenAI do
       c.hook_into :webmock
       c.configure_rspec_metadata!
       c.filter_sensitive_data('<OPENAI_API_KEY>') { ENV['OPENAI_API_KEY'] || 'test-key' }
+      c.default_cassette_options = {
+        record: :new_episodes,
+        match_requests_on: [:method, :uri, :headers]
+      }
     end
   end
 

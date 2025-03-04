@@ -133,8 +133,8 @@ class OpenAI < LastLLM::Provider
           raise LastLLM::ApiError.new("Invalid response format from OpenAI", nil)
         end
 
-        # Convert to symbolized hash
-        parsed = parsed.deep_symbolize_keys if parsed.is_a?(Hash)
+        # Use the new method
+        parsed = deep_symbolize_keys(parsed) if parsed.is_a?(Hash)
 
         if parsed[:error]
           raise LastLLM::ApiError.new(parsed[:error][:message], parsed[:error][:code])

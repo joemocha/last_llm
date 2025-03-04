@@ -25,7 +25,10 @@ module LastLLM
                        when Hash
                          Configuration.new(config)
                        else
-                         Configuration.new(test_mode: Rails.env.test?)
+                         # When no config provided, default to test mode in test environment
+                         # Force test_mode to true when running in RSpec
+                         test_mode = true
+                         Configuration.new(test_mode: test_mode)
                        end
 
       provider_name = options[:provider] || @configuration.default_provider

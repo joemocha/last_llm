@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.anthropic.com/v1/messages
+    body:
+      encoding: UTF-8
+      string: '{"model":"claude-3-5-haiku-latest","messages":[{"role":"user","content":"Say
+        \"hello\" using the fewest words possible"}],"temperature":0.5,"max_tokens":1000,"stream":false}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      X-Api-Key:
+      - invalid-key
+      Anthropic-Version:
+      - '2023-06-01'
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 401
+      message: ''
+    headers:
+      Date:
+      - Tue, 04 Mar 2025 06:21:20 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '86'
+      X-Should-Retry:
+      - 'false'
+      Request-Id:
+      - req_012xzRtPae5ZAtdBEZRB7Arh
+      Via:
+      - 1.1 google
+      Cf-Cache-Status:
+      - DYNAMIC
+      X-Robots-Tag:
+      - none
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 91af45d8c965b0ed-ATL
+    body:
+      encoding: ASCII-8BIT
+      string: '{"type":"error","error":{"type":"authentication_error","message":"invalid
+        x-api-key"}}'
+  recorded_at: Tue, 04 Mar 2025 06:21:20 GMT
+recorded_with: VCR 6.3.1

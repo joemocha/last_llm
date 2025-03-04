@@ -2,6 +2,7 @@
 $LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 
 require 'bundler/setup'
+require 'dotenv/load'
 require 'last_llm'
 require 'vcr'
 require 'webmock/rspec'

@@ -13,7 +13,7 @@ module Constants
   # Returns all available provider names
   # @return [Array<Symbol>] List of all provider names
   def self.all
-    [OPENAI, ANTHROPIC, GOOGLE_GEMINI, DEEPSEEK, OLLAMA, TEST, MISTRAL]
+    [OPENAI, ANTHROPIC, GOOGLE_GEMINI, DEEPSEEK, OLLAMA, TEST]
   end
 
   # Check if a provider name is valid

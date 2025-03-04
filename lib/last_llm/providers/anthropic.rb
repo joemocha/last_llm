@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 require 'last_llm/providers/constants'
 
-# Anthropic provider implementation
-class Anthropic < LastLLM::Provider
+module LastLLM
+  module Providers
+    # Anthropic provider implementation
+    class Anthropic < LastLLM::Provider
       BASE_ENDPOINT = 'https://api.anthropic.com'
 
       def initialize(config)
@@ -11,16 +13,22 @@ class Anthropic < LastLLM::Provider
       end
 
       def generate_text(prompt, options = {})
+        options = options.dup
         messages = format_messages(prompt, options)
 
+        body = {
+          model: options[:model] || 'claude-3-5-haiku-latest',
+          messages: messages,
+          temperature: options[:temperature] || 0.7,
+          max_tokens: options[:max_tokens] || 1000,
+          stream: false
+        }
+
+        # Add system parameter if system prompt is provided
+        body[:system] = options[:system_prompt] if options[:system_prompt]
+
         response = @conn.post('/v1/messages') do |req|
-          req.body = {
-            model: options[:model] || 'claude-3-5-haiku-latest',
-            messages: messages,
-            temperature: options[:temperature] || 0.7,
-            max_tokens: options[:max_tokens] || 1000,
-            stream: false
-          }.compact
+          req.body = body.compact
         end
 
         result = parse_response(response)
@@ -32,21 +40,22 @@ class Anthropic < LastLLM::Provider
       end
 
       def generate_object(prompt, schema, options = {})
+        options = options.dup
         system_prompt = "You are a helpful assistant that responds with valid JSON."
         formatted_prompt = LastLLM::StructuredOutput.format_prompt(prompt, schema)
 
-        messages = [
-          { role: 'system', content: system_prompt },
-          { role: 'user', content: formatted_prompt }
-        ]
+        options[:system_prompt] = system_prompt
+
+        body = {
+          model: options[:model] || 'claude-3-5-haiku-latest',
+          messages: [{ role: 'user', content: formatted_prompt }],
+          system: options[:system_prompt],
+          temperature: options[:temperature] || 0.2,
+          stream: false
+        }.compact
 
         response = @conn.post('/v1/messages') do |req|
-          req.body = {
-            model: options[:model] || 'claude-3-5-haiku-latest',
-            messages: messages,
-            temperature: options[:temperature] || 0.2,
-            stream: false
-          }.compact
+          req.body = body
         end
 
         result = parse_response(response)
@@ -61,7 +70,7 @@ class Anthropic < LastLLM::Provider
         handle_request_error(e)
       end
 
-            # Format a tool for Anthropic tools format
+      # Format a tool for Anthropic tools format
       # @param tool [LastLLM::Tool] The tool to format
       # @return [Hash] The tool in Anthropic format
       def self.format_tool(tool)
@@ -87,12 +96,16 @@ class Anthropic < LastLLM::Provider
 
       def format_messages(prompt, options)
         if prompt.is_a?(Array) && prompt.all? { |m| m.is_a?(Hash) && m[:role] && m[:content] }
-          prompt
-        elsif options[:system_prompt]
-          [
-            { role: 'system', content: options[:system_prompt] },
-            { role: 'user', content: prompt.to_s }
-          ]
+          # Extract system message if present
+          system_messages = prompt.select { |m| m[:role] == 'system' }
+
+          # Set system_prompt if a system message was found
+          if system_messages.any? && !options[:system_prompt]
+            options[:system_prompt] = system_messages.map { |m| m[:content] }.join("\n")
+          end
+
+          # Return only non-system messages
+          prompt.reject { |m| m[:role] == 'system' }
         else
           [{ role: 'user', content: prompt.to_s }]
         end
@@ -102,12 +115,6 @@ class Anthropic < LastLLM::Provider
         conn.headers['x-api-key'] = @config[:api_key]
         conn.headers['anthropic-version'] = '2023-06-01'
       end
-end
-
-# Also define it in the LastLLM::Providers namespace for consistency
-module LastLLM
-  module Providers
-    # Reference to the Anthropic class defined above
-    Anthropic = ::Anthropic
+    end
   end
 end

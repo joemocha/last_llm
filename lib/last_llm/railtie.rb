@@ -13,7 +13,7 @@ class Railtie < Rails::Railtie
     # Load configuration from config/last_llm.yml if it exists
     config_file = Rails.root.join('config', 'last_llm.yml')
     if File.exist?(config_file)
-      config = YAML.safe_load(File.read(config_file), symbolize_names: true)
+      config = YAML.safe_load_file(config_file, symbolize_names: true)
 
       # Configure LastLLM with the loaded configuration
       LastLLM.configure do |c|

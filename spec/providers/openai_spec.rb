@@ -8,7 +8,7 @@ RSpec.describe LastLLM::Providers::OpenAI do
     {
       api_key: ENV['OPENAI_API_KEY'] || 'test-key',
       # Add organization if needed
-      organization_id: ENV['OPENAI_ORGANIZATION_ID']
+      organization_id: ENV.fetch('OPENAI_ORGANIZATION_ID', nil)
     }.compact
   end
   let(:provider) { described_class.new(config) }

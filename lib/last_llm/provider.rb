@@ -5,6 +5,8 @@ require 'faraday/typhoeus'
 require 'active_support/core_ext/hash/keys'
 
 module LastLLM
+  # Base class for all LLM providers
+  # Implements common functionality and defines the interface that all providers must implement
   class Provider
     attr_reader :name, :config
 

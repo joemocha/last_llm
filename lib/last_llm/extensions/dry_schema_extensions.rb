@@ -3,6 +3,7 @@
 # Monkey patch Dry::Schema::JSON to add json_schema method
 module Dry
   module Schema
+    # Extensions to Dry::Schema::JSON for JSON Schema conversion
     class JSON
       # Convert the schema to a JSON schema hash
       # @return [Hash] The JSON schema hash

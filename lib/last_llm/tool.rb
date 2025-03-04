@@ -72,7 +72,7 @@ module LastLLM
         param_value = params[prop_name.to_sym]
         unless prop_schema[:enum].include?(param_value)
           raise ToolValidationError, "Invalid value for #{prop_name}: #{param_value}. " \
-                                    "Allowed values: #{prop_schema[:enum].join(', ')}"
+                                     "Allowed values: #{prop_schema[:enum].join(', ')}"
         end
       end
     end

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module LastLLM
+  # Represents a completion response from an LLM provider
+  # Contains the generated text and any additional metadata
   class Completion
     def initialize(client)
       @client = client

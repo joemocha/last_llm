@@ -5,7 +5,7 @@ RSpec.describe LastLLM::Providers::Anthropic do
   let(:config) { { api_key: ENV['ANTHROPIC_API_KEY'] || 'test-key' } }
   let(:provider) { described_class.new(config) }
   let(:prompt) { 'Say "hello" using the fewest words possible' }
-  let(:options) { { temperature: 0.5 } }
+  let(:options) { { temperature: 0.5, max_tokens: 8192 } }
 
   before do
     VCR.configure do |c|
@@ -79,15 +79,10 @@ RSpec.describe LastLLM::Providers::Anthropic do
 
       it 'returns structured data from Anthropic' do
         VCR.use_cassette('anthropic/generate_object', record: :new_episodes) do
-          begin
-            result = provider.generate_object("Create a profile for John Doe, age 30", schema_def, options)
-            expect(result).to be_a(Hash)
-            expect(result[:name]).to be_a(String)
-            expect(result[:age]).to be_a(Integer)
-          rescue LastLLM::ApiError => e
-            puts "API error: #{e.message}" if ENV['DEBUG']
-            expect(e).to be_a(LastLLM::ApiError)
-          end
+          result = provider.generate_object("Create a profile for John Doe, age 30", schema_def)
+          expect(result).to be_a(Hash)
+          expect(result[:name]).to be_a(String)
+          expect(result[:age]).to be_a(Integer)
         end
       end
     end

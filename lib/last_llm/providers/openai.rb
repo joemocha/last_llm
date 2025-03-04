@@ -59,7 +59,7 @@ class OpenAI < LastLLM::Provider
 
   def build_completion_request(prompt, options)
     {
-      model: options[:model] || 'gpt-3.5-turbo',
+      model: options[:model] || @config[:model] || 'gpt-4o-mini',
       messages: format_messages(prompt, options),
       temperature: options[:temperature] || 0.7,
       top_p: options[:top_p] || 0.7,
@@ -70,7 +70,7 @@ class OpenAI < LastLLM::Provider
 
   def build_json_request(prompt, schema, options)
     {
-      model: options[:model] || 'gpt-4',
+      model: options[:model] || @config[:model] || 'gpt-4o-mini',
       messages: format_json_messages(prompt, schema),
       temperature: options[:temperature] || 0.2,
       top_p: options[:top_p] || 0.7,

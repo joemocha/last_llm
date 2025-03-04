@@ -16,7 +16,7 @@ class Deepseek < LastLLM::Provider
 
     response = @conn.post('/v1/chat/completions') do |req|
       req.body = {
-        model: options[:model] || 'deepseek-chat',
+        model: options[:model] || @config[:model] || 'deepseek-chat',
         messages: messages,
         temperature: options[:temperature] || 0.7,
         top_p: options[:top_p] || 0.8,
@@ -44,7 +44,7 @@ class Deepseek < LastLLM::Provider
 
     response = @conn.post('/v1/chat/completions') do |req|
       req.body = {
-        model: options[:model] || 'deepseek-chat',
+        model: options[:model] || @config[:model] || 'deepseek-chat',
         messages: messages,
         temperature: options[:temperature] || 0.2,
         top_p: options[:top_p] || 0.8,

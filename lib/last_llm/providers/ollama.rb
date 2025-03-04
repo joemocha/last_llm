@@ -16,7 +16,7 @@ class Ollama < LastLLM::Provider
 
     response = @conn.post('/v1/chat/completions') do |req|
       req.body = {
-        model: options[:model] || 'llama3.2:latest',
+        model: options[:model] || @config[:model] || 'llama3.2:latest',
         messages: messages,
         temperature: options[:temperature] || 0.7,
         top_p: options[:top_p] || 0.7,
@@ -44,7 +44,7 @@ class Ollama < LastLLM::Provider
 
     response = @conn.post('/v1/chat/completions') do |req|
       req.body = {
-        model: options[:model] || 'llama3.2:latest',
+        model: options[:model] || @config[:model] || 'llama3.2:latest',
         messages: messages,
         temperature: options[:temperature] || 0.2,
         stream: false

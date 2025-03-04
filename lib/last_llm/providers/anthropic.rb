@@ -18,7 +18,7 @@ module LastLLM
         messages = format_messages(prompt, options)
 
         body = {
-          model: options[:model] || 'claude-3-5-haiku-latest',
+          model: options[:model] || @config[:model] || 'claude-3-5-haiku-latest',
           messages: messages,
           max_tokens: options[:max_tokens] || 8192,
           temperature: options[:temperature] || 0.2,
@@ -49,7 +49,7 @@ module LastLLM
         options[:system_prompt] = system_prompt
 
         body = {
-          model: options[:model] || 'claude-3-5-haiku-latest',
+          model: options[:model] || @config[:model] || 'claude-3-5-haiku-latest',
           messages: [{ role: 'user', content: formatted_prompt }],
           max_tokens: options[:max_tokens] || 8192,
           system: options[:system_prompt],

@@ -13,7 +13,7 @@ class GoogleGemini < LastLLM::Provider
   end
 
   def generate_text(prompt, options = {})
-    model = options[:model] || 'gemini-1.5-flash'
+    model = options[:model] || @config[:model] || 'gemini-1.5-flash'
     contents = format_contents(prompt, options)
 
     response = @conn.post("/v1beta/models/#{model}:generateContent?key=#{@api_key}") do |req|
@@ -44,7 +44,7 @@ class GoogleGemini < LastLLM::Provider
   end
 
   def generate_object(prompt, schema, options = {})
-    model = options[:model] || 'gemini-1.5-flash'
+    model = options[:model] || @config[:model] || 'gemini-1.5-flash'
     contents = format_contents(prompt, options)
 
     response = @conn.post("/v1beta/models/#{model}:generateContent?key=#{@api_key}") do |req|

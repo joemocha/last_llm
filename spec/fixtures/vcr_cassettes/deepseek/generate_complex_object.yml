@@ -1,0 +1,76 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.deepseek.com/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"deepseek-chat","messages":[{"role":"system","content":"You
+        are a helpful assistant that responds with valid JSON."},{"role":"user","content":"Create
+        a research paper about quantum algorithms\n\nRespond with valid JSON that
+        matches the following schema:\n\n{\n  \"type\": \"object\",\n  \"properties\":
+        {\n    \"title\": {\n      \"type\": \"string\"\n    },\n    \"authors\":
+        {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    },\n    \"abstract\":
+        {\n      \"type\": \"string\"\n    },\n    \"keywords\": {\n      \"type\":
+        \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    }\n  },\n  \"required\":
+        [\n    \"title\",\n    \"authors\",\n    \"abstract\",\n    \"keywords\"\n  ]\n}\n\nEnsure
+        your response is a valid JSON object that strictly follows this schema.\n"}],"temperature":0.5,"stream":false}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      Authorization:
+      - Bearer <DEEPSEEK_API_KEY>
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Tue, 04 Mar 2025 14:57:46 GMT
+      Content-Type:
+      - application/json
+      Set-Cookie:
+      - HWWAFSESID=982c391f3139393200; path=/
+      - HWWAFSESTIME=1741100261803; path=/
+      - __cf_bm=WpV8u5Yctb4N5izhRYgvLpJw_T.ZBmkLWhJC2NsdMiE-1741100266-1.0.1.1-jlRUALwM_yLH83a0mdWTQ8KIX08xbpIubdS5BP8x9i0HQpVHc1YvH08XiJgIURrJrk4V..JvhjH1U8l.O.QwoL21Dg7qhDO.Lq9kIusx.NQ;
+        path=/; expires=Tue, 04-Mar-25 15:27:46 GMT; domain=.deepseek.com; HttpOnly;
+        Secure; SameSite=None
+      Vary:
+      - accept-encoding
+      - origin, access-control-request-method, access-control-request-headers
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Ds-Trace-Id:
+      - b71a3a8375e1ced256fd6587ff06269c
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Content-Encoding:
+      - gzip
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 91b23a590c4b675e-ATL
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"9e781a15-263a-4252-882d-73047f0ba2a9","object":"chat.completion","created":1741100266,"model":"deepseek-chat","choices":[{"index":0,"message":{"role":"assistant","content":"```json\n{\n  \"title\":
+        \"Advancements in Quantum Algorithms: A Comprehensive Review\",\n  \"authors\":
+        [\n    \"Dr. Alice Johnson\",\n    \"Prof. Bob Smith\",\n    \"Dr. Carol White\"\n  ],\n  \"abstract\":
+        \"This paper provides a detailed overview of the latest developments in quantum
+        algorithms, focusing on their potential to solve complex problems more efficiently
+        than classical algorithms. We explore key algorithms such as Shor''s algorithm
+        for factoring and Grover''s algorithm for database searching, along with recent
+        advancements in quantum machine learning and optimization. The paper also
+        discusses the challenges and future directions in the field, including error
+        correction and scalability issues.\",\n  \"keywords\": [\n    \"Quantum Computing\",\n    \"Quantum
+        Algorithms\",\n    \"Shor''s Algorithm\",\n    \"Grover''s Algorithm\",\n    \"Quantum
+        Machine Learning\",\n    \"Quantum Optimization\"\n  ]\n}\n```"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":169,"completion_tokens":177,"total_tokens":346,"prompt_tokens_details":{"cached_tokens":128},"prompt_cache_hit_tokens":128,"prompt_cache_miss_tokens":41},"system_fingerprint":"fp_3a5770e1b4_prod0225"}'
+  recorded_at: Tue, 04 Mar 2025 14:58:01 GMT
+recorded_with: VCR 6.3.1

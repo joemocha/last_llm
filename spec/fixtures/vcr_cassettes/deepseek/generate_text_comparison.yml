@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.deepseek.com/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"deepseek-chat","messages":[{"role":"user","content":"Say
+        \"hello\" using the fewest words possible, no punctuation."}],"temperature":0.5,"stream":false}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      Authorization:
+      - Bearer <DEEPSEEK_API_KEY>
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Tue, 04 Mar 2025 14:58:20 GMT
+      Content-Type:
+      - application/json
+      Set-Cookie:
+      - HWWAFSESID=776aa8e5be79c91dc6; path=/
+      - HWWAFSESTIME=1741100297691; path=/
+      - __cf_bm=5oq.goj.DVk3wWiRCJoiPiSPN2_8D3mrrQRyfchs.kE-1741100300-1.0.1.1-n4hDQ_rbRx.PvVAqByl06K6ux.m3hTn8ubM5nHea6ZdB3K3XsVmSFXveX0FzWsjr6P7OOc5BwREiuTdFajgchxjZINw946wFz4MDuS9VCzk;
+        path=/; expires=Tue, 04-Mar-25 15:28:20 GMT; domain=.deepseek.com; HttpOnly;
+        Secure; SameSite=None
+      Vary:
+      - accept-encoding
+      - origin, access-control-request-method, access-control-request-headers
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Ds-Trace-Id:
+      - a4261d6ebdde531f1fb430e22eab14a0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Content-Encoding:
+      - gzip
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 91b23b29eaa0675e-ATL
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"db9a03a5-b903-429f-a074-2cdd48dfab54","object":"chat.completion","created":1741100300,"model":"deepseek-chat","choices":[{"index":0,"message":{"role":"assistant","content":"hello"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":17,"completion_tokens":1,"total_tokens":18,"prompt_tokens_details":{"cached_tokens":0},"prompt_cache_hit_tokens":0,"prompt_cache_miss_tokens":17},"system_fingerprint":"fp_3a5770e1b4_prod0225"}'
+  recorded_at: Tue, 04 Mar 2025 14:58:28 GMT
+recorded_with: VCR 6.3.1

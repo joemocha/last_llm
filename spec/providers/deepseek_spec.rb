@@ -80,15 +80,10 @@ RSpec.describe LastLLM::Providers::Deepseek do
 
       it 'returns structured data from Deepseek' do
         VCR.use_cassette('deepseek/generate_object', record: :new_episodes) do
-          begin
-            result = provider.generate_object("Create a profile for John Doe, age 30", schema_def, options)
-            expect(result).to be_a(Hash)
-            expect(result[:name]).to be_a(String)
-            expect(result[:age]).to be_a(Integer)
-          rescue LastLLM::ApiError => e
-            puts "API error: #{e.message}" if ENV['DEBUG']
-            expect(e).to be_a(LastLLM::ApiError)
-          end
+          result = provider.generate_object("Create a profile for John Doe, age 30", schema_def, options)
+          expect(result).to be_a(Hash)
+          expect(result[:name]).to be_a(String)
+          expect(result[:age]).to be_a(Integer)
         end
       end
     end
@@ -115,17 +110,12 @@ RSpec.describe LastLLM::Providers::Deepseek do
 
       it 'returns properly structured complex data' do
         VCR.use_cassette('deepseek/generate_complex_object', record: :new_episodes) do
-          begin
-            result = provider.generate_object("Create a research paper about quantum algorithms", schema_def, options)
-            expect(result).to be_a(Hash)
-            expect(result[:title]).to be_a(String)
-            expect(result[:authors]).to be_an(Array)
-            expect(result[:abstract]).to be_a(String)
-            expect(result[:keywords]).to be_an(Array)
-          rescue LastLLM::ApiError => e
-            puts "API error: #{e.message}" if ENV['DEBUG']
-            expect(e).to be_a(LastLLM::ApiError)
-          end
+          result = provider.generate_object("Create a research paper about quantum algorithms", schema_def, options)
+          expect(result).to be_a(Hash)
+          expect(result[:title]).to be_a(String)
+          expect(result[:authors]).to be_an(Array)
+          expect(result[:abstract]).to be_a(String)
+          expect(result[:keywords]).to be_an(Array)
         end
       end
     end

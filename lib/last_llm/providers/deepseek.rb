@@ -55,7 +55,13 @@ class Deepseek < LastLLM::Provider
         begin
           JSON.parse(content, symbolize_names: true)
         rescue JSON::ParserError => e
-          raise LastLLM::ApiError, "Invalid JSON response: #{e.message}"
+          # Try to clean markdown code blocks and parse again
+          content.gsub!(/```json\n/, '').gsub!(/\n```/, '')
+          begin
+            JSON.parse(content, symbolize_names: true)
+          rescue JSON::ParserError
+            raise LastLLM::ApiError, "Invalid JSON response: #{e.message}"
+          end
         end
       rescue Faraday::Error => e
         handle_request_error(e)

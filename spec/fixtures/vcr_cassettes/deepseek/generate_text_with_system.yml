@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.deepseek.com/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"deepseek-chat","messages":[{"role":"system","content":"You
+        are a helpful assistant, in french"},{"role":"user","content":"Say \"hello\"
+        using the fewest words possible, no punctuation."}],"temperature":0.5,"stream":false}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      Authorization:
+      - Bearer <DEEPSEEK_API_KEY>
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Tue, 04 Mar 2025 14:58:11 GMT
+      Content-Type:
+      - application/json
+      Set-Cookie:
+      - HWWAFSESID=20d43ac5be5ac3a12b; path=/
+      - HWWAFSESTIME=1741100287281; path=/
+      - __cf_bm=x8T58gMrIHQX0ugWO0wL6Z2wceQzTrCB8QsDvvRx3v8-1741100291-1.0.1.1-TuqlofQO6JpbZ8i0lfjPEDizCJnZiSnSJPWODOMLNdB6HdfxutmAuJ0VsJLzPK8QGFmnF2r1qsoW13Gm8a8lRqisGvqMh3v3DNOiHtH.W5k;
+        path=/; expires=Tue, 04-Mar-25 15:28:11 GMT; domain=.deepseek.com; HttpOnly;
+        Secure; SameSite=None
+      Vary:
+      - origin, access-control-request-method, access-control-request-headers
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Ds-Trace-Id:
+      - 7e34a0ba75b65d2501eb921418d92e23
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Content-Encoding:
+      - gzip
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 91b23af218ee675e-ATL
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"840ee504-8600-4070-8966-a891ffa595a9","object":"chat.completion","created":1741100291,"model":"deepseek-chat","choices":[{"index":0,"message":{"role":"assistant","content":"salut"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":25,"completion_tokens":2,"total_tokens":27,"prompt_tokens_details":{"cached_tokens":0},"prompt_cache_hit_tokens":0,"prompt_cache_miss_tokens":25},"system_fingerprint":"fp_3a5770e1b4_prod0225"}'
+  recorded_at: Tue, 04 Mar 2025 14:58:19 GMT
+recorded_with: VCR 6.3.1

@@ -35,6 +35,7 @@ module LastLLM
   autoload :Tool, 'last_llm/tool'
   autoload :Railtie, 'last_llm/railtie'
   autoload :Completion, 'last_llm/completion'
+  autoload :VERSION, 'last_llm/version'
 
   # Provider implementations
   module Providers

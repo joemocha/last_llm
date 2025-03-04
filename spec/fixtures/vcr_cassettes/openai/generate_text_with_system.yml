@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.openai.com/v1/chat/completions
     body:
       encoding: UTF-8
-      string: '{"model":"gpt-3.5-turbo","messages":[{"role":"system","content":"You
+      string: '{"model":"gpt-4o-mini","messages":[{"role":"system","content":"You
         are a helpful assistant, in french"},{"role":"user","content":"Say \"hello\"
         using the fewest words possible"}],"temperature":0.5,"top_p":0.7,"max_tokens":4096,"stream":false}'
     headers:
@@ -23,7 +23,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Tue, 04 Mar 2025 18:11:17 GMT
+      - Tue, 04 Mar 2025 22:07:41 GMT
       Content-Type:
       - application/json
       Access-Control-Expose-Headers:
@@ -31,7 +31,7 @@ http_interactions:
       Openai-Organization:
       - user-dbo8z2rplqvawlgh9fui5zcm
       Openai-Processing-Ms:
-      - '231'
+      - '218'
       Openai-Version:
       - '2020-10-01'
       X-Ratelimit-Limit-Requests:
@@ -39,31 +39,31 @@ http_interactions:
       X-Ratelimit-Limit-Tokens:
       - '200000'
       X-Ratelimit-Remaining-Requests:
-      - '9998'
+      - '9996'
       X-Ratelimit-Remaining-Tokens:
-      - '195903'
+      - '195881'
       X-Ratelimit-Reset-Requests:
-      - 16.848s
+      - 31.299s
       X-Ratelimit-Reset-Tokens:
-      - 1.228s
+      - 1.235s
       X-Request-Id:
-      - req_21040b58ed9d97a1d1990df1ea0da63e
+      - req_3dd326f9146caef743f276c207b06ccf
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=weg8kYCyGChLKS35PpLTf6_yq3UVJ_fOpaZS.0ffFzU-1741111877-1.0.1.1-UfKkAKpOvMByBcK_7QCcTAsGwJZew4KAmFXI.390.XEZuC6IfEUn7wNi65pxi3AuTtLLNfUxaxTvYp2196PXRhOE0B3bkQvvoj9vABxCrYQ;
-        path=/; expires=Tue, 04-Mar-25 18:41:17 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=IUQ3JSaf_t5aPramfK3wWuZKHiSDZ.vAs_CoA22C2fc-1741126061-1.0.1.1-IFwYdeQSBD97iK8O8SSIkNCVES7EhxikxmdSGK6HWOYfRSv1lwW2QnAtdZwcmVyImfJ8SD.FXVCGub.5A0jvn4y4VxKgN.0B.NOb0Nt5KJ0;
+        path=/; expires=Tue, 04-Mar-25 22:37:41 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=zqgwZJLK51OeeQf33oaE0v6p4uvPH1F02cZRSMVV.v4-1741111877040-0.0.1.1-604800000;
+      - _cfuvid=xzoGwcYhHLMzoXH5seQZ1wd6ZNmlP8UDIv8hG1ugQEA-1741126061638-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       X-Content-Type-Options:
       - nosniff
       Server:
       - cloudflare
       Cf-Ray:
-      - 91b355cd49055083-ATL
+      - 91b4b01b2c001d7e-ATL
       Content-Encoding:
       - br
       Alt-Svc:
@@ -72,16 +72,16 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |
         {
-          "id": "chatcmpl-B7R1YPM3SNoTwzT4sRfDqBbPC7xRE",
+          "id": "chatcmpl-B7UiLVqiCcUWB33AKDACbIeUz4FBC",
           "object": "chat.completion",
-          "created": 1741111876,
-          "model": "gpt-3.5-turbo-0125",
+          "created": 1741126061,
+          "model": "gpt-4o-mini-2024-07-18",
           "choices": [
             {
               "index": 0,
               "message": {
                 "role": "assistant",
-                "content": "Bonjour",
+                "content": "Salut.",
                 "refusal": null
               },
               "logprobs": null,
@@ -90,8 +90,8 @@ http_interactions:
           ],
           "usage": {
             "prompt_tokens": 29,
-            "completion_tokens": 2,
-            "total_tokens": 31,
+            "completion_tokens": 3,
+            "total_tokens": 32,
             "prompt_tokens_details": {
               "cached_tokens": 0,
               "audio_tokens": 0
@@ -104,7 +104,7 @@ http_interactions:
             }
           },
           "service_tier": "default",
-          "system_fingerprint": null
+          "system_fingerprint": "fp_06737a9306"
         }
-  recorded_at: Tue, 04 Mar 2025 18:11:17 GMT
+  recorded_at: Tue, 04 Mar 2025 22:07:41 GMT
 recorded_with: VCR 6.3.1

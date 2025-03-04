@@ -32,12 +32,12 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 04 Mar 2025 18:05:15 GMT
+      - Tue, 04 Mar 2025 22:07:37 GMT
       Transfer-Encoding:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"chatcmpl-224","object":"chat.completion","created":1741111515,"model":"llama3.2:latest","system_fingerprint":"fp_ollama","choices":[{"index":0,"message":{"role":"assistant","content":"```\n{\n  \"type\":
+      string: '{"id":"chatcmpl-260","object":"chat.completion","created":1741126057,"model":"llama3.2:latest","system_fingerprint":"fp_ollama","choices":[{"index":0,"message":{"role":"assistant","content":"```\n{\n  \"type\":
         \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\"\n    },\n    \"authors\":
         {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    },\n    \"abstract\":
         {\n      \"type\": \"string\"\n    },\n    \"keywords\": {\n      \"type\":
@@ -103,5 +103,5 @@ http_interactions:
         quantum information science.\"\n    }\n  ]\n}\n```"},"finish_reason":"stop"}],"usage":{"prompt_tokens":191,"completion_tokens":1121,"total_tokens":1312}}
 
         '
-  recorded_at: Tue, 04 Mar 2025 18:05:15 GMT
+  recorded_at: Tue, 04 Mar 2025 22:07:37 GMT
 recorded_with: VCR 6.3.1

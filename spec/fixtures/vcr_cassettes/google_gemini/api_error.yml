@@ -28,7 +28,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Tue, 04 Mar 2025 18:06:49 GMT
+      - Tue, 04 Mar 2025 22:07:27 GMT
       Server:
       - scaffolding on HTTPServer2
       X-Xss-Protection:
@@ -38,7 +38,7 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       Server-Timing:
-      - gfet4t7; dur=30
+      - gfet4t7; dur=31
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Transfer-Encoding:
@@ -68,5 +68,5 @@ http_interactions:
             ]
           }
         }
-  recorded_at: Tue, 04 Mar 2025 18:06:49 GMT
+  recorded_at: Tue, 04 Mar 2025 22:07:27 GMT
 recorded_with: VCR 6.3.1

@@ -20,6 +20,9 @@ end
 group :test do
   gem 'dotenv', '~> 2.8'
   gem 'pry-byebug', '~> 3.10'
+  gem 'ostruct'
+  gem 'reline'
+  gem 'irb'
   gem 'rspec', '~> 3.12'
   gem 'simplecov', '~> 0.22.0', require: false
   gem 'vcr'

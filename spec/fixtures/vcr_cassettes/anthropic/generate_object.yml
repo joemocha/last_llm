@@ -29,7 +29,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Tue, 04 Mar 2025 18:06:39 GMT
+      - Tue, 04 Mar 2025 22:07:42 GMT
       Content-Type:
       - application/json
       Anthropic-Ratelimit-Requests-Limit:
@@ -37,27 +37,27 @@ http_interactions:
       Anthropic-Ratelimit-Requests-Remaining:
       - '999'
       Anthropic-Ratelimit-Requests-Reset:
-      - '2025-03-04T18:06:38Z'
+      - '2025-03-04T22:07:42Z'
       Anthropic-Ratelimit-Input-Tokens-Limit:
       - '100000'
       Anthropic-Ratelimit-Input-Tokens-Remaining:
       - '100000'
       Anthropic-Ratelimit-Input-Tokens-Reset:
-      - '2025-03-04T18:06:39Z'
+      - '2025-03-04T22:07:42Z'
       Anthropic-Ratelimit-Output-Tokens-Limit:
       - '20000'
       Anthropic-Ratelimit-Output-Tokens-Remaining:
       - '20000'
       Anthropic-Ratelimit-Output-Tokens-Reset:
-      - '2025-03-04T18:06:39Z'
+      - '2025-03-04T22:07:42Z'
       Anthropic-Ratelimit-Tokens-Limit:
       - '120000'
       Anthropic-Ratelimit-Tokens-Remaining:
       - '120000'
       Anthropic-Ratelimit-Tokens-Reset:
-      - '2025-03-04T18:06:39Z'
+      - '2025-03-04T22:07:42Z'
       Request-Id:
-      - req_0151YF2Ud78ihrDtvjuitnhp
+      - req_01C3RrEiDKAWX28JY8yPqzjz
       Anthropic-Organization-Id:
       - d71db89e-12c3-43b2-aacd-1a48746332cd
       Via:
@@ -69,12 +69,12 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 91b34f004b6ebad4-ATL
+      - 91b4b0203acfbcb0-ATL
       Content-Encoding:
       - gzip
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"msg_01KFkrVKTCZEbvwGfBByZQm7","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"{\n  \"name\":
+      string: '{"id":"msg_012331NLVDPPSbW9p7YFdLvm","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"{\n  \"name\":
         \"John Doe\",\n  \"age\": 30\n}"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":131,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":23}}'
-  recorded_at: Tue, 04 Mar 2025 18:06:39 GMT
+  recorded_at: Tue, 04 Mar 2025 22:07:42 GMT
 recorded_with: VCR 6.3.1

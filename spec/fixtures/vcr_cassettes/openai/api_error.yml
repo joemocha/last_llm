@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.openai.com/v1/chat/completions
     body:
       encoding: UTF-8
-      string: '{"model":"gpt-3.5-turbo","messages":[{"role":"user","content":"Hello,
+      string: '{"model":"gpt-4o-mini","messages":[{"role":"user","content":"Hello,
         world!"}],"temperature":0.5,"top_p":0.7,"max_tokens":4096,"stream":false}'
     headers:
       User-Agent:
@@ -22,7 +22,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Tue, 04 Mar 2025 18:11:16 GMT
+      - Tue, 04 Mar 2025 22:07:41 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -30,23 +30,23 @@ http_interactions:
       Vary:
       - Origin
       X-Request-Id:
-      - req_b44788f5330a8827a156cc0f95be4de4
+      - req_c09cbef5ec599e427929d041ef2914bc
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=b5HbKDHFIq2Kgkq1H6pdvT2QBWuSzjcmtp1f498Ea.Y-1741111876-1.0.1.1-.ZrDcMNtWOu4hMT0vwM5qkvx8_wKUEdSp6mQtQgzirXcJL691ePxySpqW4oasHrBeYfduo8RgSRK78bsECH.rVZ5RbnNFIKSQaKxEsd5bpA;
-        path=/; expires=Tue, 04-Mar-25 18:41:16 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=PdAD.6cqIzA2eze7z2uk9Q.lpq_goLdDYJWEufyLh1Q-1741126061-1.0.1.1-uFec3GuDQrGgS38OMkixEmd52k1onZ.9tF6N19tKGktsKPJPCeFcU4cu_5SJwgPWPXn83YPzGoqAqyIbygWaxgS9_ExYLLxt6oy.5_RyfF4;
+        path=/; expires=Tue, 04-Mar-25 22:37:41 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=UaDGu__0tOKfESEOVgLNlrLhUWF1c2_BDV4EB5xUcgE-1741111876273-0.0.1.1-604800000;
+      - _cfuvid=Xezu_ACYU.upCAfS3JIeoCraB0raH5.DAK69NbD9pMU-1741126061300-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       X-Content-Type-Options:
       - nosniff
       Server:
       - cloudflare
       Cf-Ray:
-      - 91b355c9fcf85083-ATL
+      - 91b4b01a9b3c1d7e-ATL
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
@@ -60,5 +60,5 @@ http_interactions:
                 "code": "invalid_api_key"
             }
         }
-  recorded_at: Tue, 04 Mar 2025 18:11:16 GMT
+  recorded_at: Tue, 04 Mar 2025 22:07:41 GMT
 recorded_with: VCR 6.3.1

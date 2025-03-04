@@ -25,7 +25,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Tue, 04 Mar 2025 18:06:37 GMT
+      - Tue, 04 Mar 2025 22:07:48 GMT
       Content-Type:
       - application/json
       Anthropic-Ratelimit-Requests-Limit:
@@ -33,27 +33,27 @@ http_interactions:
       Anthropic-Ratelimit-Requests-Remaining:
       - '999'
       Anthropic-Ratelimit-Requests-Reset:
-      - '2025-03-04T18:06:36Z'
+      - '2025-03-04T22:07:47Z'
       Anthropic-Ratelimit-Input-Tokens-Limit:
       - '100000'
       Anthropic-Ratelimit-Input-Tokens-Remaining:
       - '100000'
       Anthropic-Ratelimit-Input-Tokens-Reset:
-      - '2025-03-04T18:06:36Z'
+      - '2025-03-04T22:07:47Z'
       Anthropic-Ratelimit-Output-Tokens-Limit:
       - '20000'
       Anthropic-Ratelimit-Output-Tokens-Remaining:
       - '20000'
       Anthropic-Ratelimit-Output-Tokens-Reset:
-      - '2025-03-04T18:06:37Z'
+      - '2025-03-04T22:07:48Z'
       Anthropic-Ratelimit-Tokens-Limit:
       - '120000'
       Anthropic-Ratelimit-Tokens-Remaining:
       - '120000'
       Anthropic-Ratelimit-Tokens-Reset:
-      - '2025-03-04T18:06:36Z'
+      - '2025-03-04T22:07:47Z'
       Request-Id:
-      - req_018ER1CTCLWX9NTKbJuGVuTj
+      - req_016xVuLAvLSeS4XnumRTFgzi
       Anthropic-Organization-Id:
       - d71db89e-12c3-43b2-aacd-1a48746332cd
       Via:
@@ -65,12 +65,12 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 91b34ef6ecacbad4-ATL
+      - 91b4b042dc3abcb0-ATL
       Content-Encoding:
       - gzip
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"msg_017peNA2FtVCwRv2e4BT1CZe","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"Salut
+      string: '{"id":"msg_01MmcywHFYveNzbzLMXWjv6W","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"Salut
         !"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":25,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":7}}'
-  recorded_at: Tue, 04 Mar 2025 18:06:37 GMT
+  recorded_at: Tue, 04 Mar 2025 22:07:48 GMT
 recorded_with: VCR 6.3.1

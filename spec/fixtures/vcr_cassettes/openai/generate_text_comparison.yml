@@ -5,8 +5,8 @@ http_interactions:
     uri: https://api.openai.com/v1/chat/completions
     body:
       encoding: UTF-8
-      string: '{"model":"gpt-3.5-turbo","messages":[{"role":"user","content":"Say
-        \"hello\" using the fewest words possible"}],"temperature":0.5,"top_p":0.7,"max_tokens":4096,"stream":false}'
+      string: '{"model":"gpt-4o-mini","messages":[{"role":"user","content":"Say \"hello\"
+        using the fewest words possible"}],"temperature":0.5,"top_p":0.7,"max_tokens":4096,"stream":false}'
     headers:
       User-Agent:
       - Faraday v2.12.2
@@ -22,7 +22,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Tue, 04 Mar 2025 18:11:17 GMT
+      - Tue, 04 Mar 2025 22:07:42 GMT
       Content-Type:
       - application/json
       Access-Control-Expose-Headers:
@@ -30,7 +30,7 @@ http_interactions:
       Openai-Organization:
       - user-dbo8z2rplqvawlgh9fui5zcm
       Openai-Processing-Ms:
-      - '263'
+      - '222'
       Openai-Version:
       - '2020-10-01'
       X-Ratelimit-Limit-Requests:
@@ -38,31 +38,31 @@ http_interactions:
       X-Ratelimit-Limit-Tokens:
       - '200000'
       X-Ratelimit-Remaining-Requests:
-      - '9997'
+      - '9995'
       X-Ratelimit-Remaining-Tokens:
-      - '195903'
+      - '195891'
       X-Ratelimit-Reset-Requests:
-      - 25.133s
+      - 39.589s
       X-Ratelimit-Reset-Tokens:
-      - 1.228s
+      - 1.232s
       X-Request-Id:
-      - req_9df0b9ab7844713b3f27469db4c73799
+      - req_edd9edeef9556a0c7943a81e66291353
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=AQaEmPtb5DPf0vp_lu2c4d5nNSdkANDK0._dszzV1Z0-1741111877-1.0.1.1-P7aJN9YltFyuBbcneUEaTsdA0rv819lVs5Syn_7jjIhzPGMgVCcLLRCKepo9DYB5t05Gy7WaBrnhHBjEngJ6g3C0HowBMoCxnk0KuJB3RwY;
-        path=/; expires=Tue, 04-Mar-25 18:41:17 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=0fvHnqsapD3pSf2RkQTa85TAfSYYUAv95a3JBOghBAQ-1741126062-1.0.1.1-3fo2WiSZ1shyW59IVnbMbDm4QBpn1KYJdwD6v7lo8SnBD7Mef3v7zPlOzPV.0zdL6FwDbxK8Dn7Pjwat61Wb7wu6itwM6uS0dc1BHTmStig;
+        path=/; expires=Tue, 04-Mar-25 22:37:42 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=hH6RoZsGVculLVZnF8ocL4V.VkKATICjvocogBKE0lY-1741111877424-0.0.1.1-604800000;
+      - _cfuvid=6r7IBfqdLJ1BUY.M8KjscBMnFv1hBLoQ3ZPwem0T_s4-1741126062024-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       X-Content-Type-Options:
       - nosniff
       Server:
       - cloudflare
       Cf-Ray:
-      - 91b355cf9bcf5083-ATL
+      - 91b4b01d4f1e1d7e-ATL
       Content-Encoding:
       - br
       Alt-Svc:
@@ -71,16 +71,16 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |
         {
-          "id": "chatcmpl-B7R1Zlis2duLr1d0yEie77LeqUYcl",
+          "id": "chatcmpl-B7UiL2yxPSIzqkPu5Tstv9gDmVv7i",
           "object": "chat.completion",
-          "created": 1741111877,
-          "model": "gpt-3.5-turbo-0125",
+          "created": 1741126061,
+          "model": "gpt-4o-mini-2024-07-18",
           "choices": [
             {
               "index": 0,
               "message": {
                 "role": "assistant",
-                "content": "Hi",
+                "content": "Hi!",
                 "refusal": null
               },
               "logprobs": null,
@@ -89,8 +89,8 @@ http_interactions:
           ],
           "usage": {
             "prompt_tokens": 17,
-            "completion_tokens": 2,
-            "total_tokens": 19,
+            "completion_tokens": 3,
+            "total_tokens": 20,
             "prompt_tokens_details": {
               "cached_tokens": 0,
               "audio_tokens": 0
@@ -103,7 +103,7 @@ http_interactions:
             }
           },
           "service_tier": "default",
-          "system_fingerprint": null
+          "system_fingerprint": "fp_06737a9306"
         }
-  recorded_at: Tue, 04 Mar 2025 18:11:17 GMT
+  recorded_at: Tue, 04 Mar 2025 22:07:42 GMT
 recorded_with: VCR 6.3.1

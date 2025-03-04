@@ -5,8 +5,8 @@ http_interactions:
     uri: https://api.openai.com/v1/chat/completions
     body:
       encoding: UTF-8
-      string: '{"model":"gpt-4","messages":[{"role":"system","content":"You are a
-        helpful assistant that responds with valid JSON."},{"role":"user","content":"Create
+      string: '{"model":"gpt-4o-mini","messages":[{"role":"system","content":"You
+        are a helpful assistant that responds with valid JSON."},{"role":"user","content":"Create
         a research paper about quantum algorithms\n\nRespond with valid JSON that
         matches the following schema:\n\n{\n  \"type\": \"object\",\n  \"properties\":
         {\n    \"title\": {\n      \"type\": \"string\"\n    },\n    \"authors\":
@@ -26,65 +26,92 @@ http_interactions:
       - ''
   response:
     status:
-      code: 400
+      code: 200
       message: ''
     headers:
       Date:
-      - Tue, 04 Mar 2025 18:11:16 GMT
+      - Tue, 04 Mar 2025 22:07:40 GMT
       Content-Type:
       - application/json
-      Content-Length:
-      - '217'
       Access-Control-Expose-Headers:
       - X-Request-ID
       Openai-Organization:
       - user-dbo8z2rplqvawlgh9fui5zcm
       Openai-Processing-Ms:
-      - '21'
+      - '2096'
       Openai-Version:
       - '2020-10-01'
       X-Ratelimit-Limit-Requests:
       - '10000'
       X-Ratelimit-Limit-Tokens:
-      - '10000'
+      - '200000'
       X-Ratelimit-Remaining-Requests:
-      - '9999'
+      - '9998'
       X-Ratelimit-Remaining-Tokens:
-      - '1828'
+      - '191827'
       X-Ratelimit-Reset-Requests:
-      - 8.64s
+      - 16.849s
       X-Ratelimit-Reset-Tokens:
-      - 49.032s
+      - 2.451s
       X-Request-Id:
-      - req_4ef94cd24a96da84367af2d92e830f91
+      - req_edc3ee40fdedab8627ca0b195f6500d0
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=FzOucMIeK9BOZaoZmlG6ZsTZsLjbC5yw8NBD9Bt7yE4-1741111876-1.0.1.1-X3u666M6F1Nhoi5b3T2qjtv9Mc.gW61ykPOOJoHExjAR4FnYG5OioZPc2ZfXjh2TtQaJS3swB28msX9PrmLtWCh5Up.53KrmJ6LzUFkcTVw;
-        path=/; expires=Tue, 04-Mar-25 18:41:16 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=VaSB3nPhFzq5K2yQtY5ZrwNIqxZ4osxXwwpwZkm4Mok-1741126060-1.0.1.1-OpV_7BhA3IWcEfDnAB99k72qWEJAk.An401c4oyFrIOYMo3ZOoROaaxV9czYEMi3GZg83OklnOyLeiO5SuRLHsYbR6i9oUi94ESv6f.hYGQ;
+        path=/; expires=Tue, 04-Mar-25 22:37:40 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=vOE27.9s1TZPnsCU0NI5jQJFPIEMsdj2dhflEDTSjiQ-1741111876024-0.0.1.1-604800000;
+      - _cfuvid=0v9t6J9YJqTzxa7nCtZKXFO11iwLl3XWglAJVCDm5eY-1741126060685-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       X-Content-Type-Options:
       - nosniff
       Server:
       - cloudflare
       Cf-Ray:
-      - 91b355c83a885083-ATL
+      - 91b4b0097a351d7e-ATL
+      Content-Encoding:
+      - br
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: |-
+      string: |
         {
-          "error": {
-            "message": "Invalid parameter: 'response_format' of type 'json_object' is not supported with this model.",
-            "type": "invalid_request_error",
-            "param": "response_format",
-            "code": null
-          }
+          "id": "chatcmpl-B7UiIfYi14iXpK0u1fssVcQKO45bj",
+          "object": "chat.completion",
+          "created": 1741126058,
+          "model": "gpt-4o-mini-2024-07-18",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"title\": \"Exploring Quantum Algorithms: Principles and Applications\",\n  \"authors\": [\n    \"Alice Johnson\",\n    \"Bob Smith\",\n    \"Charlie Davis\"\n  ],\n  \"abstract\": \"Quantum algorithms leverage the principles of quantum mechanics to perform computations that are infeasible for classical algorithms. This paper provides an overview of key quantum algorithms, including Shor's algorithm for integer factorization, Grover's algorithm for unstructured search, and the Quantum Fourier Transform. We discuss their theoretical foundations, potential applications in cryptography, optimization, and machine learning, and the challenges faced in their implementation on quantum hardware. The future of quantum computing and its implications for various fields are also examined.\",\n  \"keywords\": [\n    \"quantum algorithms\",\n    \"quantum computing\",\n    \"Shor's algorithm\",\n    \"Grover's algorithm\",\n    \"quantum mechanics\",\n    \"cryptography\",\n    \"optimization\",\n    \"machine learning\"\n  ]\n}",
+                "refusal": null
+              },
+              "logprobs": null,
+              "finish_reason": "stop"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 177,
+            "completion_tokens": 195,
+            "total_tokens": 372,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          "service_tier": "default",
+          "system_fingerprint": "fp_06737a9306"
         }
-  recorded_at: Tue, 04 Mar 2025 18:11:16 GMT
+  recorded_at: Tue, 04 Mar 2025 22:07:40 GMT
 recorded_with: VCR 6.3.1

@@ -10,6 +10,7 @@ require 'dotenv/load'
 require 'last_llm'
 require 'vcr'
 require 'webmock/rspec'
+require 'pry-byebug'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

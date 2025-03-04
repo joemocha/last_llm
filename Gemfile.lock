@@ -27,6 +27,7 @@ GEM
     crack (1.0.0)
       bigdecimal
       rexml
+    date (3.4.1)
     diff-lcs (1.6.0)
     docile (1.4.1)
     dotenv (2.8.1)
@@ -89,6 +90,11 @@ GEM
     hashdiff (1.1.2)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
+    io-console (0.8.0)
+    irb (1.15.1)
+      pp (>= 0.6.0)
+      rdoc (>= 4.0.0)
+      reline (>= 0.4.2)
     json (2.10.1)
     language_server-protocol (3.17.0.4)
     lint_roller (1.1.0)
@@ -97,21 +103,32 @@ GEM
     minitest (5.25.4)
     net-http (0.6.0)
       uri
+    ostruct (0.6.1)
     parallel (1.26.3)
     parser (3.3.7.1)
       ast (~> 2.4.1)
       racc
+    pp (0.6.2)
+      prettyprint
+    prettyprint (0.2.0)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
     pry-byebug (3.10.1)
       byebug (~> 11.0)
       pry (>= 0.13, < 0.15)
+    psych (5.2.3)
+      date
+      stringio
     public_suffix (6.0.1)
     racc (1.8.1)
     rainbow (3.1.1)
     rake (13.2.1)
+    rdoc (6.12.0)
+      psych (>= 4.0.0)
     regexp_parser (2.10.0)
+    reline (0.6.0)
+      io-console (~> 0.5)
     rexml (3.4.1)
     rspec (3.13.0)
       rspec-core (~> 3.13.0)
@@ -147,6 +164,7 @@ GEM
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.13.1)
     simplecov_json_formatter (0.1.4)
+    stringio (3.1.5)
     typhoeus (1.4.1)
       ethon (>= 0.9.0)
     tzinfo (2.0.6)
@@ -184,8 +202,11 @@ DEPENDENCIES
   dry-schema (~> 1.6)
   faraday
   faraday-typhoeus
+  irb
+  ostruct
   pry-byebug (~> 3.10)
   rake (~> 13.0)
+  reline
   rspec (~> 3.12)
   rubocop (~> 1.50)
   simplecov (~> 0.22.0)

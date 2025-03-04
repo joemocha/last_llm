@@ -1,0 +1,37 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://172.17.0.1:11434/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"invalid-model","messages":[{"role":"user","content":"Say
+        \"hello\" using the fewest words possible"}],"temperature":0.0,"stream":false}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      Authorization:
+      - Bearer <OLLAMA_API_KEY>
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 04 Mar 2025 07:12:31 GMT
+      Content-Length:
+      - '124'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"error":{"message":"model \"invalid-model\" not found, try pulling
+        it first","type":"api_error","param":null,"code":null}}
+
+        '
+  recorded_at: Tue, 04 Mar 2025 07:12:31 GMT
+recorded_with: VCR 6.3.1

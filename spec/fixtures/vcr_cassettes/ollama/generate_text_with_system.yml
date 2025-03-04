@@ -1,0 +1,38 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://172.17.0.1:11434/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"llama3.2:latest","messages":[{"role":"system","content":"You
+        are a helpful assistant, in french"},{"role":"user","content":"Say \"hello\"
+        using the fewest words possible"}],"temperature":0.0,"stream":false}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      Authorization:
+      - Bearer <OLLAMA_API_KEY>
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 04 Mar 2025 07:12:31 GMT
+      Content-Length:
+      - '296'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"chatcmpl-961","object":"chat.completion","created":1741072351,"model":"llama3.2:latest","system_fingerprint":"fp_ollama","choices":[{"index":0,"message":{"role":"assistant","content":"Salut
+        !"},"finish_reason":"stop"}],"usage":{"prompt_tokens":43,"completion_tokens":4,"total_tokens":47}}
+
+        '
+  recorded_at: Tue, 04 Mar 2025 07:12:31 GMT
+recorded_with: VCR 6.3.1

@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://172.17.0.1:11434/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"llama3.2:latest","messages":[{"role":"system","content":"You
+        are a helpful assistant that responds with valid JSON."},{"role":"user","content":"Create
+        a profile for John Doe, age 30\n\nRespond with valid JSON that matches the
+        following schema:\n\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"name\":
+        {\n      \"type\": \"string\"\n    },\n    \"age\": {\n      \"type\": \"integer\"\n    }\n  },\n  \"required\":
+        [\n    \"name\",\n    \"age\"\n  ]\n}\n\nEnsure your response is a valid JSON
+        object that strictly follows this schema.\n"}],"temperature":0.0,"stream":false}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      Authorization:
+      - Bearer <OLLAMA_API_KEY>
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 04 Mar 2025 07:12:32 GMT
+      Content-Length:
+      - '594'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"chatcmpl-898","object":"chat.completion","created":1741072352,"model":"llama3.2:latest","system_fingerprint":"fp_ollama","choices":[{"index":0,"message":{"role":"assistant","content":"```\n{\n  \"type\":
+        \"object\",\n  \"properties\": {\n    \"name\": {\n      \"type\": \"string\"\n    },\n    \"age\":
+        {\n      \"type\": \"integer\"\n    }\n  },\n  \"required\": [\n    \"name\",\n    \"age\"\n  ],\n  \"additionalProperties\":
+        false,\n  \"name\": \"John Doe\",\n  \"age\": 30\n}\n```"},"finish_reason":"stop"}],"usage":{"prompt_tokens":130,"completion_tokens":85,"total_tokens":215}}
+
+        '
+  recorded_at: Tue, 04 Mar 2025 07:12:32 GMT
+recorded_with: VCR 6.3.1

@@ -1,0 +1,71 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://172.17.0.1:11434/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"llama3.2:latest","messages":[{"role":"system","content":"You
+        are a helpful assistant that responds with valid JSON."},{"role":"user","content":"Create
+        a research paper about quantum algorithms\n\nRespond with valid JSON that
+        matches the following schema:\n\n{\n  \"type\": \"object\",\n  \"properties\":
+        {\n    \"title\": {\n      \"type\": \"string\"\n    },\n    \"authors\":
+        {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    },\n    \"abstract\":
+        {\n      \"type\": \"string\"\n    },\n    \"keywords\": {\n      \"type\":
+        \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    }\n  },\n  \"required\":
+        [\n    \"title\",\n    \"authors\",\n    \"abstract\",\n    \"keywords\"\n  ]\n}\n\nEnsure
+        your response is a valid JSON object that strictly follows this schema.\n"}],"temperature":0.0,"stream":false}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      Authorization:
+      - Bearer <OLLAMA_API_KEY>
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 04 Mar 2025 07:12:34 GMT
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"chatcmpl-78","object":"chat.completion","created":1741072354,"model":"llama3.2:latest","system_fingerprint":"fp_ollama","choices":[{"index":0,"message":{"role":"assistant","content":"```\n{\n  \"type\":
+        \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\"\n    },\n    \"authors\":
+        {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    },\n    \"abstract\":
+        {\n      \"type\": \"string\"\n    },\n    \"keywords\": {\n      \"type\":
+        \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    }\n  },\n  \"required\":
+        [\n    \"title\",\n    \"authors\",\n    \"abstract\",\n    \"keywords\"\n  ],\n  \"content\":
+        {\n    \"type\": \"object\",\n    \"properties\": {\n      \"introduction\":
+        {\n        \"type\": \"string\"\n      },\n      \"background\": {\n        \"type\":
+        \"string\"\n      },\n      \"quantum_algorithm_types\": {\n        \"type\":
+        \"array\",\n        \"items\": {\n          \"type\": \"string\"\n        }\n      },\n      \"advantages\":
+        {\n        \"type\": \"array\",\n        \"items\": {\n          \"type\":
+        \"string\"\n        }\n      },\n      \"disadvantages\": {\n        \"type\":
+        \"array\",\n        \"items\": {\n          \"type\": \"string\"\n        }\n      },\n      \"future_directions\":
+        {\n        \"type\": \"array\",\n        \"items\": {\n          \"type\":
+        \"string\"\n        }\n      },\n      \"conclusion\": {\n        \"type\":
+        \"string\"\n      }\n    },\n    \"required\": [\n      \"introduction\",\n      \"background\",\n      \"quantum_algorithm_types\",\n      \"advantages\",\n      \"disadvantages\",\n      \"future_directions\",\n      \"conclusion\"\n    ]\n  }\n}\n```\n\nThis
+        JSON object represents a research paper about quantum algorithms. It includes
+        the following sections:\n\n*   `title`: The title of the paper.\n*   `authors`:
+        An array of authors'' names.\n*   `abstract`: A brief summary of the paper''s
+        content.\n*   `keywords`: An array of relevant keywords.\n\nThe `content`
+        section is divided into several subsections, including:\n\n*   `introduction`:
+        An introduction to the topic of quantum algorithms.\n*   `background`: Background
+        information on the history and development of quantum computing.\n*   `quantum_algorithm_types`:
+        A list of different types of quantum algorithms.\n*   `advantages` and `disadvantages`:
+        The benefits and drawbacks of using quantum algorithms in various fields.\n*   `future_directions`:
+        Potential future developments and applications of quantum algorithms.\n*   `conclusion`:
+        A summary of the paper''s main points.\n\nEach subsection includes a brief
+        description or explanation, but the actual content is not included here."},"finish_reason":"stop"}],"usage":{"prompt_tokens":191,"completion_tokens":558,"total_tokens":749}}
+
+        '
+  recorded_at: Tue, 04 Mar 2025 07:12:34 GMT
+recorded_with: VCR 6.3.1

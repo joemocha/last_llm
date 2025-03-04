@@ -26,6 +26,8 @@ RSpec.describe LastLLM::Providers::OpenAI do
     end
   end
 
+  it_behaves_like "provider options handling"
+
   describe '#generate_text' do
     it 'returns text completion from OpenAI' do
       VCR.use_cassette('openai/generate_text', match_requests_on: [:method, :uri]) do

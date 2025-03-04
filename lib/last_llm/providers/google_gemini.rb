@@ -19,8 +19,8 @@ class GoogleGemini < LastLLM::Provider
           req.body = {
             contents: contents,
             generationConfig: {
-              temperature: options[:temperature] || 0.7,
               maxOutputTokens: options[:max_tokens],
+              temperature: options[:temperature] || 0.3,
               topP: options[:top_p] || 0.95,
               topK: options[:top_k] || 40
             }.compact

@@ -20,6 +20,8 @@ RSpec.describe LastLLM::Providers::GoogleGemini do
     end
   end
 
+  it_behaves_like "provider options handling"
+
   describe '#generate_text' do
     it 'returns text completion from Google Gemini' do
       VCR.use_cassette('google_gemini/generate_text', match_requests_on: [:method, :uri]) do

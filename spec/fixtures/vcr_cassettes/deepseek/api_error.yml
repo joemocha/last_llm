@@ -53,4 +53,57 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"error":{"message":"Authentication Fails (no such user)","type":"authentication_error","param":null,"code":"invalid_request_error"}}'
   recorded_at: Tue, 04 Mar 2025 14:58:10 GMT
+- request:
+    method: post
+    uri: https://api.deepseek.com/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"deepseek-chat","messages":[{"role":"user","content":"Say
+        \"hello\" using the fewest words possible"}],"temperature":0.5,"top_p":0.8,"stream":false}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      Authorization:
+      - Bearer invalid-key
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 401
+      message: ''
+    headers:
+      Date:
+      - Tue, 04 Mar 2025 16:19:54 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '133'
+      Set-Cookie:
+      - HWWAFSESID=b3abda96ed7439c35e; path=/
+      - HWWAFSESTIME=1741105190706; path=/
+      - __cf_bm=U6bdIuABGAdkGbLdaJlybH3_CqY78hrSaPZrZnWLuWg-1741105194-1.0.1.1-Haoi9d3OJAkoSwtyJ4Chxs6cPKAd45ClNfDT2xSTdsK_omYTmQgL92udwGmWBmEGiTMQqcmIRlm.i2WwhadLbe.wcaflqK7Q1XonJY5dMiE;
+        path=/; expires=Tue, 04-Mar-25 16:49:54 GMT; domain=.deepseek.com; HttpOnly;
+        Secure; SameSite=None
+      Vary:
+      - origin, access-control-request-method, access-control-request-headers
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Ds-Trace-Id:
+      - b0a6dd5f7f04f48565ab57b3fc4b6fbb
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 91b2b2a7cd10afa8-ATL
+    body:
+      encoding: ASCII-8BIT
+      string: '{"error":{"message":"Authentication Fails (no such user)","type":"authentication_error","param":null,"code":"invalid_request_error"}}'
+  recorded_at: Tue, 04 Mar 2025 16:19:54 GMT
 recorded_with: VCR 6.3.1

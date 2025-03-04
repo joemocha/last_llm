@@ -17,6 +17,8 @@ RSpec.describe LastLLM::Providers::Ollama do
     end
   end
 
+  it_behaves_like "provider options handling"
+
   describe '#generate_text' do
     it 'returns text completion from Ollama' do
       VCR.use_cassette('ollama/generate_text', match_requests_on: [:method, :uri]) do

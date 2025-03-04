@@ -73,4 +73,79 @@ http_interactions:
         Algorithms\",\n    \"Shor''s Algorithm\",\n    \"Grover''s Algorithm\",\n    \"Quantum
         Machine Learning\",\n    \"Quantum Optimization\"\n  ]\n}\n```"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":169,"completion_tokens":177,"total_tokens":346,"prompt_tokens_details":{"cached_tokens":128},"prompt_cache_hit_tokens":128,"prompt_cache_miss_tokens":41},"system_fingerprint":"fp_3a5770e1b4_prod0225"}'
   recorded_at: Tue, 04 Mar 2025 14:58:01 GMT
+- request:
+    method: post
+    uri: https://api.deepseek.com/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"deepseek-chat","messages":[{"role":"system","content":"You
+        are a helpful assistant that responds with valid JSON."},{"role":"user","content":"Create
+        a research paper about quantum algorithms\n\nRespond with valid JSON that
+        matches the following schema:\n\n{\n  \"type\": \"object\",\n  \"properties\":
+        {\n    \"title\": {\n      \"type\": \"string\"\n    },\n    \"authors\":
+        {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    },\n    \"abstract\":
+        {\n      \"type\": \"string\"\n    },\n    \"keywords\": {\n      \"type\":
+        \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    }\n  },\n  \"required\":
+        [\n    \"title\",\n    \"authors\",\n    \"abstract\",\n    \"keywords\"\n  ]\n}\n\nEnsure
+        your response is a valid JSON object that strictly follows this schema.\n"}],"temperature":0.5,"top_p":0.8,"stream":false}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      Authorization:
+      - Bearer <DEEPSEEK_API_KEY>
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Tue, 04 Mar 2025 16:19:32 GMT
+      Content-Type:
+      - application/json
+      Set-Cookie:
+      - HWWAFSESID=27b92a3dc1f7f12cf7; path=/
+      - HWWAFSESTIME=1741105168669; path=/
+      - __cf_bm=1cG_OexWKB2ceQ_TlVeKqWa8vwcAiK77bF8uAIf99gA-1741105172-1.0.1.1-AExoowzuw_eKmy3Sc8Ol..uOUCJmhCSufMSjt1iuplR4EjsJ10ybTOOXuxkiPi3QlkAzwpET_JZuFMwj2HqT_qz_jAHMpef_jqUeFInxwLE;
+        path=/; expires=Tue, 04-Mar-25 16:49:32 GMT; domain=.deepseek.com; HttpOnly;
+        Secure; SameSite=None
+      Vary:
+      - accept-encoding
+      - origin, access-control-request-method, access-control-request-headers
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Ds-Trace-Id:
+      - 6176c0b43b1aeda4cbb13fce8d8fa3a5
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Content-Encoding:
+      - gzip
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 91b2b21eaad2afa8-ATL
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"07893669-abfa-4f62-8d31-b9428cf322d1","object":"chat.completion","created":1741105172,"model":"deepseek-chat","choices":[{"index":0,"message":{"role":"assistant","content":"```json\n{\n  \"title\":
+        \"Advancements in Quantum Algorithms: A Comprehensive Review\",\n  \"authors\":
+        [\n    \"Dr. Alice Johnson\",\n    \"Prof. Bob Smith\",\n    \"Dr. Carol White\"\n  ],\n  \"abstract\":
+        \"This paper provides a detailed overview of the latest advancements in quantum
+        algorithms, focusing on their development, applications, and the challenges
+        faced in their implementation. We explore key algorithms such as Shor''s algorithm
+        for factoring and Grover''s algorithm for database searching, alongside newer
+        contributions that promise to revolutionize fields ranging from cryptography
+        to complex system simulations. The discussion extends to the implications
+        of quantum computing on computational complexity and the potential for quantum
+        supremacy. This review aims to serve as a foundational resource for researchers
+        and practitioners in the field of quantum computing.\",\n  \"keywords\": [\n    \"Quantum
+        Computing\",\n    \"Quantum Algorithms\",\n    \"Shor''s Algorithm\",\n    \"Grover''s
+        Algorithm\",\n    \"Quantum Supremacy\",\n    \"Computational Complexity\"\n  ]\n}\n```"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":169,"completion_tokens":204,"total_tokens":373,"prompt_tokens_details":{"cached_tokens":128},"prompt_cache_hit_tokens":128,"prompt_cache_miss_tokens":41},"system_fingerprint":"fp_3a5770e1b4_prod0225"}'
+  recorded_at: Tue, 04 Mar 2025 16:19:54 GMT
 recorded_with: VCR 6.3.1

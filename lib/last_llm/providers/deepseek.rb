@@ -18,6 +18,7 @@ class Deepseek < LastLLM::Provider
             model: options[:model] || 'deepseek-chat',
             messages: messages,
             temperature: options[:temperature] || 0.7,
+            top_p: options[:top_p] || 0.8,
             max_tokens: options[:max_tokens],
             stream: false
           }.compact
@@ -45,6 +46,7 @@ class Deepseek < LastLLM::Provider
             model: options[:model] || 'deepseek-chat',
             messages: messages,
             temperature: options[:temperature] || 0.2,
+            top_p: options[:top_p] || 0.8,
             stream: false
           }.compact
         end

@@ -18,6 +18,8 @@ class Ollama < LastLLM::Provider
             model: options[:model] || 'llama3.2:latest',
             messages: messages,
             temperature: options[:temperature] || 0.7,
+            top_p: options[:top_p] || 0.7,
+            max_tokens: options[:max_tokens] || 24576,
             stream: false
           }.compact
         end

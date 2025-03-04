@@ -20,7 +20,8 @@ class OpenAI < LastLLM::Provider
             model: options[:model] || 'gpt-3.5-turbo',
             messages: messages,
             temperature: options[:temperature] || 0.7,
-            max_tokens: options[:max_tokens],
+            top_p: options[:top_p] || 0.7,
+            max_tokens: options[:max_tokens] || 24576,
             stream: false
           }.compact
         end

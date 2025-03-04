@@ -77,4 +77,213 @@ http_interactions:
       string: '{"id":"msg_015ohZaDc3Ay9uuyt9z6xwkQ","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"{\n  \"name\":
         \"John Doe\",\n  \"age\": 30\n}"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":131,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":23}}'
   recorded_at: Tue, 04 Mar 2025 07:03:35 GMT
+- request:
+    method: post
+    uri: https://api.anthropic.com/v1/messages
+    body:
+      encoding: UTF-8
+      string: '{"model":"claude-3-5-haiku-latest","messages":[{"role":"user","content":"Create
+        a profile for John Doe, age 30\n\nRespond with valid JSON that matches the
+        following schema:\n\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"name\":
+        {\n      \"type\": \"string\"\n    },\n    \"age\": {\n      \"type\": \"integer\"\n    }\n  },\n  \"required\":
+        [\n    \"name\",\n    \"age\"\n  ]\n}\n\nEnsure your response is a valid JSON
+        object that strictly follows this schema.\n"}],"max_tokens":8192,"system":"You
+        are a helpful assistant that responds with valid JSON.","temperature":0.2,"top_p":0.2,"stream":false}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      X-Api-Key:
+      - "<ANTHROPIC_API_KEY>"
+      Anthropic-Version:
+      - '2023-06-01'
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Tue, 04 Mar 2025 16:06:34 GMT
+      Content-Type:
+      - application/json
+      Anthropic-Ratelimit-Requests-Limit:
+      - '1000'
+      Anthropic-Ratelimit-Requests-Remaining:
+      - '999'
+      Anthropic-Ratelimit-Requests-Reset:
+      - '2025-03-04T16:06:33Z'
+      Anthropic-Ratelimit-Input-Tokens-Limit:
+      - '100000'
+      Anthropic-Ratelimit-Input-Tokens-Remaining:
+      - '100000'
+      Anthropic-Ratelimit-Input-Tokens-Reset:
+      - '2025-03-04T16:06:33Z'
+      Anthropic-Ratelimit-Output-Tokens-Limit:
+      - '20000'
+      Anthropic-Ratelimit-Output-Tokens-Remaining:
+      - '20000'
+      Anthropic-Ratelimit-Output-Tokens-Reset:
+      - '2025-03-04T16:06:34Z'
+      Anthropic-Ratelimit-Tokens-Limit:
+      - '120000'
+      Anthropic-Ratelimit-Tokens-Remaining:
+      - '120000'
+      Anthropic-Ratelimit-Tokens-Reset:
+      - '2025-03-04T16:06:33Z'
+      Request-Id:
+      - req_01BdXQJEnFCfjP6XfQhmoooQ
+      Anthropic-Organization-Id:
+      - d71db89e-12c3-43b2-aacd-1a48746332cd
+      Via:
+      - 1.1 google
+      Cf-Cache-Status:
+      - DYNAMIC
+      X-Robots-Tag:
+      - none
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 91b29f187afdbfaa-ATL
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"msg_01SciWeNnSie1J3Tf2DxaxvE","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"{\n  \"name\":
+        \"John Doe\",\n  \"age\": 30\n}"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":131,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":23}}'
+  recorded_at: Tue, 04 Mar 2025 16:06:34 GMT
+- request:
+    method: post
+    uri: https://api.anthropic.com/v1/messages
+    body:
+      encoding: UTF-8
+      string: '{"model":"claude-3-5-haiku-latest","messages":[{"role":"user","content":"Create
+        a profile for John Doe, age 30\n\nRespond with valid JSON that matches the
+        following schema:\n\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"name\":
+        {\n      \"type\": \"string\"\n    },\n    \"age\": {\n      \"type\": \"integer\"\n    }\n  },\n  \"required\":
+        [\n    \"name\",\n    \"age\"\n  ]\n}\n\nEnsure your response is a valid JSON
+        object that strictly follows this schema.\n"}],"max_tokens":8192,"system":"You
+        are a helpful assistant that responds with valid JSON.","temperature":0.2,"top_p":0.8,"stream":false}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      X-Api-Key:
+      - "<ANTHROPIC_API_KEY>"
+      Anthropic-Version:
+      - '2023-06-01'
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Tue, 04 Mar 2025 16:14:26 GMT
+      Content-Type:
+      - application/json
+      Anthropic-Ratelimit-Requests-Limit:
+      - '1000'
+      Anthropic-Ratelimit-Requests-Remaining:
+      - '999'
+      Anthropic-Ratelimit-Requests-Reset:
+      - '2025-03-04T16:14:25Z'
+      Anthropic-Ratelimit-Input-Tokens-Limit:
+      - '100000'
+      Anthropic-Ratelimit-Input-Tokens-Remaining:
+      - '100000'
+      Anthropic-Ratelimit-Input-Tokens-Reset:
+      - '2025-03-04T16:14:25Z'
+      Anthropic-Ratelimit-Output-Tokens-Limit:
+      - '20000'
+      Anthropic-Ratelimit-Output-Tokens-Remaining:
+      - '20000'
+      Anthropic-Ratelimit-Output-Tokens-Reset:
+      - '2025-03-04T16:14:26Z'
+      Anthropic-Ratelimit-Tokens-Limit:
+      - '120000'
+      Anthropic-Ratelimit-Tokens-Remaining:
+      - '120000'
+      Anthropic-Ratelimit-Tokens-Reset:
+      - '2025-03-04T16:14:25Z'
+      Request-Id:
+      - req_01LGK3pxDfyQnrb6xrwcNWFv
+      Anthropic-Organization-Id:
+      - d71db89e-12c3-43b2-aacd-1a48746332cd
+      Via:
+      - 1.1 google
+      Cf-Cache-Status:
+      - DYNAMIC
+      X-Robots-Tag:
+      - none
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 91b2aaa1cc4a53d2-ATL
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"msg_01BUrw6723YRajaYtof9udd2","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"{\n  \"name\":
+        \"John Doe\",\n  \"age\": 30\n}"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":131,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":23}}'
+  recorded_at: Tue, 04 Mar 2025 16:14:26 GMT
+- request:
+    method: post
+    uri: https://api.anthropic.com/v1/messages
+    body:
+      encoding: UTF-8
+      string: '{"model":"claude-3-5-haiku-latest","messages":[{"role":"user","content":"Create
+        a profile for John Doe, age 30\n\nRespond with valid JSON that matches the
+        following schema:\n\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"name\":
+        {\n      \"type\": \"string\"\n    },\n    \"age\": {\n      \"type\": \"integer\"\n    }\n  },\n  \"required\":
+        [\n    \"name\",\n    \"age\"\n  ]\n}\n\nEnsure your response is a valid JSON
+        object that strictly follows this schema.\n"}],"max_tokens":24576,"system":"You
+        are a helpful assistant that responds with valid JSON.","temperature":0.2,"top_p":0.8,"stream":false}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      X-Api-Key:
+      - "<ANTHROPIC_API_KEY>"
+      Anthropic-Version:
+      - '2023-06-01'
+      Content-Type:
+      - application/json
+      Expect:
+      - ''
+  response:
+    status:
+      code: 400
+      message: ''
+    headers:
+      Date:
+      - Tue, 04 Mar 2025 16:18:17 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '178'
+      X-Should-Retry:
+      - 'false'
+      Request-Id:
+      - req_01QLc8oxmsKGuhe3Tq1WuPbc
+      Anthropic-Organization-Id:
+      - d71db89e-12c3-43b2-aacd-1a48746332cd
+      Via:
+      - 1.1 google
+      Cf-Cache-Status:
+      - DYNAMIC
+      X-Robots-Tag:
+      - none
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 91b2b04b1845b042-ATL
+    body:
+      encoding: ASCII-8BIT
+      string: '{"type":"error","error":{"type":"invalid_request_error","message":"max_tokens:
+        24576 > 8192, which is the maximum allowed number of output tokens for claude-3-5-haiku-20241022"}}'
+  recorded_at: Tue, 04 Mar 2025 16:18:17 GMT
 recorded_with: VCR 6.3.1

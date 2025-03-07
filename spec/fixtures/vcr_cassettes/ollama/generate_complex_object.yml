@@ -32,12 +32,12 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 07 Mar 2025 17:21:00 GMT
+      - Fri, 07 Mar 2025 20:53:28 GMT
       Transfer-Encoding:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"chatcmpl-688","object":"chat.completion","created":1741368060,"model":"llama3.2:latest","system_fingerprint":"fp_ollama","choices":[{"index":0,"message":{"role":"assistant","content":"```\n{\n  \"type\":
+      string: '{"id":"chatcmpl-628","object":"chat.completion","created":1741380808,"model":"llama3.2:latest","system_fingerprint":"fp_ollama","choices":[{"index":0,"message":{"role":"assistant","content":"```\n{\n  \"type\":
         \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\"\n    },\n    \"authors\":
         {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    },\n    \"abstract\":
         {\n      \"type\": \"string\"\n    },\n    \"keywords\": {\n      \"type\":
@@ -45,22 +45,27 @@ http_interactions:
         [\n    \"title\",\n    \"authors\",\n    \"abstract\",\n    \"keywords\"\n  ],\n  \"content\":
         {\n    \"type\": \"object\",\n    \"properties\": {\n      \"introduction\":
         {\n        \"type\": \"string\"\n      },\n      \"background\": {\n        \"type\":
-        \"string\"\n      },\n      \"quantum algorithms\": {\n        \"type\": \"array\",\n        \"items\":
-        {\n          \"type\": \"string\"\n        }\n      },\n      \"applications\":
+        \"string\"\n      },\n      \"quantum_algorithm_types\": {\n        \"type\":
+        \"array\",\n        \"items\": {\n          \"type\": \"string\"\n        }\n      },\n      \"advantages\":
+        {\n        \"type\": \"array\",\n        \"items\": {\n          \"type\":
+        \"string\"\n        }\n      },\n      \"disadvantages\": {\n        \"type\":
+        \"array\",\n        \"items\": {\n          \"type\": \"string\"\n        }\n      },\n      \"future_directions\":
         {\n        \"type\": \"array\",\n        \"items\": {\n          \"type\":
         \"string\"\n        }\n      },\n      \"conclusion\": {\n        \"type\":
-        \"string\"\n      },\n      \"references\": {\n        \"type\": \"array\",\n        \"items\":
-        {\n          \"type\": \"object\",\n          \"properties\": {\n            \"author\":
-        {\n              \"type\": \"string\"\n            },\n            \"title\":
-        {\n              \"type\": \"string\"\n            },\n            \"year\":
-        {\n              \"type\": \"integer\"\n            }\n          },\n          \"required\":
-        [\n            \"author\",\n            \"title\",\n            \"year\"\n          ]\n        }\n      }\n    },\n    \"required\":
-        [\n      \"introduction\",\n      \"background\",\n      \"quantum algorithms\",\n      \"applications\",\n      \"conclusion\",\n      \"references\"\n    ]\n  },\n  \"authors\":
-        [\n    {\n      \"name\": \"John Doe\",\n      \"affiliation\": \"University
-        of Example\"\n    },\n    {\n      \"name\": \"Jane Smith\",\n      \"affiliation\":
-        \"Institute of Research\"\n    }\n  ],\n  \"keywords\": [\n    \"quantum computing\",\n    \"quantum
-        algorithms\",\n    \"quantum information\",\n    \"quantum cryptography\"\n  ]\n}\n```"},"finish_reason":"stop"}],"usage":{"prompt_tokens":191,"completion_tokens":464,"total_tokens":655}}
+        \"string\"\n      }\n    },\n    \"required\": [\n      \"introduction\",\n      \"background\",\n      \"quantum_algorithm_types\",\n      \"advantages\",\n      \"disadvantages\",\n      \"future_directions\",\n      \"conclusion\"\n    ]\n  }\n}\n```\n\nThis
+        JSON object represents a research paper about quantum algorithms. It includes
+        the following sections:\n\n*   `title`: The title of the paper.\n*   `authors`:
+        An array of authors'' names.\n*   `abstract`: A brief summary of the paper''s
+        content.\n*   `keywords`: An array of relevant keywords.\n\nThe `content`
+        section is divided into several subsections, including:\n\n*   `introduction`:
+        An introduction to the topic of quantum algorithms.\n*   `background`: Background
+        information on the history and development of quantum computing.\n*   `quantum_algorithm_types`:
+        A list of different types of quantum algorithms.\n*   `advantages` and `disadvantages`:
+        The benefits and drawbacks of using quantum algorithms in various fields.\n*   `future_directions`:
+        Potential future developments and applications of quantum algorithms.\n*   `conclusion`:
+        A summary of the paper''s main points.\n\nEach subsection includes a brief
+        description or explanation, but the actual content is not included here."},"finish_reason":"stop"}],"usage":{"prompt_tokens":191,"completion_tokens":558,"total_tokens":749}}
 
         '
-  recorded_at: Fri, 07 Mar 2025 17:21:00 GMT
+  recorded_at: Fri, 07 Mar 2025 20:53:28 GMT
 recorded_with: VCR 6.3.1

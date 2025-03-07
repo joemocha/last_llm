@@ -24,7 +24,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Fri, 07 Mar 2025 17:21:03 GMT
+      - Fri, 07 Mar 2025 20:52:23 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -32,7 +32,7 @@ http_interactions:
       X-Should-Retry:
       - 'false'
       Request-Id:
-      - req_01HhaTzXriCnirEfRPD8Phup
+      - req_01AYJ5oFv6M8VzHH2fTX3Nyw
       Via:
       - 1.1 google
       Cf-Cache-Status:
@@ -42,10 +42,10 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 91cbc45d8fdf8bb8-ATL
+      - 91ccf9ed5e3b8bbc-ATL
     body:
       encoding: ASCII-8BIT
       string: '{"type":"error","error":{"type":"authentication_error","message":"invalid
         x-api-key"}}'
-  recorded_at: Fri, 07 Mar 2025 17:21:03 GMT
+  recorded_at: Fri, 07 Mar 2025 20:52:23 GMT
 recorded_with: VCR 6.3.1

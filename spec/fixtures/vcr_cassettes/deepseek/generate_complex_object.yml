@@ -30,21 +30,22 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Fri, 07 Mar 2025 17:21:39 GMT
+      - Fri, 07 Mar 2025 20:52:37 GMT
       Content-Type:
       - application/json
       Set-Cookie:
-      - HWWAFSESID=92b7997fd731e0154c; path=/
-      - HWWAFSESTIME=1741368098069; path=/
-      - __cf_bm=O1zjj1167q4J4VgmnTq.tCyTjmdS31PUk.C759XFSBk-1741368099-1.0.1.1-e8IkGMoe3i3KG46CiNGyhGHz68syWnlw3vmO98jTXlPs53k8Ws1.PegYeX.jo0hmQ0v6KP6MqIlkb90uhb4YQ6N.x3AkMfUbEVahsLu7uiQ;
-        path=/; expires=Fri, 07-Mar-25 17:51:39 GMT; domain=.deepseek.com; HttpOnly;
+      - HWWAFSESID=5543d97130eb190c4b; path=/
+      - HWWAFSESTIME=1741380755895; path=/
+      - __cf_bm=fnO7344avFQAzqwjKVixuuW6HUh1bAUasQFnn4R0gzQ-1741380757-1.0.1.1-QDu7cO2ZiWbljFb1.K91nFccP6Zuyv9GQ_4sLX3WlGdzeY7oaJb1zhAJWLoMHxPgTys7BVfot_wtDwfu6yktDGFVGIdsvwnyH7YDI9td.yQ;
+        path=/; expires=Fri, 07-Mar-25 21:22:37 GMT; domain=.deepseek.com; HttpOnly;
         Secure; SameSite=None
       Vary:
+      - accept-encoding
       - origin, access-control-request-method, access-control-request-headers
       Access-Control-Allow-Credentials:
       - 'true'
       X-Ds-Trace-Id:
-      - 421ec60fd97020241e93ffc938f84844
+      - b1b32a97d3a386fb5f8a799be3019937
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       X-Content-Type-Options:
@@ -56,10 +57,10 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 91cbc53bdf4cc016-ATL
+      - 91ccfa450949dd1c-ATL
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"b7e3b303-57b8-4043-9009-d52af6466a47","object":"chat.completion","created":1741368099,"model":"deepseek-chat","choices":[{"index":0,"message":{"role":"assistant","content":"```json\n{\n  \"title\":
+      string: '{"id":"7b6e0f8a-bf65-4911-b505-961ad60bf3e7","object":"chat.completion","created":1741380757,"model":"deepseek-chat","choices":[{"index":0,"message":{"role":"assistant","content":"```json\n{\n  \"title\":
         \"Advancements in Quantum Algorithms: A Comprehensive Review\",\n  \"authors\":
         [\n    \"Dr. Alice Johnson\",\n    \"Prof. Bob Smith\",\n    \"Dr. Carol White\"\n  ],\n  \"abstract\":
         \"This paper provides a comprehensive review of the latest advancements in
@@ -67,10 +68,12 @@ http_interactions:
         faced in their implementation. We explore key algorithms such as Shor''s algorithm
         for factoring and Grover''s algorithm for database search, alongside newer
         contributions that promise to revolutionize fields ranging from cryptography
-        to complex system simulation. The discussion extends to the practical limitations
-        imposed by current quantum computing technologies and the potential pathways
-        to overcoming these barriers.\",\n  \"keywords\": [\n    \"Quantum Computing\",\n    \"Quantum
-        Algorithms\",\n    \"Shor''s Algorithm\",\n    \"Grover''s Algorithm\",\n    \"Quantum
-        Cryptography\",\n    \"Complex System Simulation\"\n  ]\n}\n```"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":169,"completion_tokens":186,"total_tokens":355,"prompt_tokens_details":{"cached_tokens":128},"prompt_cache_hit_tokens":128,"prompt_cache_miss_tokens":41},"system_fingerprint":"fp_3a5770e1b4_prod0225"}'
-  recorded_at: Fri, 07 Mar 2025 17:21:53 GMT
+        to complex system simulations. The discussion extends to the implications
+        of quantum computing on computational complexity and the potential for quantum
+        supremacy. Through this review, we aim to provide a foundational understanding
+        of quantum algorithms and their impact on future technological landscapes.\",\n  \"keywords\":
+        [\n    \"Quantum Computing\",\n    \"Quantum Algorithms\",\n    \"Shor''s
+        Algorithm\",\n    \"Grover''s Algorithm\",\n    \"Quantum Supremacy\",\n    \"Computational
+        Complexity\"\n  ]\n}\n```"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":169,"completion_tokens":206,"total_tokens":375,"prompt_tokens_details":{"cached_tokens":128},"prompt_cache_hit_tokens":128,"prompt_cache_miss_tokens":41},"system_fingerprint":"fp_3a5770e1b4_prod0225"}'
+  recorded_at: Fri, 07 Mar 2025 20:52:50 GMT
 recorded_with: VCR 6.3.1

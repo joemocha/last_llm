@@ -32,7 +32,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Fri, 07 Mar 2025 17:21:09 GMT
+      - Fri, 07 Mar 2025 20:52:28 GMT
       Content-Type:
       - application/json
       Anthropic-Ratelimit-Requests-Limit:
@@ -40,27 +40,27 @@ http_interactions:
       Anthropic-Ratelimit-Requests-Remaining:
       - '999'
       Anthropic-Ratelimit-Requests-Reset:
-      - '2025-03-07T17:21:05Z'
+      - '2025-03-07T20:52:24Z'
       Anthropic-Ratelimit-Input-Tokens-Limit:
       - '100000'
       Anthropic-Ratelimit-Input-Tokens-Remaining:
       - '100000'
       Anthropic-Ratelimit-Input-Tokens-Reset:
-      - '2025-03-07T17:21:05Z'
+      - '2025-03-07T20:52:24Z'
       Anthropic-Ratelimit-Output-Tokens-Limit:
       - '20000'
       Anthropic-Ratelimit-Output-Tokens-Remaining:
       - '20000'
       Anthropic-Ratelimit-Output-Tokens-Reset:
-      - '2025-03-07T17:21:09Z'
+      - '2025-03-07T20:52:28Z'
       Anthropic-Ratelimit-Tokens-Limit:
       - '120000'
       Anthropic-Ratelimit-Tokens-Remaining:
       - '120000'
       Anthropic-Ratelimit-Tokens-Reset:
-      - '2025-03-07T17:21:05Z'
+      - '2025-03-07T20:52:24Z'
       Request-Id:
-      - req_013Yf1EANXP3Z4v3rBveCrAu
+      - req_01Ui4s8aMCxu5ZqBEseaidH7
       Anthropic-Organization-Id:
       - d71db89e-12c3-43b2-aacd-1a48746332cd
       Via:
@@ -72,26 +72,24 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 91cbc46978bb8bb8-ATL
+      - 91ccf9f468738bbc-ATL
       Content-Encoding:
       - gzip
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"msg_01CZ7hkXmgmcQuLnWzwH74iR","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"{\n    \"title\":
-        \"Quantum Algorithms: Principles, Advances, and Computational Implications\",\n    \"authors\":
-        [\n        \"Dr. Elena Rodriguez\",\n        \"Prof. Michael Chen\",\n        \"Dr.
-        Samantha Quantum\"\n    ],\n    \"abstract\": \"Quantum algorithms represent
-        a transformative approach to computational problem-solving, leveraging quantum
+      string: '{"id":"msg_016sQx5qa4HZb2sejHKtqS1S","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"{\n    \"title\":
+        \"Quantum Algorithms: Exploring Computational Advantages in Quantum Computing\",\n    \"authors\":
+        [\n        \"Dr. Elena Rodriguez\",\n        \"Dr. Michael Chen\",\n        \"Prof.
+        Sarah Quantum\"\n    ],\n    \"abstract\": \"Quantum algorithms represent
+        a revolutionary approach to computational problem-solving, leveraging quantum
         mechanical principles to achieve unprecedented computational efficiency. This
-        research paper explores the fundamental mechanisms of quantum algorithms,
-        examining key quantum computational models such as quantum Fourier transform,
-        Grover''s algorithm, and Shor''s algorithm. By analyzing their theoretical
-        foundations and practical applications, we demonstrate how quantum algorithms
-        can potentially solve complex computational problems exponentially faster
-        than classical algorithms, with significant implications for cryptography,
-        optimization, and scientific modeling.\",\n    \"keywords\": [\n        \"quantum
-        computing\",\n        \"quantum algorithms\",\n        \"quantum complexity
-        theory\",\n        \"quantum Fourier transform\",\n        \"computational
-        efficiency\",\n        \"quantum mechanics\",\n        \"algorithmic complexity\"\n    ]\n}"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":205,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":229}}'
-  recorded_at: Fri, 07 Mar 2025 17:21:09 GMT
+        research paper examines key quantum algorithms such as Shor''s algorithm for
+        factorization, Grover''s search algorithm, and quantum simulation techniques.
+        By analyzing their theoretical foundations and practical implementations,
+        we demonstrate how quantum computing can potentially solve complex computational
+        problems exponentially faster than classical algorithms.\",\n    \"keywords\":
+        [\n        \"quantum computing\",\n        \"quantum algorithms\",\n        \"quantum
+        complexity theory\",\n        \"computational efficiency\",\n        \"quantum
+        simulation\",\n        \"quantum parallelism\"\n    ]\n}"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":205,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":199}}'
+  recorded_at: Fri, 07 Mar 2025 20:52:28 GMT
 recorded_with: VCR 6.3.1

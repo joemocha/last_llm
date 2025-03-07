@@ -32,76 +32,35 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 04 Mar 2025 22:07:37 GMT
+      - Fri, 07 Mar 2025 16:59:09 GMT
       Transfer-Encoding:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"chatcmpl-260","object":"chat.completion","created":1741126057,"model":"llama3.2:latest","system_fingerprint":"fp_ollama","choices":[{"index":0,"message":{"role":"assistant","content":"```\n{\n  \"type\":
+      string: '{"id":"chatcmpl-680","object":"chat.completion","created":1741366749,"model":"llama3.2:latest","system_fingerprint":"fp_ollama","choices":[{"index":0,"message":{"role":"assistant","content":"```\n{\n  \"type\":
         \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\"\n    },\n    \"authors\":
         {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    },\n    \"abstract\":
         {\n      \"type\": \"string\"\n    },\n    \"keywords\": {\n      \"type\":
         \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    }\n  },\n  \"required\":
         [\n    \"title\",\n    \"authors\",\n    \"abstract\",\n    \"keywords\"\n  ],\n  \"content\":
         {\n    \"type\": \"object\",\n    \"properties\": {\n      \"introduction\":
-        {\n        \"type\": \"string\"\n      },\n      \"quantum_computing_background\":
-        {\n        \"type\": \"string\"\n      },\n      \"quantum_algorithms\": {\n        \"type\":
-        \"array\",\n        \"items\": {\n          \"type\": \"object\",\n          \"properties\":
-        {\n            \"name\": {\n              \"type\": \"string\"\n            },\n            \"description\":
-        {\n              \"type\": \"string\"\n            },\n            \"complexity\":
-        {\n              \"type\": \"string\"\n            }\n          },\n          \"required\":
-        [\n            \"name\",\n            \"description\",\n            \"complexity\"\n          ]\n        }\n      },\n      \"applications\":
+        {\n        \"type\": \"string\"\n      },\n      \"background\": {\n        \"type\":
+        \"string\"\n      },\n      \"quantum algorithms\": {\n        \"type\": \"array\",\n        \"items\":
+        {\n          \"type\": \"string\"\n        }\n      },\n      \"applications\":
         {\n        \"type\": \"array\",\n        \"items\": {\n          \"type\":
-        \"object\",\n          \"properties\": {\n            \"application\": {\n              \"type\":
-        \"string\"\n            },\n            \"description\": {\n              \"type\":
-        \"string\"\n            }\n          },\n          \"required\": [\n            \"application\",\n            \"description\"\n          ]\n        }\n      },\n      \"future_directions\":
-        {\n        \"type\": \"array\",\n        \"items\": {\n          \"type\":
-        \"object\",\n          \"properties\": {\n            \"direction\": {\n              \"type\":
-        \"string\"\n            },\n            \"description\": {\n              \"type\":
-        \"string\"\n            }\n          },\n          \"required\": [\n            \"direction\",\n            \"description\"\n          ]\n        }\n      },\n      \"conclusion\":
-        {\n        \"type\": \"string\"\n      }\n    },\n    \"references\": {\n      \"type\":
-        \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\":
-        {\n          \"reference\": {\n            \"type\": \"string\"\n          },\n          \"description\":
-        {\n            \"type\": \"string\"\n          }\n        },\n        \"required\":
-        [\n          \"reference\",\n          \"description\"\n        ]\n      }\n    }\n  },\n  \"authors\":
-        [\n    \"John Doe\",\n    \"Jane Smith\"\n  ],\n  \"keywords\": [\n    \"Quantum
-        Computing\",\n    \"Quantum Algorithms\",\n    \"Quantum Information Science\"\n  ],\n  \"title\":
-        \"Quantum Algorithms: A Review of Current State and Future Directions\",\n  \"abstract\":
-        \"This paper provides an overview of quantum algorithms, including their history,
-        current state, and future directions. It also discusses the applications of
-        quantum algorithms in various fields.\",\n  \"content\": {\n    \"introduction\":
-        \"Quantum computing is a new paradigm for computation that uses the principles
-        of quantum mechanics to perform calculations. Quantum algorithms are programs
-        that run on quantum computers to solve specific problems.\",\n    \"quantum_computing_background\":
-        \"The history of quantum computing dates back to the 1980s, when Paul Benioff
-        proposed the first quantum computer. Since then, there have been significant
-        advances in the field, including the development of quantum algorithms.\",\n    \"quantum_algorithms\":
-        [\n      {\n        \"name\": \"Shor''s Algorithm\",\n        \"description\":
-        \"Shor''s algorithm is a quantum algorithm that can factor large numbers exponentially
-        faster than any known classical algorithm.\",\n        \"complexity\": \"O(n^3.5)\"\n      },\n      {\n        \"name\":
-        \"Grover''s Algorithm\",\n        \"description\": \"Grover''s algorithm is
-        a quantum algorithm that can search an unsorted database of N entries in O(sqrt(N))
-        time.\",\n        \"complexity\": \"O(sqrt(N))\"\n      }\n    ],\n    \"applications\":
-        [\n      {\n        \"application\": \"Cryptography\",\n        \"description\":
-        \"Quantum algorithms have significant implications for cryptography, as they
-        can potentially break many encryption algorithms currently in use.\"\n      },\n      {\n        \"application\":
-        \"Optimization\",\n        \"description\": \"Quantum algorithms can also
-        be used to solve optimization problems more efficiently than classical algorithms.\"\n      }\n    ],\n    \"future_directions\":
-        [\n      {\n        \"direction\": \"Quantum Error Correction\",\n        \"description\":
-        \"One of the major challenges in quantum computing is developing robust methods
-        for quantum error correction, which will enable large-scale quantum computers
-        to be built.\"\n      },\n      {\n        \"direction\": \"Quantum Machine
-        Learning\",\n        \"description\": \"Another area of research is quantum
-        machine learning, which aims to develop algorithms that can learn from data
-        using quantum computers.\"\n      }\n    ],\n    \"conclusion\": \"In conclusion,
-        quantum algorithms have the potential to revolutionize many fields, including
-        cryptography and optimization. However, significant challenges remain, including
-        developing robust methods for quantum error correction and building large-scale
-        quantum computers.\"\n  },\n  \"references\": [\n    {\n      \"reference\":
-        \"Nielsen \u0026 Chuang: Quantum Computation and Quantum Information\",\n      \"description\":
-        \"This book provides a comprehensive introduction to quantum computing and
-        quantum information science.\"\n    }\n  ]\n}\n```"},"finish_reason":"stop"}],"usage":{"prompt_tokens":191,"completion_tokens":1121,"total_tokens":1312}}
+        \"string\"\n        }\n      },\n      \"conclusion\": {\n        \"type\":
+        \"string\"\n      },\n      \"references\": {\n        \"type\": \"array\",\n        \"items\":
+        {\n          \"type\": \"object\",\n          \"properties\": {\n            \"author\":
+        {\n              \"type\": \"string\"\n            },\n            \"title\":
+        {\n              \"type\": \"string\"\n            },\n            \"year\":
+        {\n              \"type\": \"integer\"\n            }\n          },\n          \"required\":
+        [\n            \"author\",\n            \"title\",\n            \"year\"\n          ]\n        }\n      }\n    },\n    \"required\":
+        [\n      \"introduction\",\n      \"background\",\n      \"quantum algorithms\",\n      \"applications\",\n      \"conclusion\",\n      \"references\"\n    ]\n  },\n  \"authors\":
+        [\n    {\n      \"name\": \"John Doe\",\n      \"affiliation\": \"University
+        of Example\"\n    },\n    {\n      \"name\": \"Jane Smith\",\n      \"affiliation\":
+        \"Institute of Research\"\n    }\n  ],\n  \"keywords\": [\n    \"quantum computing\",\n    \"quantum
+        algorithms\",\n    \"quantum information\",\n    \"quantum cryptography\"\n  ]\n}\n```"},"finish_reason":"stop"}],"usage":{"prompt_tokens":191,"completion_tokens":464,"total_tokens":655}}
 
         '
-  recorded_at: Tue, 04 Mar 2025 22:07:37 GMT
+  recorded_at: Fri, 07 Mar 2025 16:59:09 GMT
 recorded_with: VCR 6.3.1

@@ -20,7 +20,7 @@ module LastLLM
         body = {
           model: options[:model] || @config[:model] || 'claude-3-5-haiku-latest',
           messages: messages,
-          max_tokens: options[:max_tokens] || 8192,
+          max_tokens: options[:max_tokens] || 4096,
           temperature: options[:temperature] || 0.2,
           top_p: options[:top_p] || 0.8,
           stream: false

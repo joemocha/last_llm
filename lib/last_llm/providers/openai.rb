@@ -74,7 +74,7 @@ class OpenAI < LastLLM::Provider
       messages: format_json_messages(prompt, schema),
       temperature: options[:temperature] || 0.2,
       top_p: options[:top_p] || 0.7,
-      max_tokens: options[:max_tokens] || 8_192,
+      max_tokens: options[:max_tokens] || 4096,
       response_format: { type: 'json_object' },
       stream: false
     }.compact

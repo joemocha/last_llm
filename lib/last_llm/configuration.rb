@@ -49,6 +49,7 @@ module LastLLM
         max_retries: 3,
         retry_delay: 1
       }
+      @provider_configs = {}
     end
 
     # Configure a provider with specific settings
@@ -56,23 +57,46 @@ module LastLLM
     # @param config [Hash] Provider-specific configuration
     # @return [Hash] The updated provider configuration
     def configure_provider(provider, config = {})
-      @providers[provider] ||= {}
-      @providers[provider].merge!(config)
+      provider_sym = provider.to_sym
+      @providers[provider_sym] ||= {}
+      @providers[provider_sym].merge!(config)
+
+      # Also update @provider_configs to maintain consistency
+      @provider_configs ||= {}
+      @provider_configs[provider_sym] ||= {}
+      @provider_configs[provider_sym].merge!(config)
     end
 
     # Get provider configuration
     # @param provider [Symbol] The provider name
     # @return [Hash] The provider configuration
     def provider_config(provider)
-      config = @providers[provider] || {}
+      provider_sym = provider.to_sym
+      config = @provider_configs&.dig(provider_sym) || @providers[provider_sym] || {}
       # Ensure skip_validation is set when in test mode
       config = config.dup
       config[:skip_validation] = true if @test_mode
       config
     end
 
+    # Set configuration value for a specific provider
+    def set_provider_config(provider, key, value)
+      @provider_configs ||= {}
+      provider_sym = provider.to_sym
+      @provider_configs[provider_sym] ||= {}
+      @provider_configs[provider_sym][key.to_sym] = value
+    end
+
+    # Get provider configuration value
+    def get_provider_config(provider, key = nil)
+      @provider_configs ||= {}
+      provider_config = @provider_configs[provider.to_sym] || {}
+      return provider_config if key.nil?
+
+      provider_config[key.to_sym]
+    end
+
     # Check if running in test mode
-    # @return [Boolean] Whether in test mode
     def test_mode?
       @test_mode
     end
@@ -89,7 +113,9 @@ module LastLLM
       config = provider_config(provider)
 
       validation[:required]&.each do |key|
-        raise ConfigurationError, "#{key.to_s.gsub('_', ' ')} is required for #{provider} provider" unless config[key]
+        unless config[key.to_sym]
+          raise ConfigurationError, "#{key.to_s.gsub('_', ' ')} is required for #{provider} provider"
+        end
       end
 
       return unless validation[:custom]

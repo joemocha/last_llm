@@ -26,6 +26,13 @@ RSpec.configure do |config|
   # Run specs in random order
   config.order = :random
   Kernel.srand config.seed
+
+  config.before(:each) do
+    # Set test mode for all tests
+    LastLLM.configure do |c|
+      c.instance_variable_set(:@test_mode, true)
+    end
+  end
 end
 
 VCR.configure do |config|

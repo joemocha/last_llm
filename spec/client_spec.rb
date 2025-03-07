@@ -4,14 +4,8 @@ require 'spec_helper'
 require 'last_llm/providers/test_provider'
 
 RSpec.describe LastLLM::Client do
-  let(:config) do
-    LastLLM::Configuration.new(test_mode: false).tap do |c|
-      c.configure_provider(:openai, api_key: 'test-key')
-      c.configure_provider(:test, {}) # Configure the test provider
-    end
-  end
-
-  let(:client) { LastLLM::Client.new(config) }
+  let(:config) { LastLLM::Configuration.new(test_mode: true) }
+  let(:client) { described_class.new(config) }
   let(:test_provider) { LastLLM::Providers::TestProvider.new }
 
   def setup_client_with_test_provider

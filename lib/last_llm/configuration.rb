@@ -20,6 +20,9 @@ module LastLLM
         }
       }
     }.freeze
+
+    VALID_LOG_LEVELS = [:debug, :info, :warn, :error, :fatal].freeze
+
     # Default provider to use
     attr_accessor :default_provider
 
@@ -33,6 +36,9 @@ module LastLLM
 
     # Global settings
     attr_reader :globals
+
+    # Logger instance
+    attr_accessor :logger
 
     # Initialize a new configuration
     # @param options [Hash] Configuration options
@@ -50,6 +56,20 @@ module LastLLM
         retry_delay: 1
       }
       @provider_configs = {}
+      @logger = nil
+      @log_level = :info
+    end
+
+    def log_level=(level)
+      level_sym = level.to_sym
+      unless VALID_LOG_LEVELS.include?(level_sym)
+        raise ConfigurationError, "Invalid log level: #{level}. Valid levels are: #{VALID_LOG_LEVELS.join(', ')}"
+      end
+      @log_level = level_sym
+    end
+
+    def log_level
+      @log_level
     end
 
     # Configure a provider with specific settings

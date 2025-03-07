@@ -6,7 +6,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"contents":[{"role":"user","parts":[{"text":"Say \"hello\" using the
-        fewest words possible"}]}],"generationConfig":{"temperature":0.5,"topP":0.95,"topK":40}}'
+        fewest words possible"}]}],"generationConfig":{"maxOutputTokens":1024,"temperature":0.5,"topP":0.95,"topK":40}}'
     headers:
       User-Agent:
       - Faraday v2.12.2
@@ -28,7 +28,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Fri, 07 Mar 2025 16:59:16 GMT
+      - Fri, 07 Mar 2025 17:05:50 GMT
       Server:
       - scaffolding on HTTPServer2
       X-Xss-Protection:
@@ -68,5 +68,5 @@ http_interactions:
             ]
           }
         }
-  recorded_at: Fri, 07 Mar 2025 16:59:16 GMT
+  recorded_at: Fri, 07 Mar 2025 17:05:50 GMT
 recorded_with: VCR 6.3.1

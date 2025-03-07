@@ -6,7 +6,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"contents":[{"role":"user","parts":[{"text":"Create a research paper
-        about quantum algorithms"}]}],"generationConfig":{"temperature":0.5,"topP":0.95,"topK":40,"responseMimeType":"application/json","responseSchema":{"type":"object","properties":{"title":{"type":"string"},"authors":{"type":"array","items":{"type":"string"}},"abstract":{"type":"string"},"keywords":{"type":"array","items":{"type":"string"}}},"required":["title","authors","abstract","keywords"]}}}'
+        about quantum algorithms"}]}],"generationConfig":{"maxOutputTokens":1024,"temperature":0.5,"topP":0.95,"topK":40,"responseMimeType":"application/json","responseSchema":{"type":"object","properties":{"title":{"type":"string"},"authors":{"type":"array","items":{"type":"string"}},"abstract":{"type":"string"},"keywords":{"type":"array","items":{"type":"string"}}},"required":["title","authors","abstract","keywords"]}}}'
     headers:
       User-Agent:
       - Faraday v2.12.2
@@ -28,7 +28,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Fri, 07 Mar 2025 16:59:20 GMT
+      - Fri, 07 Mar 2025 17:05:52 GMT
       Server:
       - scaffolding on HTTPServer2
       X-Xss-Protection:
@@ -38,7 +38,7 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       Server-Timing:
-      - gfet4t7; dur=1833
+      - gfet4t7; dur=1488
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
       Transfer-Encoding:
@@ -52,19 +52,19 @@ http_interactions:
               "content": {
                 "parts": [
                   {
-                    "text": "{\"abstract\": \"This research paper explores the field of quantum algorithms, examining their potential to revolutionize computation.  We delve into the fundamental principles underlying quantum computation, including superposition, entanglement, and interference, and discuss how these principles enable quantum algorithms to solve certain problems exponentially faster than their classical counterparts.  Specific algorithms such as Shor's algorithm for factoring and Grover's algorithm for searching unsorted databases are analyzed in detail, along with their complexities and applications.  We also discuss the challenges and limitations of quantum computing, including issues of scalability, error correction, and the development of fault-tolerant quantum computers.  Finally, we explore potential future directions for research in quantum algorithms and their impact on various fields, such as cryptography, materials science, and drug discovery.\", \"authors\": [\"Dr. Alice Quantum\", \"Dr. Bob Computation\", \"Dr. Charlie Entanglement\"], \"keywords\": [\"Quantum Algorithms\", \"Quantum Computation\", \"Shor's Algorithm\", \"Grover's Algorithm\", \"Quantum Computing\", \"Superposition\", \"Entanglement\", \"Complexity\"], \"title\": \"A Comprehensive Exploration of Quantum Algorithms and their Potential\"}"
+                    "text": "{\"abstract\": \"This research paper explores the field of quantum algorithms, examining their potential to revolutionize computation.  We delve into the fundamental principles underlying quantum computing, including superposition and entanglement, and discuss how these principles enable quantum algorithms to solve certain problems exponentially faster than classical algorithms.  Specific algorithms such as Shor's algorithm for factoring and Grover's algorithm for searching are analyzed in detail, along with their complexities and applications.  Furthermore, we address the current challenges and limitations in quantum computing, including qubit coherence and scalability, and discuss future research directions.\", \"authors\": [\"Dr. Alice Quantum\", \"Dr. Bob Computation\"], \"keywords\": [\"Quantum Algorithms\", \"Quantum Computing\", \"Shor's Algorithm\", \"Grover's Algorithm\", \"Quantum Supremacy\", \"Computational Complexity\"], \"title\": \"A Comprehensive Exploration of Quantum Algorithms and their Potential\"}"
                   }
                 ],
                 "role": "model"
               },
               "finishReason": "STOP",
-              "avgLogprobs": -0.1283541720846425
+              "avgLogprobs": -0.15139235360281808
             }
           ],
           "usageMetadata": {
             "promptTokenCount": 15,
-            "candidatesTokenCount": 230,
-            "totalTokenCount": 245,
+            "candidatesTokenCount": 175,
+            "totalTokenCount": 190,
             "promptTokensDetails": [
               {
                 "modality": "TEXT",
@@ -74,11 +74,11 @@ http_interactions:
             "candidatesTokensDetails": [
               {
                 "modality": "TEXT",
-                "tokenCount": 230
+                "tokenCount": 175
               }
             ]
           },
           "modelVersion": "gemini-1.5-flash"
         }
-  recorded_at: Fri, 07 Mar 2025 16:59:20 GMT
+  recorded_at: Fri, 07 Mar 2025 17:05:52 GMT
 recorded_with: VCR 6.3.1

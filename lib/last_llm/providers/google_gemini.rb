@@ -6,8 +6,24 @@ module LastLLM
   module Providers
     # Google Gemini provider implementation
     class GoogleGemini < LastLLM::Provider
+      # API Configuration
       BASE_ENDPOINT = 'https://generativelanguage.googleapis.com'
       DEFAULT_MODEL = 'gemini-1.5-flash'
+
+      # LLM Default Parameters
+      DEFAULT_TEMPERATURE = 0.3
+      DEFAULT_TOP_P = 0.95
+      DEFAULT_TOP_K = 40
+      DEFAULT_MAX_TOKENS = 1024
+
+      # Response Configuration
+      JSON_MIME_TYPE = 'application/json'
+      SUCCESS_STATUS = 200
+
+      # Error Status Codes
+      UNAUTHORIZED_STATUS = 401
+      BAD_REQUEST_STATUS = 400
+      UNAUTHENTICATED_STATUS = 'UNAUTHENTICATED'
 
       def initialize(config)
         super(Constants::GOOGLE_GEMINI, config)
@@ -22,7 +38,7 @@ module LastLLM
       end
 
       def generate_object(prompt, schema, options = {})
-        options = options.merge(response_mime_type: 'application/json', response_schema: schema)
+        options = options.merge(response_mime_type: JSON_MIME_TYPE, response_schema: schema)
         make_request(prompt, options) do |response|
           parse_json_response(extract_text_content(response))
         end
@@ -47,10 +63,10 @@ module LastLLM
         {
           contents: contents,
           generationConfig: {
-            maxOutputTokens: options[:max_tokens],
-            temperature: options[:temperature] || 0.3,
-            topP: options[:top_p] || 0.95,
-            topK: options[:top_k] || 40,
+            maxOutputTokens: options[:max_tokens] || DEFAULT_MAX_TOKENS,
+            temperature: options[:temperature] || DEFAULT_TEMPERATURE,
+            topP: options[:top_p] || DEFAULT_TOP_P,
+            topK: options[:top_k] || DEFAULT_TOP_K,
             responseMimeType: options[:response_mime_type],
             responseSchema: options[:response_schema]
           }.compact
@@ -58,7 +74,7 @@ module LastLLM
       end
 
       def handle_response(response)
-        if response.status != 200
+        if response.status != SUCCESS_STATUS
           error = build_error(response)
           return handle_gemini_error(error)
         end
@@ -68,12 +84,12 @@ module LastLLM
       end
 
       def build_error(response)
-        error = Faraday::Error.new("HTTP #{response.status}")
-        error.instance_variable_set(:@response, {
-          status: response.status,
-          body: response.body.to_json
-        })
-        error
+        :Error.new("HTTP #{response.status}").tap do .tap do |error||error|
+            erro =
+              status: response.status,
+              body: response.body.to_json
+           }
+        end
       end
 
       def extract_text_content(response)
@@ -161,9 +177,9 @@ module LastLLM
         status = error['status']
 
         case [code, status]
-        when [401, 'UNAUTHENTICATED']
+        when [UNAUTHORIZED_STATUS, UNAUTHENTICATED_STATUS]
           'Authentication failed: Invalid API key or credentials. Please check your Google API key.'
-        when [400]
+        when [BAD_REQUEST_STATUS]
           message.include?('API key not valid') ?
             'Authentication failed: Invalid API key format or credentials. Please check your Google API key.' :
             "API error (#{code}): #{message}"

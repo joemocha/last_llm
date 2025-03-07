@@ -1,0 +1,29 @@
+# LastLLM Configuration
+
+# Default provider to use (options: :openai, :anthropic, :google_gemini, :deepseek, :ollama)
+default_provider: :openai
+
+# Default model to use (provider-specific)
+default_model: gpt-3.5-turbo
+
+# Global settings
+globals:
+  temperature: 0.7
+  max_tokens: 1000
+
+# Provider-specific configurations
+providers:
+  openai:
+    api_key: <%= ENV['OPENAI_API_KEY'] %>
+    
+  anthropic:
+    api_key: <%= ENV['ANTHROPIC_API_KEY'] %>
+    
+  google_gemini:
+    api_key: <%= ENV['GOOGLE_GEMINI_API_KEY'] %>
+    
+  deepseek:
+    api_key: <%= ENV['DEEPSEEK_API_KEY'] %>
+    
+  ollama:
+    host: http://localhost:11434

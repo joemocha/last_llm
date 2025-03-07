@@ -148,5 +148,91 @@ module LastLLM
         end
       end
     end
+
+    def make_request(prompt, options = {})
+      log_request(prompt, options)
+
+      response = yield
+
+      log_response(response)
+
+      handle_response(response) do |result|
+        yield(result)
+      end
+    rescue Faraday::Error => e
+      @logger&.error("[#{@name}] Request failed: #{e.message}")
+      handle_provider_error(e)
+    end
+
+    private
+
+    def log_request(prompt, options)
+      return unless @logger
+
+      sanitized_options = options.dup
+      # Remove sensitive data
+      sanitized_options.delete(:api_key)
+
+      @logger.info("[#{@name}] Request - Model: #{options[:model]}")
+      @logger.debug("[#{@name}] Prompt: #{prompt}")
+      @logger.debug("[#{@name}] Options: #{sanitized_options.inspect}")
+    end
+
+    def log_response(response)
+      return unless @logger
+
+      @logger.info("[#{@name}] Response received - Status: #{response.status}")
+      @logger.debug("[#{@name}] Response body: #{response.body}")
+    rescue StandardError => e
+      @logger.error("[#{@name}] Failed to log response: #{e.message}")
+    end
+
+    def handle_provider_error(error)
+      @logger&.error("[#{@name}] #{error.class}: #{error.message}")
+      raise ApiError.new(error.message, error.response&.status)
+    end
+
+    def make_request(prompt, options = {})
+      log_request(prompt, options)
+
+      response = yield
+
+      log_response(response)
+
+      handle_response(response) do |result|
+        yield(result)
+      end
+    rescue Faraday::Error => e
+      @logger&.error("[#{@name}] Request failed: #{e.message}")
+      handle_provider_error(e)
+    end
+
+    private
+
+    def log_request(prompt, options)
+      return unless @logger
+
+      sanitized_options = options.dup
+      # Remove sensitive data
+      sanitized_options.delete(:api_key)
+
+      @logger.info("[#{@name}] Request - Model: #{options[:model]}")
+      @logger.debug("[#{@name}] Prompt: #{prompt}")
+      @logger.debug("[#{@name}] Options: #{sanitized_options.inspect}")
+    end
+
+    def log_response(response)
+      return unless @logger
+
+      @logger.info("[#{@name}] Response received - Status: #{response.status}")
+      @logger.debug("[#{@name}] Response body: #{response.body}")
+    rescue StandardError => e
+      @logger.error("[#{@name}] Failed to log response: #{e.message}")
+    end
+
+    def handle_provider_error(error)
+      @logger&.error("[#{@name}] #{error.class}: #{error.message}")
+      raise ApiError.new(error.message, error.response&.status)
+    end
   end
 end

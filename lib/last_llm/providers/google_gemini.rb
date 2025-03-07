@@ -32,7 +32,7 @@ module LastLLM
       end
 
       def generate_text(prompt, options = {})
-        make_request(prompt, options) do |response|
+          make_request(prompt, options) do |response|
           extract_text_content(response)
         end
       end

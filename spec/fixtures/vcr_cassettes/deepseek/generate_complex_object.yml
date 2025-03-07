@@ -30,22 +30,21 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Fri, 07 Mar 2025 16:57:56 GMT
+      - Fri, 07 Mar 2025 17:21:39 GMT
       Content-Type:
       - application/json
       Set-Cookie:
-      - HWWAFSESID=850f9a9208b869ac69; path=/
-      - HWWAFSESTIME=1741366675746; path=/
-      - __cf_bm=K8rr34C1uQ5ND7bgbAcCB72INRl8K8O5ycR3V5C6O58-1741366676-1.0.1.1-.nOIQ1hH6E9LmuxOII0GRoLoBNohOS2Tc9jAstwIQVFArnfHOmacsX1W1H0ZGB5zZPJXipAHX8sHc1cCIFRgWElmpAxxyk9D0lqw7LhwRUQ;
-        path=/; expires=Fri, 07-Mar-25 17:27:56 GMT; domain=.deepseek.com; HttpOnly;
+      - HWWAFSESID=92b7997fd731e0154c; path=/
+      - HWWAFSESTIME=1741368098069; path=/
+      - __cf_bm=O1zjj1167q4J4VgmnTq.tCyTjmdS31PUk.C759XFSBk-1741368099-1.0.1.1-e8IkGMoe3i3KG46CiNGyhGHz68syWnlw3vmO98jTXlPs53k8Ws1.PegYeX.jo0hmQ0v6KP6MqIlkb90uhb4YQ6N.x3AkMfUbEVahsLu7uiQ;
+        path=/; expires=Fri, 07-Mar-25 17:51:39 GMT; domain=.deepseek.com; HttpOnly;
         Secure; SameSite=None
       Vary:
-      - accept-encoding
       - origin, access-control-request-method, access-control-request-headers
       Access-Control-Allow-Credentials:
       - 'true'
       X-Ds-Trace-Id:
-      - 63b1eca1ea7c67319ef23ea9b0f685a9
+      - 421ec60fd97020241e93ffc938f84844
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       X-Content-Type-Options:
@@ -57,25 +56,21 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 91cba2812fafc5a1-IAD
+      - 91cbc53bdf4cc016-ATL
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"1ff27e4f-af25-49ff-9a84-b2a3a914a244","object":"chat.completion","created":1741366676,"model":"deepseek-chat","choices":[{"index":0,"message":{"role":"assistant","content":"```json\n{\n  \"title\":
+      string: '{"id":"b7e3b303-57b8-4043-9009-d52af6466a47","object":"chat.completion","created":1741368099,"model":"deepseek-chat","choices":[{"index":0,"message":{"role":"assistant","content":"```json\n{\n  \"title\":
         \"Advancements in Quantum Algorithms: A Comprehensive Review\",\n  \"authors\":
-        [\n    \"Dr. Alice Quantum\",\n    \"Prof. Bob Entanglement\",\n    \"Dr.
-        Charlie Superposition\"\n  ],\n  \"abstract\": \"Quantum algorithms represent
-        a significant leap forward in computational capabilities, leveraging the principles
-        of quantum mechanics to solve problems that are intractable for classical
-        computers. This paper provides a comprehensive review of the latest advancements
-        in quantum algorithms, including Shor''s algorithm for integer factorization,
-        Grover''s algorithm for unstructured search, and the Quantum Fourier Transform.
-        We also explore recent developments in quantum machine learning algorithms
-        and their potential applications in various fields such as cryptography, optimization,
-        and artificial intelligence. The paper concludes with a discussion on the
-        challenges and future directions in the development and implementation of
-        quantum algorithms.\",\n  \"keywords\": [\n    \"Quantum Computing\",\n    \"Quantum
+        [\n    \"Dr. Alice Johnson\",\n    \"Prof. Bob Smith\",\n    \"Dr. Carol White\"\n  ],\n  \"abstract\":
+        \"This paper provides a comprehensive review of the latest advancements in
+        quantum algorithms, focusing on their development, applications, and the challenges
+        faced in their implementation. We explore key algorithms such as Shor''s algorithm
+        for factoring and Grover''s algorithm for database search, alongside newer
+        contributions that promise to revolutionize fields ranging from cryptography
+        to complex system simulation. The discussion extends to the practical limitations
+        imposed by current quantum computing technologies and the potential pathways
+        to overcoming these barriers.\",\n  \"keywords\": [\n    \"Quantum Computing\",\n    \"Quantum
         Algorithms\",\n    \"Shor''s Algorithm\",\n    \"Grover''s Algorithm\",\n    \"Quantum
-        Fourier Transform\",\n    \"Quantum Machine Learning\",\n    \"Cryptography\",\n    \"Optimization\",\n    \"Artificial
-        Intelligence\"\n  ]\n}\n```"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":169,"completion_tokens":228,"total_tokens":397,"prompt_tokens_details":{"cached_tokens":0},"prompt_cache_hit_tokens":0,"prompt_cache_miss_tokens":169},"system_fingerprint":"fp_3a5770e1b4_prod0225"}'
-  recorded_at: Fri, 07 Mar 2025 16:58:18 GMT
+        Cryptography\",\n    \"Complex System Simulation\"\n  ]\n}\n```"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":169,"completion_tokens":186,"total_tokens":355,"prompt_tokens_details":{"cached_tokens":128},"prompt_cache_hit_tokens":128,"prompt_cache_miss_tokens":41},"system_fingerprint":"fp_3a5770e1b4_prod0225"}'
+  recorded_at: Fri, 07 Mar 2025 17:21:53 GMT
 recorded_with: VCR 6.3.1

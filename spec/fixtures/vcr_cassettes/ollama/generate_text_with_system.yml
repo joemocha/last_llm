@@ -25,14 +25,14 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 07 Mar 2025 16:59:09 GMT
+      - Fri, 07 Mar 2025 17:20:49 GMT
       Content-Length:
-      - '296'
+      - '295'
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"chatcmpl-756","object":"chat.completion","created":1741366749,"model":"llama3.2:latest","system_fingerprint":"fp_ollama","choices":[{"index":0,"message":{"role":"assistant","content":"Salut
+      string: '{"id":"chatcmpl-46","object":"chat.completion","created":1741368049,"model":"llama3.2:latest","system_fingerprint":"fp_ollama","choices":[{"index":0,"message":{"role":"assistant","content":"Salut
         !"},"finish_reason":"stop"}],"usage":{"prompt_tokens":43,"completion_tokens":4,"total_tokens":47}}
 
         '
-  recorded_at: Fri, 07 Mar 2025 16:59:09 GMT
+  recorded_at: Fri, 07 Mar 2025 17:20:49 GMT
 recorded_with: VCR 6.3.1

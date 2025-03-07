@@ -84,11 +84,13 @@ module LastLLM
       end
 
       def build_error(response)
-        :Error.new("HTTP #{response.status}").tap do .tap do |error||error|
-            erro =
+        StandardError.new("HTTP #{response.status}").tap do |error|
+          error.define_singleton_method(:response) do
+            {
               status: response.status,
-              body: response.body.to_json
-           }
+              body: response.body
+            }
+          end
         end
       end
 

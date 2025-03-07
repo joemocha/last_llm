@@ -10,8 +10,8 @@ http_interactions:
         following schema:\n\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"name\":
         {\n      \"type\": \"string\"\n    },\n    \"age\": {\n      \"type\": \"integer\"\n    }\n  },\n  \"required\":
         [\n    \"name\",\n    \"age\"\n  ]\n}\n\nEnsure your response is a valid JSON
-        object that strictly follows this schema.\n"}],"max_tokens":8192,"system":"You
-        are a helpful assistant that responds with valid JSON.","temperature":0.2,"top_p":0.8,"stream":false}'
+        object that strictly follows this schema.\n"}],"max_tokens":8192,"temperature":0.2,"top_p":0.8,"stream":false,"system":"You
+        are a helpful assistant that responds with valid JSON."}'
     headers:
       User-Agent:
       - Faraday v2.12.2
@@ -29,7 +29,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Fri, 07 Mar 2025 16:59:12 GMT
+      - Fri, 07 Mar 2025 17:21:05 GMT
       Content-Type:
       - application/json
       Anthropic-Ratelimit-Requests-Limit:
@@ -37,27 +37,27 @@ http_interactions:
       Anthropic-Ratelimit-Requests-Remaining:
       - '999'
       Anthropic-Ratelimit-Requests-Reset:
-      - '2025-03-07T16:59:11Z'
+      - '2025-03-07T17:21:05Z'
       Anthropic-Ratelimit-Input-Tokens-Limit:
       - '100000'
       Anthropic-Ratelimit-Input-Tokens-Remaining:
       - '100000'
       Anthropic-Ratelimit-Input-Tokens-Reset:
-      - '2025-03-07T16:59:12Z'
+      - '2025-03-07T17:21:05Z'
       Anthropic-Ratelimit-Output-Tokens-Limit:
       - '20000'
       Anthropic-Ratelimit-Output-Tokens-Remaining:
       - '20000'
       Anthropic-Ratelimit-Output-Tokens-Reset:
-      - '2025-03-07T16:59:12Z'
+      - '2025-03-07T17:21:05Z'
       Anthropic-Ratelimit-Tokens-Limit:
       - '120000'
       Anthropic-Ratelimit-Tokens-Remaining:
       - '120000'
       Anthropic-Ratelimit-Tokens-Reset:
-      - '2025-03-07T16:59:12Z'
+      - '2025-03-07T17:21:05Z'
       Request-Id:
-      - req_0149TEPm6SXkLPHFSVtas84b
+      - req_01VQC5fFGg9y8H1wNTeyb9uk
       Anthropic-Organization-Id:
       - d71db89e-12c3-43b2-aacd-1a48746332cd
       Via:
@@ -69,12 +69,12 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 91cba455dcd4bad1-ATL
+      - 91cbc465bbd18bb8-ATL
       Content-Encoding:
       - gzip
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"msg_01SpmQoS4Dvjn4W6iXWxknBb","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"{\n  \"name\":
+      string: '{"id":"msg_018KEQ7dWG3VkSshFFzzG1bU","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"{\n  \"name\":
         \"John Doe\",\n  \"age\": 30\n}"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":131,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":23}}'
-  recorded_at: Fri, 07 Mar 2025 16:59:12 GMT
+  recorded_at: Fri, 07 Mar 2025 17:21:05 GMT
 recorded_with: VCR 6.3.1

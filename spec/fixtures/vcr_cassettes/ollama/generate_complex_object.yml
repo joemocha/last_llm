@@ -14,7 +14,7 @@ http_interactions:
         {\n      \"type\": \"string\"\n    },\n    \"keywords\": {\n      \"type\":
         \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    }\n  },\n  \"required\":
         [\n    \"title\",\n    \"authors\",\n    \"abstract\",\n    \"keywords\"\n  ]\n}\n\nEnsure
-        your response is a valid JSON object that strictly follows this schema.\n"}],"temperature":0.0,"stream":false}'
+        your response is a valid JSON object that strictly follows this schema.\n"}],"temperature":0.0,"top_p":0.7,"max_tokens":24576,"stream":false}'
     headers:
       User-Agent:
       - Faraday v2.12.2
@@ -32,12 +32,12 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 07 Mar 2025 16:59:09 GMT
+      - Fri, 07 Mar 2025 17:21:00 GMT
       Transfer-Encoding:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"chatcmpl-680","object":"chat.completion","created":1741366749,"model":"llama3.2:latest","system_fingerprint":"fp_ollama","choices":[{"index":0,"message":{"role":"assistant","content":"```\n{\n  \"type\":
+      string: '{"id":"chatcmpl-688","object":"chat.completion","created":1741368060,"model":"llama3.2:latest","system_fingerprint":"fp_ollama","choices":[{"index":0,"message":{"role":"assistant","content":"```\n{\n  \"type\":
         \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\"\n    },\n    \"authors\":
         {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    },\n    \"abstract\":
         {\n      \"type\": \"string\"\n    },\n    \"keywords\": {\n      \"type\":
@@ -62,5 +62,5 @@ http_interactions:
         algorithms\",\n    \"quantum information\",\n    \"quantum cryptography\"\n  ]\n}\n```"},"finish_reason":"stop"}],"usage":{"prompt_tokens":191,"completion_tokens":464,"total_tokens":655}}
 
         '
-  recorded_at: Fri, 07 Mar 2025 16:59:09 GMT
+  recorded_at: Fri, 07 Mar 2025 17:21:00 GMT
 recorded_with: VCR 6.3.1

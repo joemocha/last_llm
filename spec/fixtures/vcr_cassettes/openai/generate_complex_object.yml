@@ -30,7 +30,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Fri, 07 Mar 2025 16:58:54 GMT
+      - Fri, 07 Mar 2025 17:23:27 GMT
       Content-Type:
       - application/json
       Access-Control-Expose-Headers:
@@ -38,7 +38,7 @@ http_interactions:
       Openai-Organization:
       - user-dbo8z2rplqvawlgh9fui5zcm
       Openai-Processing-Ms:
-      - '3768'
+      - '2900'
       Openai-Version:
       - '2020-10-01'
       X-Ratelimit-Limit-Requests:
@@ -50,27 +50,27 @@ http_interactions:
       X-Ratelimit-Remaining-Tokens:
       - '195736'
       X-Ratelimit-Reset-Requests:
-      - 32.803s
+      - 32.754s
       X-Ratelimit-Reset-Tokens:
       - 1.279s
       X-Request-Id:
-      - req_be40c95a63a3ad278fc0e7f74eab2194
+      - req_bdfb1ecac5f7dea94bbf40a7b345562b
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=4UphxXlEMGbbj7REzTS0sA2YZcrc5mntTnmcoGcFXH8-1741366734-1.0.1.1-iO3g1eXGmgdRVe7hky0OpPND0FiyQrUhFIcAbuk9yQ7Cv.BecZ5l9xAg2FlRMscch6jKs5p2GCBRVY38KSp9r.vDISlhnMFAiijhw7aQ.tw;
-        path=/; expires=Fri, 07-Mar-25 17:28:54 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=eWETg_A92swBXyEzie0HZ076Cr1cMhe9RSmFMxG3.N4-1741368207-1.0.1.1-TQ4P5rPQ6RtYcRO2FaEJ2RZvyJC98uVeHLfmaq8jNNR2kSprzwUNpA8wGT.GmNPNfPfQzybbKvAuqOufn0hnMbKhI5KTM8Gyjv.L5GpAyIk;
+        path=/; expires=Fri, 07-Mar-25 17:53:27 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=XK7.dn2.4MfxAryGAJJyaHNkSVCreQGe1kWD1u1u42Q-1741366734056-0.0.1.1-604800000;
+      - _cfuvid=4gNtmq2cIsCb3lQNM76xgkGHXjVeqNgpqbvT59UnUyY-1741368207275-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       X-Content-Type-Options:
       - nosniff
       Server:
       - cloudflare
       Cf-Ray:
-      - 91cba3cf8edeb03d-ATL
+      - 91cbc7cc8dde4517-ATL
       Content-Encoding:
       - br
       Alt-Svc:
@@ -79,16 +79,16 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |
         {
-          "id": "chatcmpl-B8VK6EEGKrt2Yy1KUimLk5uZaRZ08",
+          "id": "chatcmpl-B8VhsC1FqnopedC6ZKAgwARvwWNw7",
           "object": "chat.completion",
-          "created": 1741366730,
+          "created": 1741368204,
           "model": "gpt-4o-mini-2024-07-18",
           "choices": [
             {
               "index": 0,
               "message": {
                 "role": "assistant",
-                "content": "{\n  \"title\": \"Quantum Algorithms: Revolutionizing Computational Complexity\",\n  \"authors\": [\n    \"Alice Smith\",\n    \"Bob Johnson\",\n    \"Charlie Wang\"\n  ],\n  \"abstract\": \"This paper explores the landscape of quantum algorithms, highlighting their potential to solve complex problems more efficiently than classical algorithms. We delve into foundational algorithms such as Shor's algorithm for integer factorization and Grover's algorithm for unstructured search, discussing their implications for cryptography and database search. Additionally, we examine recent advancements in quantum computing hardware and software, and the challenges that remain in scaling quantum systems for practical applications. The paper concludes with a discussion on the future of quantum algorithms and their role in various fields including optimization, machine learning, and materials science.\",\n  \"keywords\": [\n    \"quantum algorithms\",\n    \"Shor's algorithm\",\n    \"Grover's algorithm\",\n    \"quantum computing\",\n    \"computational complexity\",\n    \"cryptography\",\n    \"optimization\",\n    \"machine learning\"\n  ]\n}",
+                "content": "{\n  \"title\": \"Quantum Algorithms: A Comprehensive Overview\",\n  \"authors\": [\n    \"Alice Johnson\",\n    \"Bob Smith\",\n    \"Carolyn Lee\"\n  ],\n  \"abstract\": \"This paper provides a comprehensive overview of quantum algorithms, exploring their theoretical foundations, practical implementations, and potential applications across various fields. We discuss key algorithms such as Shor's algorithm for integer factorization, Grover's algorithm for database search, and the Quantum Fourier Transform. The paper also addresses the challenges and limitations of current quantum computing technologies and highlights future directions for research in quantum algorithm development.\",\n  \"keywords\": [\n    \"quantum algorithms\",\n    \"quantum computing\",\n    \"Shor's algorithm\",\n    \"Grover's algorithm\",\n    \"quantum Fourier transform\",\n    \"quantum complexity theory\"\n  ]\n}",
                 "refusal": null
               },
               "logprobs": null,
@@ -97,8 +97,8 @@ http_interactions:
           ],
           "usage": {
             "prompt_tokens": 177,
-            "completion_tokens": 207,
-            "total_tokens": 384,
+            "completion_tokens": 168,
+            "total_tokens": 345,
             "prompt_tokens_details": {
               "cached_tokens": 0,
               "audio_tokens": 0
@@ -113,5 +113,5 @@ http_interactions:
           "service_tier": "default",
           "system_fingerprint": "fp_06737a9306"
         }
-  recorded_at: Fri, 07 Mar 2025 16:58:54 GMT
+  recorded_at: Fri, 07 Mar 2025 17:23:27 GMT
 recorded_with: VCR 6.3.1

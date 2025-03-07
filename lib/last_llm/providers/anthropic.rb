@@ -6,7 +6,23 @@ module LastLLM
   module Providers
     # Anthropic provider implementation
     class Anthropic < LastLLM::Provider
+      # API Configuration
       BASE_ENDPOINT = 'https://api.anthropic.com'
+      DEFAULT_MODEL = 'claude-3-5-haiku-latest'
+      API_VERSION = '2023-06-01'
+
+      # LLM Default Parameters
+      DEFAULT_TEMPERATURE = 0.2
+      DEFAULT_TOP_P = 0.8
+      DEFAULT_MAX_TOKENS = 4096
+      DEFAULT_MAX_TOKENS_OBJECT = 8192
+
+      # Response Configuration
+      SUCCESS_STATUS = 200
+
+      # Error Status Codes
+      UNAUTHORIZED_STATUS = 401
+      BAD_REQUEST_STATUS = 400
 
       def initialize(config)
         super(:anthropic, config)
@@ -14,31 +30,9 @@ module LastLLM
       end
 
       def generate_text(prompt, options = {})
-        options = options.dup
-        messages = format_messages(prompt, options)
-
-        body = {
-          model: options[:model] || @config[:model] || 'claude-3-5-haiku-latest',
-          messages: messages,
-          max_tokens: options[:max_tokens] || 4096,
-          temperature: options[:temperature] || 0.2,
-          top_p: options[:top_p] || 0.8,
-          stream: false
-        }
-
-        # Add system parameter if system prompt is provided
-        body[:system] = options[:system_prompt] if options[:system_prompt]
-
-        response = @conn.post('/v1/messages') do |req|
-          req.body = body.compact
+        make_request(prompt, options) do |result|
+          result.dig(:content, 0, :text).to_s
         end
-
-        result = parse_response(response)
-        content = result.dig(:content, 0, :text)
-
-        content.to_s
-      rescue Faraday::Error => e
-        handle_request_error(e)
       end
 
       def generate_object(prompt, schema, options = {})
@@ -47,31 +41,12 @@ module LastLLM
         formatted_prompt = LastLLM::StructuredOutput.format_prompt(prompt, schema)
 
         options[:system_prompt] = system_prompt
+        options[:max_tokens] ||= DEFAULT_MAX_TOKENS_OBJECT
 
-        body = {
-          model: options[:model] || @config[:model] || 'claude-3-5-haiku-latest',
-          messages: [{ role: 'user', content: formatted_prompt }],
-          max_tokens: options[:max_tokens] || 8192,
-          system: options[:system_prompt],
-          temperature: options[:temperature] || 0.2,
-          top_p: options[:top_p] || 0.8,
-          stream: false
-        }.compact
-
-        response = @conn.post('/v1/messages') do |req|
-          req.body = body
+        make_request(formatted_prompt, options) do |result|
+          content = result.dig(:content, 0, :text)
+          parse_json_response(content)
         end
-
-        result = parse_response(response)
-        content = result.dig(:content, 0, :text)
-
-        begin
-          JSON.parse(content, symbolize_names: true)
-        rescue JSON::ParserError => e
-          raise ApiError, "Invalid JSON response: #{e.message}"
-        end
-      rescue Faraday::Error => e
-        handle_request_error(e)
       end
 
       # Format a tool for Anthropic tools format
@@ -98,6 +73,31 @@ module LastLLM
 
       private
 
+      def make_request(prompt, options = {})
+        messages = format_messages(prompt, options)
+
+        body = {
+          model: options[:model] || @config[:model] || DEFAULT_MODEL,
+          messages: messages,
+          max_tokens: options[:max_tokens] || DEFAULT_MAX_TOKENS,
+          temperature: options[:temperature] || DEFAULT_TEMPERATURE,
+          top_p: options[:top_p] || DEFAULT_TOP_P,
+          stream: false
+        }
+
+        # Add system parameter if system prompt is provided
+        body[:system] = options[:system_prompt] if options[:system_prompt]
+
+        response = @conn.post('/v1/messages') do |req|
+          req.body = body.compact
+        end
+
+        result = parse_response(response)
+        yield(result)
+      rescue Faraday::Error => e
+        handle_request_error(e)
+      end
+
       def format_messages(prompt, options)
         if prompt.is_a?(Array) && prompt.all? { |m| m.is_a?(Hash) && m[:role] && m[:content] }
           # Extract system message if present
@@ -115,9 +115,23 @@ module LastLLM
         end
       end
 
+      def parse_json_response(content)
+        begin
+          JSON.parse(content, symbolize_names: true)
+        rescue JSON::ParserError => e
+          raise ApiError, "Invalid JSON response: #{e.message}"
+        end
+      end
+
       def setup_authorization(conn)
         conn.headers['x-api-key'] = @config[:api_key]
-        conn.headers['anthropic-version'] = '2023-06-01'
+        conn.headers['anthropic-version'] = API_VERSION
+      end
+
+      def handle_request_error(e)
+        message = "Anthropic API request failed: #{e.message}"
+        status = e.respond_to?(:response) && e.response.respond_to?(:status) ? e.response.status : nil
+        raise LastLLM::ApiError.new(message, status)
       end
     end
   end

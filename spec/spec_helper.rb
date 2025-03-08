@@ -11,6 +11,7 @@ require 'last_llm'
 require 'vcr'
 require 'webmock/rspec'
 require 'pry-byebug'
+require 'logger'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -28,9 +29,21 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 
   config.before(:each) do
-    # Set test mode for all tests
+    # Set up file logger for tests
+    log_dir = File.expand_path('../log', __dir__)
+    FileUtils.mkdir_p(log_dir)
+    log_file = File.join(log_dir, 'test.log')
+    puts "Setting up logger to write to: #{log_file}" # Debug print
+    test_logger = Logger.new(log_file)
+    test_logger.level = :debug
+
+    # Verify logger is writing
+    test_logger.debug("Logger initialization test")
+
     LastLLM.configure do |c|
       c.instance_variable_set(:@test_mode, true)
+      c.logger = test_logger
+      c.log_level = :debug
     end
   end
 end

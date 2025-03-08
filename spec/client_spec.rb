@@ -10,7 +10,7 @@ RSpec.describe LastLLM::Client do
 
   def setup_client_with_test_provider
     client = LastLLM::Client.new(config)
-    client.instance_variable_set(:@provider, test_provider)
+    client.provider = test_provider
     client
   end
 

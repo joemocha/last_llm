@@ -28,12 +28,17 @@ module LastLLM
                        else
                          # When no config provided, default to test mode in test environment
                          # Force test_mode to true when running in RSpec
-                         test_mode = true
-                         Configuration.new(test_mode: test_mode)
+                         raise ConfigurationError, 'No configuration provided' unless defined?(RSpec)
+                         Configuration.new(test_mode: defined?(RSpec))
                        end
 
       provider_name = options[:provider] || @configuration.default_provider
       @provider = create_provider(provider_name)
+    end
+
+    # Add provider setter method
+    def provider=(new_provider)
+      @provider = new_provider
     end
 
     # Text generation methods

@@ -22,6 +22,23 @@ RSpec.describe LastLLM::Providers::GoogleGemini do
     end
   end
 
+  describe 'logging' do
+    it 'logs provider initialization' do
+      LastLLM.configuration.logger.debug("Testing Google Gemini provider logging")
+      new_provider = described_class.new(config)
+      expect(File.read('log/test.log')).to include('Initialized Google Gemini provider')
+    end
+
+    it 'logs text generation request' do
+      VCR.use_cassette('google_gemini/generate_text_logging') do
+        provider.generate_text(prompt, options)
+        log_content = File.read('log/test.log')
+        expect(log_content).to include('Generating text with model:')
+        expect(log_content).to include('Text prompt:')
+      end
+    end
+  end
+
   it_behaves_like 'gemini provider options handling'
 
   describe '#generate_text' do

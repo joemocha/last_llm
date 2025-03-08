@@ -3,16 +3,18 @@
 require 'faraday'
 require 'faraday/typhoeus'
 require 'active_support/core_ext/hash/keys'
+require 'logger'
 
 module LastLLM
   # Base class for all LLM providers
   # Implements common functionality and defines the interface that all providers must implement
   class Provider
-    attr_reader :name, :config
+    attr_reader :name, :config, :logger
 
     def initialize(name, config = {})
       @name = name
       @config = config
+      @logger = setup_logger(config[:logger])
 
       if instance_of?(Provider)
         raise NotImplementedError, "#{self.class} is an abstract class and cannot be instantiated directly"
@@ -93,35 +95,29 @@ module LastLLM
       end
     end
 
-    private
+    protected
 
-    # Validate provider configuration
-    # @raise [LastLLM::ConfigurationError] If the configuration is invalid
-    def validate_config!
-      raise LastLLM::ConfigurationError, 'API key is required' unless @config[:api_key]
+    # Helper method to get the model from options or config with default fallback
+    # @param options [Hash] Options hash that might contain model
+    # @param default [String] Default model if none specified in options or config
+    # @return [String] The model to use
+    def get_model(options, default)
+      options[:model] || @config[:model] || default
     end
 
-    def parse_error_body(body)
-      return {} if body.nil? || body.empty?
-
-      JSON.parse(body)
-    rescue JSON::ParserError
-      { 'error' => body }
-    end
-
-    def deep_symbolize_keys(hash)
-      return hash unless hash.is_a?(Hash)
-
-      hash.each_with_object({}) do |(key, value), result|
-        result[key.to_sym] = case value
-                             when Hash then deep_symbolize_keys(value)
-                             when Array then value.map { |item| deep_symbolize_keys(item) }
-                             else value
-                             end
+    # Helper method to format prompt for logging with proper truncation
+    def format_prompt_for_logging(prompt)
+      if prompt.is_a?(Array)
+        prompt.map { |m| m[:content] }.join('...')
+      else
+        truncate_text(prompt.to_s)
       end
     end
 
-    protected
+    # Helper method to truncate text for logging
+    def truncate_text(text, length = 100)
+      text.length > length ? "#{text[0...length]}..." : text
+    end
 
     def connection(base_url)
       Faraday.new(url: base_url) do |f|
@@ -160,78 +156,78 @@ module LastLLM
         yield(result)
       end
     rescue Faraday::Error => e
-      @logger&.error("[#{@name}] Request failed: #{e.message}")
+      @logger.error("[#{@name}] Request failed: #{e.message}")
       handle_provider_error(e)
+    end
+
+    def logger
+      @logger ||= LastLLM.configuration.logger
     end
 
     private
 
-    def log_request(prompt, options)
-      return unless @logger
+    # Set up a logger instance for the provider
+    def setup_logger(provided_logger = nil)
+      return provided_logger if provided_logger
 
-      sanitized_options = options.dup
-      # Remove sensitive data
-      sanitized_options.delete(:api_key)
+      # Use LastLLM's global configuration logger if available
+      return LastLLM.configuration.logger if defined?(LastLLM.configuration) && LastLLM.configuration&.logger
 
-      @logger.info("[#{@name}] Request - Model: #{options[:model]}")
-      @logger.debug("[#{@name}] Prompt: #{prompt}")
-      @logger.debug("[#{@name}] Options: #{sanitized_options.inspect}")
-    end
-
-    def log_response(response)
-      return unless @logger
-
-      @logger.info("[#{@name}] Response received - Status: #{response.status}")
-      @logger.debug("[#{@name}] Response body: #{response.body}")
-    rescue StandardError => e
-      @logger.error("[#{@name}] Failed to log response: #{e.message}")
-    end
-
-    def handle_provider_error(error)
-      @logger&.error("[#{@name}] #{error.class}: #{error.message}")
-      raise ApiError.new(error.message, error.response&.status)
-    end
-
-    def make_request(prompt, options = {})
-      log_request(prompt, options)
-
-      response = yield
-
-      log_response(response)
-
-      handle_response(response) do |result|
-        yield(result)
+      logger = Logger.new($stdout)
+      logger.level = Logger::WARN
+      # Use a standard formatter without the provider name prefix
+      # This allows tests to match log output exactly
+      logger.formatter = proc do |severity, datetime, progname, msg|
+        "[#{datetime}] #{severity} -- : #{msg}\n"
       end
-    rescue Faraday::Error => e
-      @logger&.error("[#{@name}] Request failed: #{e.message}")
-      handle_provider_error(e)
+      logger
     end
 
-    private
+    # Validate provider configuration
+    # @raise [LastLLM::ConfigurationError] If the configuration is invalid
+    def validate_config!
+      raise LastLLM::ConfigurationError, 'API key is required' unless @config[:api_key]
+    end
+
+    def parse_error_body(body)
+      return {} if body.nil? || body.empty?
+
+      JSON.parse(body)
+    rescue JSON::ParserError
+      { 'error' => body }
+    end
+
+    def deep_symbolize_keys(hash)
+      return hash unless hash.is_a?(Hash)
+
+      hash.each_with_object({}) do |(key, value), result|
+        result[key.to_sym] = case value
+                             when Hash then deep_symbolize_keys(value)
+                             when Array then value.map { |item| deep_symbolize_keys(item) }
+                             else value
+                             end
+      end
+    end
 
     def log_request(prompt, options)
-      return unless @logger
-
       sanitized_options = options.dup
       # Remove sensitive data
       sanitized_options.delete(:api_key)
 
-      @logger.info("[#{@name}] Request - Model: #{options[:model]}")
-      @logger.debug("[#{@name}] Prompt: #{prompt}")
-      @logger.debug("[#{@name}] Options: #{sanitized_options.inspect}")
+      @logger.info("#{@name}: Request - Model: #{options[:model] || @config[:model] || 'default'}")
+      @logger.debug("#{@name}: Prompt: #{format_prompt_for_logging(prompt)}")
+      @logger.debug("#{@name}: Options: #{sanitized_options.inspect}")
     end
 
     def log_response(response)
-      return unless @logger
-
-      @logger.info("[#{@name}] Response received - Status: #{response.status}")
-      @logger.debug("[#{@name}] Response body: #{response.body}")
+      @logger.info("#{@name}: Response received - Status: #{response.status}")
+      @logger.debug("#{@name}: Response body: #{response.body}")
     rescue StandardError => e
-      @logger.error("[#{@name}] Failed to log response: #{e.message}")
+      @logger.error("#{@name}: Failed to log response: #{e.message}")
     end
 
     def handle_provider_error(error)
-      @logger&.error("[#{@name}] #{error.class}: #{error.message}")
+      @logger.error("#{@name}: #{error.class}: #{error.message}")
       raise ApiError.new(error.message, error.response&.status)
     end
   end

@@ -29,33 +29,68 @@ module LastLLM
         super(Constants::GOOGLE_GEMINI, config)
         @api_key = config[:api_key]
         @conn = connection(config[:base_url] || BASE_ENDPOINT)
+        # Use plain format for initialization log to match test expectations
+        logger.debug("Initialized Google Gemini provider with endpoint: #{config[:base_url] || BASE_ENDPOINT}")
       end
 
       def generate_text(prompt, options = {})
-          make_request(prompt, options) do |response|
-          extract_text_content(response)
+        model = get_model(options, DEFAULT_MODEL)
+        logger.info("#{@name}: Generating text with model: #{model}")
+        logger.debug("#{@name}: Text prompt: #{format_prompt_for_logging(prompt)}")
+
+        make_request(prompt, options) do |response|
+          result = extract_text_content(response)
+          logger.debug("Generated response of #{result.length} characters")
+          result
         end
       end
 
       def generate_object(prompt, schema, options = {})
+        model = get_model(options, DEFAULT_MODEL)
+        logger.info("#{@name}: Generating object with model: #{model}")
+        logger.debug("#{@name}: Object prompt: #{format_prompt_for_logging(prompt)}")
+
         options = options.merge(response_mime_type: JSON_MIME_TYPE, response_schema: schema)
         make_request(prompt, options) do |response|
-          parse_json_response(extract_text_content(response))
+          text_response = extract_text_content(response)
+          logger.debug("Raw JSON response: #{text_response}")
+          parse_json_response(text_response)
         end
       end
 
       private
 
+      def format_prompt_for_logging(prompt)
+        if prompt.is_a?(Array)
+          prompt.map { |m| m[:content] }.join('...')
+        else
+          truncate_text(prompt.to_s)
+        end
+      end
+
+      def truncate_text(text, length = 100)
+        text.length > length ? "#{text[0...length]}..." : text
+      end
+
       def make_request(prompt, options = {})
-        model = options[:model] || @config[:model] || DEFAULT_MODEL
+        model = get_model(options, DEFAULT_MODEL)
         contents = format_contents(prompt, options)
+
+        logger.debug("#{@name}: Making API request to model: #{model}")
+        logger.debug("#{@name}: Request contents: #{contents.inspect}")
 
         response = @conn.post("/v1beta/models/#{model}:generateContent?key=#{@api_key}") do |req|
           req.body = build_request_body(contents, options)
+          if logger.debug?
+            sanitized_body = req.body.to_s.gsub(@api_key, '[REDACTED]')
+            logger.debug("Request body: #{sanitized_body}")
+          end
         end
 
+        logger.info("API response status: #{response.status}")
         handle_response(response) { |result| yield(result) }
       rescue Faraday::Error => e
+        logger.error("API request failed: #{e.message}")
         handle_gemini_error(e)
       end
 
@@ -75,10 +110,13 @@ module LastLLM
 
       def handle_response(response)
         if response.status != SUCCESS_STATUS
+          logger.error("#{@name}: API error status: #{response.status}")
+          logger.debug("#{@name}: Error response body: #{response.body}")
           error = build_error(response)
           return handle_gemini_error(error)
         end
 
+        logger.debug("#{@name}: Processing successful response")
         result = parse_response(response)
         yield(result)
       end
@@ -100,8 +138,10 @@ module LastLLM
       end
 
       def parse_json_response(content)
+        logger.debug("#{@name}: Parsing JSON response")
         JSON.parse(content, symbolize_names: true)
       rescue JSON::ParserError => e
+        logger.error("#{@name}: JSON parsing error: #{e.message}")
         raise LastLLM::ApiError, "Invalid JSON response: #{e.message}"
       end
 
@@ -145,6 +185,7 @@ module LastLLM
         status = error.response&.dig(:status)
         message = parse_error_message(error)
 
+        logger.error("#{@name}: API error (status: #{status}): #{message}")
         raise LastLLM::ApiError.new(message, status)
       end
 

@@ -30,7 +30,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Fri, 07 Mar 2025 20:53:22 GMT
+      - Fri, 07 Mar 2025 23:58:44 GMT
       Content-Type:
       - application/json
       Access-Control-Expose-Headers:
@@ -38,7 +38,7 @@ http_interactions:
       Openai-Organization:
       - user-dbo8z2rplqvawlgh9fui5zcm
       Openai-Processing-Ms:
-      - '2492'
+      - '2418'
       Openai-Version:
       - '2020-10-01'
       X-Ratelimit-Limit-Requests:
@@ -46,31 +46,31 @@ http_interactions:
       X-Ratelimit-Limit-Tokens:
       - '200000'
       X-Ratelimit-Remaining-Requests:
-      - '9998'
+      - '9995'
       X-Ratelimit-Remaining-Tokens:
       - '195736'
       X-Ratelimit-Reset-Requests:
-      - 16.664s
+      - 39.53s
       X-Ratelimit-Reset-Tokens:
       - 1.279s
       X-Request-Id:
-      - req_3b550ce1cf2dfe6dc98ce68cc72ed30e
+      - req_6c66f5c21cc3f3204ba3bbf10fd7b7c1
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=bq1OhIN0UpAVuftArpblzar85vxa9HOG8WFKZFeTXk0-1741380802-1.0.1.1-y.BUeBVWl9hEP4qI6rNcshROTyCFpKX48Wdk_VqUMum5Z3phy_0ADhmXI1BIgw.hIqkalN8SaC2ffKoXev8IgBgokqTBgDO323oJ8yWgGRs;
-        path=/; expires=Fri, 07-Mar-25 21:23:22 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=.U5pw3JUIeFiOvbEA6yLuDIRzZlpV.ZudVl8JiLaEOA-1741391924-1.0.1.1-xymkPSxCiSMDpT3tZbJa7w3axuB4JlHhuJK4twQq3etx.VvY0HpHKsjST.N0o9Zw71tCqJjKSllBAXktWRDVz9F4.S8jXVclLeX1jo0Q_3M;
+        path=/; expires=Sat, 08-Mar-25 00:28:44 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=3_Lj0aohrbB4aHSFDkc5Egggds2o9SwmiVr7S41wizU-1741380802202-0.0.1.1-604800000;
+      - _cfuvid=J46tvQ5E_PRdVC7luGwA0uCugQfOOVtE.JRqMrxTcx0-1741391924680-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       X-Content-Type-Options:
       - nosniff
       Server:
       - cloudflare
       Cf-Ray:
-      - 91ccfb4d6b9c8bbb-ATL
+      - 91ce0ad9789044d7-ATL
       Content-Encoding:
       - br
       Alt-Svc:
@@ -79,16 +79,16 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |
         {
-          "id": "chatcmpl-B8Yz1m2ubbU5MCGP91n11SZCrSOUO",
+          "id": "chatcmpl-B8bsQOTYzjAWZapDF5pB80SI2fL0N",
           "object": "chat.completion",
-          "created": 1741380799,
+          "created": 1741391922,
           "model": "gpt-4o-mini-2024-07-18",
           "choices": [
             {
               "index": 0,
               "message": {
                 "role": "assistant",
-                "content": "{\n  \"title\": \"Quantum Algorithms: Revolutionizing Computation\",\n  \"authors\": [\n    \"Alice Smith\",\n    \"Bob Johnson\",\n    \"Charlie Brown\"\n  ],\n  \"abstract\": \"This paper explores the development and implementation of quantum algorithms, which leverage the principles of quantum mechanics to solve problems that are intractable for classical computers. We discuss key algorithms such as Shor's algorithm for integer factorization and Grover's algorithm for unstructured search, highlighting their potential to transform fields such as cryptography, optimization, and machine learning. The paper also addresses the challenges and future directions in quantum computing research.\",\n  \"keywords\": [\n    \"quantum algorithms\",\n    \"quantum computing\",\n    \"Shor's algorithm\",\n    \"Grover's algorithm\",\n    \"cryptography\",\n    \"optimization\",\n    \"machine learning\"\n  ]\n}",
+                "content": "{\n  \"title\": \"Exploring Quantum Algorithms: A Comprehensive Overview\",\n  \"authors\": [\n    \"Alice Johnson\",\n    \"Bob Smith\",\n    \"Charlie Brown\"\n  ],\n  \"abstract\": \"This paper provides a comprehensive overview of quantum algorithms, highlighting their potential to solve complex problems more efficiently than classical algorithms. We discuss foundational algorithms such as Shor's algorithm for integer factorization and Grover's algorithm for unstructured search, as well as recent advancements in quantum machine learning and optimization. The implications of these algorithms for various fields, including cryptography, data analysis, and artificial intelligence, are also examined.\",\n  \"keywords\": [\n    \"quantum algorithms\",\n    \"Shor's algorithm\",\n    \"Grover's algorithm\",\n    \"quantum computing\",\n    \"machine learning\",\n    \"optimization\",\n    \"cryptography\"\n  ]\n}",
                 "refusal": null
               },
               "logprobs": null,
@@ -97,8 +97,8 @@ http_interactions:
           ],
           "usage": {
             "prompt_tokens": 177,
-            "completion_tokens": 175,
-            "total_tokens": 352,
+            "completion_tokens": 174,
+            "total_tokens": 351,
             "prompt_tokens_details": {
               "cached_tokens": 0,
               "audio_tokens": 0
@@ -113,5 +113,5 @@ http_interactions:
           "service_tier": "default",
           "system_fingerprint": "fp_06737a9306"
         }
-  recorded_at: Fri, 07 Mar 2025 20:53:22 GMT
+  recorded_at: Fri, 07 Mar 2025 23:58:44 GMT
 recorded_with: VCR 6.3.1

@@ -23,14 +23,14 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Fri, 07 Mar 2025 20:53:02 GMT
+      - Fri, 07 Mar 2025 23:59:02 GMT
       Content-Type:
       - application/json
       Set-Cookie:
-      - HWWAFSESID=eeedfd97105dc6d5d2; path=/
-      - HWWAFSESTIME=1741380777384; path=/
-      - __cf_bm=bejE4nwc7UYm4z9AxVxsKfxFs2FaDFVQXM_uWHRw4II-1741380782-1.0.1.1-nvpNJDlbkqNky2Jj1qS__bPVB2iw8dhxJi4.5g2pXibnpiF06XefK0KtwuX1FR1yWglebnl1.2OjTrxia33OIOsP0T1XB5yfPQosUmkBW9Y;
-        path=/; expires=Fri, 07-Mar-25 21:23:02 GMT; domain=.deepseek.com; HttpOnly;
+      - HWWAFSESID=e1a489abdc24253d3e; path=/
+      - HWWAFSESTIME=1741391940206; path=/
+      - __cf_bm=QqNNQUMV4_k9RRqm4LJUSotmq7wiG.enDQ4FKOGdUIc-1741391942-1.0.1.1-shN0MXP.F3SwapCAOYnhTBZT7HYMkkNWGwDfanD7fysI6uGnWIjFCE4UDQyBq6rhOz2JqbDugbK2lJU900l8lppRId9t5vRIWF3fmiTKAFw;
+        path=/; expires=Sat, 08-Mar-25 00:29:02 GMT; domain=.deepseek.com; HttpOnly;
         Secure; SameSite=None
       Vary:
       - accept-encoding
@@ -38,7 +38,7 @@ http_interactions:
       Access-Control-Allow-Credentials:
       - 'true'
       X-Ds-Trace-Id:
-      - f647785e72f2e318fa0edac7b21efd73
+      - 34c8c1f8adcdeba16c8c90d9fe79045d
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       X-Content-Type-Options:
@@ -50,9 +50,9 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 91ccfadf4a6bdd1c-ATL
+      - 91ce0b563a4fb00d-ATL
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"dd3eca89-655a-411b-820b-8c012f4ebfce","object":"chat.completion","created":1741380782,"model":"deepseek-chat","choices":[{"index":0,"message":{"role":"assistant","content":"salut"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":25,"completion_tokens":2,"total_tokens":27,"prompt_tokens_details":{"cached_tokens":0},"prompt_cache_hit_tokens":0,"prompt_cache_miss_tokens":25},"system_fingerprint":"fp_3a5770e1b4_prod0225"}'
-  recorded_at: Fri, 07 Mar 2025 20:53:07 GMT
+      string: '{"id":"a12e0621-e4b8-40fd-87be-51169deb635c","object":"chat.completion","created":1741391942,"model":"deepseek-chat","choices":[{"index":0,"message":{"role":"assistant","content":"salut"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":25,"completion_tokens":2,"total_tokens":27,"prompt_tokens_details":{"cached_tokens":0},"prompt_cache_hit_tokens":0,"prompt_cache_miss_tokens":25},"system_fingerprint":"fp_3a5770e1b4_prod0225"}'
+  recorded_at: Fri, 07 Mar 2025 23:59:09 GMT
 recorded_with: VCR 6.3.1

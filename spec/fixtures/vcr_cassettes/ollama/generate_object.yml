@@ -29,16 +29,16 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 07 Mar 2025 20:53:25 GMT
+      - Fri, 07 Mar 2025 23:58:50 GMT
       Content-Length:
       - '594'
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"chatcmpl-452","object":"chat.completion","created":1741380805,"model":"llama3.2:latest","system_fingerprint":"fp_ollama","choices":[{"index":0,"message":{"role":"assistant","content":"```\n{\n  \"type\":
+      string: '{"id":"chatcmpl-212","object":"chat.completion","created":1741391930,"model":"llama3.2:latest","system_fingerprint":"fp_ollama","choices":[{"index":0,"message":{"role":"assistant","content":"```\n{\n  \"type\":
         \"object\",\n  \"properties\": {\n    \"name\": {\n      \"type\": \"string\"\n    },\n    \"age\":
         {\n      \"type\": \"integer\"\n    }\n  },\n  \"required\": [\n    \"name\",\n    \"age\"\n  ],\n  \"additionalProperties\":
         false,\n  \"name\": \"John Doe\",\n  \"age\": 30\n}\n```"},"finish_reason":"stop"}],"usage":{"prompt_tokens":130,"completion_tokens":85,"total_tokens":215}}
 
         '
-  recorded_at: Fri, 07 Mar 2025 20:53:25 GMT
+  recorded_at: Fri, 07 Mar 2025 23:58:50 GMT
 recorded_with: VCR 6.3.1

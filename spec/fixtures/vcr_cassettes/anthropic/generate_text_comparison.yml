@@ -24,7 +24,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Fri, 07 Mar 2025 23:59:36 GMT
+      - Sat, 08 Mar 2025 00:44:24 GMT
       Content-Type:
       - application/json
       Anthropic-Ratelimit-Requests-Limit:
@@ -32,27 +32,27 @@ http_interactions:
       Anthropic-Ratelimit-Requests-Remaining:
       - '999'
       Anthropic-Ratelimit-Requests-Reset:
-      - '2025-03-07T23:59:35Z'
+      - '2025-03-08T00:44:24Z'
       Anthropic-Ratelimit-Input-Tokens-Limit:
       - '100000'
       Anthropic-Ratelimit-Input-Tokens-Remaining:
       - '100000'
       Anthropic-Ratelimit-Input-Tokens-Reset:
-      - '2025-03-07T23:59:35Z'
+      - '2025-03-08T00:44:24Z'
       Anthropic-Ratelimit-Output-Tokens-Limit:
       - '20000'
       Anthropic-Ratelimit-Output-Tokens-Remaining:
       - '20000'
       Anthropic-Ratelimit-Output-Tokens-Reset:
-      - '2025-03-07T23:59:36Z'
+      - '2025-03-08T00:44:24Z'
       Anthropic-Ratelimit-Tokens-Limit:
       - '120000'
       Anthropic-Ratelimit-Tokens-Remaining:
       - '120000'
       Anthropic-Ratelimit-Tokens-Reset:
-      - '2025-03-07T23:59:35Z'
+      - '2025-03-08T00:44:24Z'
       Request-Id:
-      - req_01UW5uqZdsphCcF5FKdosGMo
+      - req_019nHMvRz9EXzEjQCz7R4ncr
       Anthropic-Organization-Id:
       - d71db89e-12c3-43b2-aacd-1a48746332cd
       Via:
@@ -64,11 +64,11 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 91ce0c28a959dd1c-ATL
+      - 91ce4dca1d59ad5c-ATL
       Content-Encoding:
       - gzip
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"msg_018mppXZnQFrFMWDT1f5gXhu","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"Hi."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":17,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":5}}'
-  recorded_at: Fri, 07 Mar 2025 23:59:36 GMT
+      string: '{"id":"msg_01QiCJ1c8YMF1Aog5yDZvrPf","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"Hi."}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":17,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":5}}'
+  recorded_at: Sat, 08 Mar 2025 00:44:24 GMT
 recorded_with: VCR 6.3.1

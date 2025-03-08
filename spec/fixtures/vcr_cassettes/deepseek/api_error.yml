@@ -22,23 +22,23 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Fri, 07 Mar 2025 23:59:02 GMT
+      - Sat, 08 Mar 2025 00:43:42 GMT
       Content-Type:
       - application/json
       Content-Length:
       - '133'
       Set-Cookie:
-      - HWWAFSESID=9a94d8bfe6c6821fad; path=/
-      - HWWAFSESTIME=1741391941107; path=/
-      - __cf_bm=jJHZr.3JYx.8qUVEw4blm8O1GWfvMd4XP8RS_KdwqKA-1741391942-1.0.1.1-3Ihbe9p6CTnvyI0kM6W2jtrpfO2C6yjwXSQ21e9j.nIh5MNvuDhHcrUAqNFzPfKZ2UZLoFZpFOdNIaMyEhkXBipn2XLCe_HlWPN4u94tzao;
-        path=/; expires=Sat, 08-Mar-25 00:29:02 GMT; domain=.deepseek.com; HttpOnly;
+      - HWWAFSESID=245dfd377cc9e7407a; path=/
+      - HWWAFSESTIME=1741394617817; path=/
+      - __cf_bm=3zod1cn2xw3kiEqct7MaMcRwUyXv0N5vm8T6i9Ckl70-1741394622-1.0.1.1-MyNfuxFQHt5z4RVHO.HSfvfuduTSNplOoapOD9iR0WaCtEPGYpN9TSmh2xYEfSVuNpEaO4KKfolhG8fnC10ZWxHIGZFfGjVMZxi2C8KMiWc;
+        path=/; expires=Sat, 08-Mar-25 01:13:42 GMT; domain=.deepseek.com; HttpOnly;
         Secure; SameSite=None
       Vary:
       - origin, access-control-request-method, access-control-request-headers
       Access-Control-Allow-Credentials:
       - 'true'
       X-Ds-Trace-Id:
-      - 6c3e90b80afaaa0f018a1d908bda9081
+      - 616d438c82aae79131b7048e11140ccb
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       X-Content-Type-Options:
@@ -48,9 +48,9 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 91ce0b547faeb00d-ATL
+      - 91ce4cc53c9a6783-ATL
     body:
       encoding: ASCII-8BIT
       string: '{"error":{"message":"Authentication Fails (no such user)","type":"authentication_error","param":null,"code":"invalid_request_error"}}'
-  recorded_at: Fri, 07 Mar 2025 23:59:02 GMT
+  recorded_at: Sat, 08 Mar 2025 00:43:42 GMT
 recorded_with: VCR 6.3.1

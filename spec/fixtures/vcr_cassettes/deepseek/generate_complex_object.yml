@@ -30,14 +30,14 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Fri, 07 Mar 2025 23:59:17 GMT
+      - Sat, 08 Mar 2025 00:43:56 GMT
       Content-Type:
       - application/json
       Set-Cookie:
-      - HWWAFSESID=97cb4733482ac013b9; path=/
-      - HWWAFSESTIME=1741391957404; path=/
-      - __cf_bm=NIQY.L6WKXNaG.blyLwAbibDSnSs3q6YHB5t9Q4fBFg-1741391957-1.0.1.1-zuVW.1JRJUUiK4pDcOAa2eX309w8R7LEzZAHYN1jVuWxbFPSe10WKZZSNGpyXjeXwxe4NRJkaJVamrlM08ly7CQUI7SGEY2CkD6zsnAFcnk;
-        path=/; expires=Sat, 08-Mar-25 00:29:17 GMT; domain=.deepseek.com; HttpOnly;
+      - HWWAFSESID=3606f9a2fe2bdc4db0; path=/
+      - HWWAFSESTIME=1741394634765; path=/
+      - __cf_bm=7C8gScLimyy5LUrxLOKnyatJ797JYPr3zQ8VmqAPZ5o-1741394636-1.0.1.1-3vFQyExIfEswWA6Q_xlTxsItsm9ToUc1X0xHZdcoKXDUbgLEJAARkq.8QcPrdZ082Ush4nYlYpzSqpJlijHGCTc6IiqVWqqGYpj7uEAz51E;
+        path=/; expires=Sat, 08-Mar-25 01:13:56 GMT; domain=.deepseek.com; HttpOnly;
         Secure; SameSite=None
       Vary:
       - accept-encoding
@@ -45,7 +45,7 @@ http_interactions:
       Access-Control-Allow-Credentials:
       - 'true'
       X-Ds-Trace-Id:
-      - 4815c2cfdc3d40ef71f74826d13c6ee1
+      - 68caede1554394be5d1d69d89abb3841
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       X-Content-Type-Options:
@@ -57,23 +57,23 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 91ce0bb4db7cb00d-ATL
+      - 91ce4d1b59426783-ATL
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"19bcd116-cb11-4aaf-bd36-a43f8ba7d519","object":"chat.completion","created":1741391957,"model":"deepseek-chat","choices":[{"index":0,"message":{"role":"assistant","content":"```json\n{\n  \"title\":
+      string: '{"id":"287ab793-8902-4fc3-ba0b-a7f8638bc0d2","object":"chat.completion","created":1741394636,"model":"deepseek-chat","choices":[{"index":0,"message":{"role":"assistant","content":"```json\n{\n  \"title\":
         \"Advancements in Quantum Algorithms: A Comprehensive Review\",\n  \"authors\":
         [\n    \"Dr. Alice Johnson\",\n    \"Prof. Bob Smith\",\n    \"Dr. Carol White\"\n  ],\n  \"abstract\":
         \"This paper provides a comprehensive review of the latest advancements in
         quantum algorithms, focusing on their development, applications, and the challenges
-        faced in their implementation. We explore key algorithms such as Shor''s algorithm
-        for factoring and Grover''s algorithm for database search, alongside newer
-        contributions that promise to revolutionize fields ranging from cryptography
-        to complex system simulations. The paper also discusses the theoretical underpinnings
-        of quantum computing that make these algorithms possible, including quantum
-        superposition and entanglement. Finally, we address the current limitations
-        and future prospects of quantum algorithms in practical computing scenarios.\",\n  \"keywords\":
-        [\n    \"Quantum Computing\",\n    \"Quantum Algorithms\",\n    \"Shor''s
-        Algorithm\",\n    \"Grover''s Algorithm\",\n    \"Quantum Cryptography\",\n    \"Quantum
-        Simulation\"\n  ]\n}\n```"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":169,"completion_tokens":204,"total_tokens":373,"prompt_tokens_details":{"cached_tokens":128},"prompt_cache_hit_tokens":128,"prompt_cache_miss_tokens":41},"system_fingerprint":"fp_3a5770e1b4_prod0225"}'
-  recorded_at: Fri, 07 Mar 2025 23:59:28 GMT
+        faced in their implementation. Quantum algorithms leverage the principles
+        of quantum mechanics to solve problems more efficiently than classical algorithms.
+        We discuss key algorithms such as Shor''s algorithm for factoring and Grover''s
+        algorithm for database search, along with recent innovations in quantum machine
+        learning and optimization. The paper also explores the potential impact of
+        quantum algorithms on various fields including cryptography, material science,
+        and artificial intelligence. Finally, we address the current limitations and
+        future prospects of quantum computing technology.\",\n  \"keywords\": [\n    \"Quantum
+        Computing\",\n    \"Quantum Algorithms\",\n    \"Shor''s Algorithm\",\n    \"Grover''s
+        Algorithm\",\n    \"Quantum Machine Learning\",\n    \"Quantum Optimization\"\n  ]\n}\n```"},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":169,"completion_tokens":213,"total_tokens":382,"prompt_tokens_details":{"cached_tokens":128},"prompt_cache_hit_tokens":128,"prompt_cache_miss_tokens":41},"system_fingerprint":"fp_3a5770e1b4_prod0225"}'
+  recorded_at: Sat, 08 Mar 2025 00:44:07 GMT
 recorded_with: VCR 6.3.1

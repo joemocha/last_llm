@@ -32,7 +32,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Fri, 07 Mar 2025 23:59:41 GMT
+      - Sat, 08 Mar 2025 00:44:29 GMT
       Content-Type:
       - application/json
       Anthropic-Ratelimit-Requests-Limit:
@@ -40,27 +40,27 @@ http_interactions:
       Anthropic-Ratelimit-Requests-Remaining:
       - '999'
       Anthropic-Ratelimit-Requests-Reset:
-      - '2025-03-07T23:59:36Z'
+      - '2025-03-08T00:44:24Z'
       Anthropic-Ratelimit-Input-Tokens-Limit:
       - '100000'
       Anthropic-Ratelimit-Input-Tokens-Remaining:
       - '100000'
       Anthropic-Ratelimit-Input-Tokens-Reset:
-      - '2025-03-07T23:59:37Z'
+      - '2025-03-08T00:44:24Z'
       Anthropic-Ratelimit-Output-Tokens-Limit:
       - '20000'
       Anthropic-Ratelimit-Output-Tokens-Remaining:
       - '20000'
       Anthropic-Ratelimit-Output-Tokens-Reset:
-      - '2025-03-07T23:59:41Z'
+      - '2025-03-08T00:44:29Z'
       Anthropic-Ratelimit-Tokens-Limit:
       - '120000'
       Anthropic-Ratelimit-Tokens-Remaining:
       - '120000'
       Anthropic-Ratelimit-Tokens-Reset:
-      - '2025-03-07T23:59:37Z'
+      - '2025-03-08T00:44:24Z'
       Request-Id:
-      - req_01RzrWbomYfqsQTvsSNFLeQ2
+      - req_01JCBV8YU4VfduecSPV4AMVo
       Anthropic-Organization-Id:
       - d71db89e-12c3-43b2-aacd-1a48746332cd
       Via:
@@ -72,25 +72,24 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 91ce0c2e6ff2dd1c-ATL
+      - 91ce4dce9b85ad5c-ATL
       Content-Encoding:
       - gzip
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"msg_01TALEGM8NqdpSQg46Yd7PPk","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"{\n    \"title\":
+      string: '{"id":"msg_01NNqYPvY4dofjhtDiKuhkEZ","type":"message","role":"assistant","model":"claude-3-5-haiku-20241022","content":[{"type":"text","text":"{\n    \"title\":
         \"Quantum Algorithms: Exploring Computational Advantages in Quantum Computing
-        Paradigms\",\n    \"authors\": [\n        \"Dr. Elena Rodriguez\",\n        \"Dr.
-        Michael Chen\",\n        \"Prof. Samantha Quantum\"\n    ],\n    \"abstract\":
+        Paradigms\",\n    \"authors\": [\n        \"Dr. Elena Rodriguez\",\n        \"Prof.
+        Michael Chen\",\n        \"Dr. Samantha Quantum\"\n    ],\n    \"abstract\":
         \"Quantum algorithms represent a transformative approach to computational
         problem-solving, leveraging quantum mechanical principles to achieve unprecedented
         computational efficiency. This research paper examines key quantum algorithms
         such as Shor''s algorithm for factorization, Grover''s search algorithm, and
         quantum simulation techniques. By analyzing quantum computational models,
-        we demonstrate significant speedups in complex computational tasks compared
-        to classical computing approaches, highlighting the potential of quantum computing
-        to revolutionize computational complexity and solve previously intractable
-        problems.\",\n    \"keywords\": [\n        \"quantum computing\",\n        \"quantum
+        we demonstrate significant speedup potential compared to classical computing
+        approaches, particularly in cryptography, optimization, and complex system
+        modeling.\",\n    \"keywords\": [\n        \"quantum computing\",\n        \"quantum
         algorithms\",\n        \"computational complexity\",\n        \"quantum simulation\",\n        \"quantum
-        mechanics\",\n        \"algorithmic efficiency\"\n    ]\n}"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":205,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":217}}'
-  recorded_at: Fri, 07 Mar 2025 23:59:41 GMT
+        speedup\",\n        \"quantum mechanics\"\n    ]\n}"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":205,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":206}}'
+  recorded_at: Sat, 08 Mar 2025 00:44:29 GMT
 recorded_with: VCR 6.3.1

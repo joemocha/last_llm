@@ -27,16 +27,28 @@ module LastLLM
       def initialize(config)
         super(Constants::OPENAI, config)
         @conn = connection(config[:base_url] || BASE_ENDPOINT)
+        logger.debug("#{@name}: Initialized OpenAI provider with endpoint: #{config[:base_url] || BASE_ENDPOINT}")
       end
 
       def generate_text(prompt, options = {})
+        model = get_model(options, DEFAULT_MODEL)
+        logger.info("#{@name}: Generating text with model: #{model}")
+        logger.debug("#{@name}: Text prompt: #{format_prompt_for_logging(prompt)}")
+
         make_text_request(prompt, options) do |result|
-          result.dig(:choices, 0, :message, :content).to_s
+          response = result.dig(:choices, 0, :message, :content).to_s
+          logger.debug("#{@name}: Generated response of #{response.length} characters")
+          response
         end
       end
 
       def generate_object(prompt, schema, options = {})
+        model = get_model(options, DEFAULT_MODEL)
+        logger.info("#{@name}: Generating object with model: #{model}")
+        logger.debug("#{@name}: Object prompt: #{format_prompt_for_logging(prompt)}")
+
         make_object_request(prompt, schema, options) do |content|
+          logger.debug("#{@name}: Raw JSON response: #{content}")
           parsed_json = JSON.parse(content, symbolize_names: true)
 
           if parsed_json.key?(:$schema) && parsed_json.key?(:properties)
@@ -54,6 +66,8 @@ module LastLLM
       def embeddings(text, options = {})
         # Ensure text is a string
         text_str = text.to_s
+        logger.info("#{@name}: Generating embeddings with model: #{options[:model] || EMBEDDINGS_MODEL}")
+        logger.debug("#{@name}: Text for embeddings: #{truncate_text(text_str)}")
 
         response = @conn.post('/v1/embeddings') do |req|
           req.body = {
@@ -61,17 +75,21 @@ module LastLLM
             input: text_str,
             encoding_format: options[:encoding_format] || 'float'
           }.compact
+          logger.debug("#{@name}: Embedding request body: #{req.body.inspect}")
         end
 
+        logger.info("#{@name}: API response status: #{response.status}")
         result = parse_response(response)
 
         # Extract embeddings from response
         embeddings = result.dig(:data, 0, :embedding)
+        logger.debug("#{@name}: Generated embeddings vector of length: #{embeddings&.length || 0}")
 
         raise LastLLM::ApiError.new('Invalid embeddings response format', nil) unless embeddings.is_a?(Array)
 
         embeddings
       rescue Faraday::Error => e
+        logger.error("#{@name}: API request failed: #{e.message}")
         handle_request_error(e)
       end
 
@@ -103,28 +121,54 @@ module LastLLM
 
       private
 
+      def format_prompt_for_logging(prompt)
+        if prompt.is_a?(Array)
+          prompt.map { |m| m[:content] }.join('...')
+        else
+          truncate_text(prompt.to_s)
+        end
+      end
+
+      def truncate_text(text, length = 100)
+        text.length > length ? "#{text[0...length]}..." : text
+      end
+
+      def get_model(options, default)
+        options[:model] || @config[:model] || default
+      end
+
       def make_text_request(prompt, options = {})
         request_body = build_completion_request(prompt, options)
+        logger.debug("#{@name}: Request body: #{request_body.inspect}")
+
         response = make_completion_request(request_body)
+        logger.info("#{@name}: API response status: #{response.status}")
+
         result = parse_response(response)
         yield(result)
       rescue Faraday::Error => e
+        logger.error("#{@name}: API request failed: #{e.message}")
         handle_request_error(e)
       end
 
       def make_object_request(prompt, schema, options = {})
         request_body = build_json_request(prompt, schema, options)
+        logger.debug("#{@name}: Request body: #{request_body.inspect}")
+
         response = make_completion_request(request_body)
+        logger.info("#{@name}: API response status: #{response.status}")
+
         result = parse_response(response)
         content = result.dig(:choices, 0, :message, :content).to_s
         yield(content)
       rescue Faraday::Error => e
+        logger.error("#{@name}: API request failed: #{e.message}")
         handle_request_error(e)
       end
 
       def build_completion_request(prompt, options)
         {
-          model: options[:model] || @config[:model] || DEFAULT_MODEL,
+          model: get_model(options, DEFAULT_MODEL),
           messages: format_messages(prompt, options),
           temperature: options[:temperature] || DEFAULT_TEMPERATURE,
           top_p: options[:top_p] || DEFAULT_TOP_P,
@@ -135,7 +179,7 @@ module LastLLM
 
       def build_json_request(prompt, schema, options)
         {
-          model: options[:model] || @config[:model] || DEFAULT_MODEL,
+          model: get_model(options, DEFAULT_MODEL),
           messages: format_json_messages(prompt, schema),
           temperature: options[:temperature] || DEFAULT_TEMPERATURE_OBJECT,
           top_p: options[:top_p] || DEFAULT_TOP_P,
@@ -146,6 +190,7 @@ module LastLLM
       end
 
       def make_completion_request(body)
+        logger.debug("#{@name}: Making API request to model: #{body[:model]}")
         @conn.post('/v1/chat/completions') do |req|
           req.body = body
         end
@@ -176,15 +221,20 @@ module LastLLM
 
       def validate_response(parsed)
         if parsed.nil? || (!parsed.is_a?(Hash) && !parsed.respond_to?(:to_h))
+          logger.error("#{@name}: Invalid response format")
           raise LastLLM::ApiError.new('Invalid response format from OpenAI', nil)
         end
 
-        raise LastLLM::ApiError.new(parsed[:error][:message], parsed[:error][:code]) if parsed[:error]
+        if parsed[:error]
+          logger.error("#{@name}: API error: #{parsed[:error][:message]}")
+          raise LastLLM::ApiError.new(parsed[:error][:message], parsed[:error][:code])
+        end
       end
 
       def handle_request_error(error)
-        message = "OpenAI API request failed: #{error.message}"
+        message = "#{@name}: API request failed: #{error.message}"
         status = error.respond_to?(:response) && error.response.respond_to?(:status) ? error.response.status : nil
+        logger.error(message)
         raise LastLLM::ApiError.new(message, status)
       end
     end

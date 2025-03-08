@@ -23,6 +23,7 @@ module LastLLM
         @name = Constants::TEST
         @text_response = DEFAULT_TEXT_RESPONSE
         @object_response = DEFAULT_OBJECT_RESPONSE
+        logger.debug("#{@name}: Initialized test provider")
       end
 
       # Override validate_config! to not require API key
@@ -30,11 +31,19 @@ module LastLLM
         # No validation needed for test provider
       end
 
-      def generate_text(_prompt, _options = {})
+      def generate_text(prompt, options = {})
+        model = options[:model] || @config[:model] || DEFAULT_MODEL
+        logger.info("#{@name}: Generating text with model: #{model}")
+        logger.debug("#{@name}: Text prompt: #{truncate_text(prompt.to_s)}")
+        logger.debug("#{@name}: Generated test response of #{@text_response.length} characters")
         @text_response
       end
 
-      def generate_object(_prompt, _schema, _options = {})
+      def generate_object(prompt, schema, options = {})
+        model = options[:model] || @config[:model] || DEFAULT_MODEL
+        logger.info("#{@name}: Generating object with model: #{model}")
+        logger.debug("#{@name}: Object prompt with schema: #{schema.inspect}")
+        logger.debug("#{@name}: Generated test object response")
         @object_response
       end
 
@@ -55,6 +64,12 @@ module LastLLM
       # @return [Hash, nil] Always returns nil in test provider
       def self.execute_tool(tool, _response)
         nil # Test provider doesn't execute tools by default
+      end
+
+      private
+
+      def truncate_text(text, length = 100)
+        text.length > length ? "#{text[0...length]}..." : text
       end
     end
   end

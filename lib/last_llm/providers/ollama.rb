@@ -26,15 +26,26 @@ module LastLLM
       def initialize(config)
         super(Constants::OLLAMA, config)
         @conn = connection(config[:base_url] || BASE_ENDPOINT)
+        logger.debug("#{@name}: Initialized Ollama provider with endpoint: #{config[:base_url] || BASE_ENDPOINT}")
       end
 
       def generate_text(prompt, options = {})
+        model = get_model(options, DEFAULT_MODEL)
+        logger.info("#{@name}: Generating text with model: #{model}")
+        logger.debug("#{@name}: Text prompt: #{format_prompt_for_logging(prompt)}")
+
         make_request(prompt, options) do |result|
-          result.dig(:choices, 0, :message, :content).to_s
+          response = result.dig(:choices, 0, :message, :content).to_s
+          logger.debug("#{@name}: Generated response of #{response.length} characters")
+          response
         end
       end
 
       def generate_object(prompt, schema, options = {})
+        model = get_model(options, DEFAULT_MODEL)
+        logger.info("#{@name}: Generating object with model: #{model}")
+        logger.debug("#{@name}: Object prompt: #{format_prompt_for_logging(prompt)}")
+
         system_prompt = 'You are a helpful assistant that responds with valid JSON.'
         formatted_prompt = LastLLM::StructuredOutput.format_prompt(prompt, schema)
 
@@ -44,6 +55,7 @@ module LastLLM
 
         make_request(formatted_prompt, options) do |result|
           content = result.dig(:choices, 0, :message, :content)
+          logger.debug("#{@name}: Raw JSON response: #{content}")
           parse_json_response(content)
         end
       end
@@ -86,23 +98,48 @@ module LastLLM
 
       private
 
+      def format_prompt_for_logging(prompt)
+        if prompt.is_a?(Array)
+          prompt.map { |m| m[:content] }.join('...')
+        else
+          truncate_text(prompt.to_s)
+        end
+      end
+
+      def truncate_text(text, length = 100)
+        text.length > length ? "#{text[0...length]}..." : text
+      end
+
+      def get_model(options, default)
+        options[:model] || @config[:model] || default
+      end
+
       def make_request(prompt, options = {})
         messages = format_messages(prompt, options)
+        model = get_model(options, DEFAULT_MODEL)
+
+        logger.debug("#{@name}: Making API request to model: #{model}")
+
+        body = {
+          model: model,
+          messages: messages,
+          temperature: options[:temperature] || DEFAULT_TEMPERATURE,
+          top_p: options[:top_p] || DEFAULT_TOP_P,
+          max_tokens: options[:max_tokens] || DEFAULT_MAX_TOKENS,
+          stream: false
+        }.compact
+
+        logger.debug("#{@name}: Request body: #{body.inspect}")
 
         response = @conn.post('/v1/chat/completions') do |req|
-          req.body = {
-            model: options[:model] || @config[:model] || DEFAULT_MODEL,
-            messages: messages,
-            temperature: options[:temperature] || DEFAULT_TEMPERATURE,
-            top_p: options[:top_p] || DEFAULT_TOP_P,
-            max_tokens: options[:max_tokens] || DEFAULT_MAX_TOKENS,
-            stream: false
-          }.compact
+          req.body = body
         end
 
+        logger.info("#{@name}: API response status: #{response.status}")
         result = parse_response(response)
         yield(result)
       rescue Faraday::Error => e
+        logger.error("#{@name}: API request failed: #{e.message}")
         handle_request_error(e)
       end
 
@@ -120,16 +157,19 @@ module LastLLM
       end
 
       def parse_json_response(content)
+        logger.debug("#{@name}: Parsing JSON response")
         begin
           JSON.parse(content, symbolize_names: true)
         rescue JSON::ParserError => e
+          logger.error("#{@name}: JSON parsing error: #{e.message}")
           raise LastLLM::ApiError, "Invalid JSON response: #{e.message}"
         end
       end
 
       def handle_request_error(error)
-        message = "Ollama API request failed: #{error.message}"
+        message = "#{@name}: API request failed: #{error.message}"
         status = error.respond_to?(:response) && error.response.respond_to?(:status) ? error.response.status : nil
+        logger.error(message)
         raise LastLLM::ApiError.new(message, status)
       end
     end
